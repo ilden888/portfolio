@@ -164,6 +164,7 @@
     "filterRealtime": "Real-time",
     "filterAnalytics": "Analytics",
     "filterTelemetry": "Telemetry",
+    "filterResearch": "Research",
     "statuses": {
       "live": "Live",
       "in-progress": "In progress",
@@ -174,28 +175,43 @@
       "data-platform": "Data Platform",
       "realtime": "Real-time",
       "analytics": "Analytics",
-      "telemetry": "Telemetry"
+      "telemetry": "Telemetry",
+      "research": "Research"
     },
     "items": {
       "gamingClubDataPlatform": {
         "title": "Gaming Club Data Platform",
-        "description": "A modern operating data layer for gaming venues, from ingestion to decision-ready metrics."
+        "description": "End-to-end data infrastructure for gaming venues — ingestion pipelines, dbt transformations, and decision-ready ClickHouse analytics."
       },
       "aiAnalyticsAssistant": {
         "title": "AI Analytics Assistant",
-        "description": "A governed conversational interface for exploring warehouse data with business context."
+        "description": "A governed conversational interface over ClickHouse. RAG-based context layer with LLM reasoning for natural language data exploration."
       },
       "tournamentIntelligence": {
         "title": "Tournament Intelligence",
-        "description": "Real-time analytics for esports. Kafka event stream, live stat aggregation, AI commentary generation."
+        "description": "Real-time esports analytics platform. Kafka event stream, live stat aggregation, and AI-generated performance commentary."
       },
       "sportsAnalytics": {
         "title": "Sports Analytics",
-        "description": "A focused analytics workspace for player performance modelling and fast exploration."
+        "description": "Player performance modelling and fast ad-hoc exploration. DuckDB over Parquet files with Claude-assisted insight generation."
       },
       "issAnalytics": {
         "title": "ISS Analytics",
-        "description": "A lakehouse experiment for telemetry streams, anomaly detection, and orbital insights."
+        "description": "Lakehouse experiment for orbital telemetry. Apache Iceberg on S3, Kafka ingestion, anomaly detection over time-series sensor data."
+      }
+    },
+    "caseStudy": {
+      "back": "All Projects",
+      "inProgress": "Case study in progress",
+      "inProgressSub": "Engineering documentation and architecture diagrams are being prepared for this project.",
+      "sections": {
+        "overview": "Overview",
+        "problem": "Problem & Context",
+        "architecture": "Architecture",
+        "dataFlow": "Data Flow",
+        "technologies": "Technologies",
+        "results": "Results",
+        "lessons": "Lessons Learned"
       }
     }
   },

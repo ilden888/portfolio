@@ -164,6 +164,7 @@
     "filterRealtime": "Real-time",
     "filterAnalytics": "Аналитика",
     "filterTelemetry": "Телеметрия",
+    "filterResearch": "Исследования",
     "statuses": {
       "live": "Запущен",
       "in-progress": "В разработке",
@@ -174,28 +175,43 @@
       "data-platform": "Data Platform",
       "realtime": "Real-time",
       "analytics": "Аналитика",
-      "telemetry": "Телеметрия"
+      "telemetry": "Телеметрия",
+      "research": "Исследования"
     },
     "items": {
       "gamingClubDataPlatform": {
         "title": "Gaming Club Data Platform",
-        "description": "Современный слой данных для игровых клубов: от сбора данных до метрик для принятия решений."
+        "description": "End-to-end инфраструктура данных для игровых клубов — пайплайны, dbt-трансформации и ClickHouse аналитика для принятия решений."
       },
       "aiAnalyticsAssistant": {
         "title": "AI Analytics Assistant",
-        "description": "Управляемый разговорный интерфейс для исследования данных DWH в бизнес-контексте."
+        "description": "Управляемый разговорный интерфейс над ClickHouse. RAG-контекстный слой с LLM-рассуждением для исследования данных на естественном языке."
       },
       "tournamentIntelligence": {
         "title": "Tournament Intelligence",
-        "description": "Real-time платформа для киберспортивных турниров. Kafka event stream, агрегация статистики, AI комментарии."
+        "description": "Real-time аналитика для киберспорта. Kafka event stream, агрегация статистики в режиме реального времени и AI-комментарии."
       },
       "sportsAnalytics": {
         "title": "Sports Analytics",
-        "description": "Аналитическое пространство для моделирования результатов игроков и быстрых исследований."
+        "description": "Моделирование результатов игроков и быстрый ad-hoc анализ. DuckDB над Parquet с генерацией инсайтов через Claude."
       },
       "issAnalytics": {
         "title": "ISS Analytics",
-        "description": "Lakehouse-эксперимент для потоков телеметрии, поиска аномалий и орбитальной аналитики."
+        "description": "Lakehouse-эксперимент для орбитальной телеметрии. Apache Iceberg на S3, Kafka-инжест, поиск аномалий в данных датчиков."
+      }
+    },
+    "caseStudy": {
+      "back": "Все проекты",
+      "inProgress": "Кейс-стади в процессе",
+      "inProgressSub": "Инженерная документация и архитектурные диаграммы для этого проекта готовятся.",
+      "sections": {
+        "overview": "Обзор",
+        "problem": "Проблема и контекст",
+        "architecture": "Архитектура",
+        "dataFlow": "Поток данных",
+        "technologies": "Технологии",
+        "results": "Результаты",
+        "lessons": "Выводы"
       }
     }
   },

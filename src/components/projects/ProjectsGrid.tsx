@@ -12,16 +12,19 @@ interface FilterLabel {
   realtime: string;
   analytics: string;
   telemetry: string;
+  research?: string;
 }
 
 interface ProjectsGridProps {
   projects: ProjectCardData[];
   filters: FilterLabel;
+  locale?: string;
 }
 
-export function ProjectsGrid({ projects, filters }: ProjectsGridProps) {
+export function ProjectsGrid({ projects, filters, locale }: ProjectsGridProps) {
   const [active, setActive] = useState<"all" | ProjectCategory>("all");
-  const filtered = active === "all" ? projects : projects.filter((project) => project.category === active);
+  const filtered =
+    active === "all" ? projects : projects.filter((p) => p.category === active);
 
   const filterButtons: { key: "all" | ProjectCategory; label: string }[] = [
     { key: "all", label: filters.all },
@@ -30,10 +33,14 @@ export function ProjectsGrid({ projects, filters }: ProjectsGridProps) {
     { key: "realtime", label: filters.realtime },
     { key: "analytics", label: filters.analytics },
     { key: "telemetry", label: filters.telemetry },
+    ...(filters.research
+      ? [{ key: "research" as ProjectCategory, label: filters.research }]
+      : []),
   ];
 
   return (
     <div className="flex flex-col gap-8">
+      {/* Filter pills */}
       <div className="flex flex-wrap gap-2">
         {filterButtons.map(({ key, label }) => (
           <button
@@ -50,6 +57,7 @@ export function ProjectsGrid({ projects, filters }: ProjectsGridProps) {
         ))}
       </div>
 
+      {/* Grid */}
       <motion.div layout className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
           {filtered.map((project, i) => (
@@ -61,7 +69,10 @@ export function ProjectsGrid({ projects, filters }: ProjectsGridProps) {
               exit={{ opacity: 0, scale: 0.97 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1], delay: i * 0.04 }}
             >
-              <ProjectCard project={project} />
+              <ProjectCard
+                project={project}
+                href={locale ? `/${locale}/projects/${project.slug}` : undefined}
+              />
             </motion.div>
           ))}
         </AnimatePresence>

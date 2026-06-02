@@ -8,7 +8,7 @@ import { TechStack } from "@/components/home/TechStack";
 import { CurrentFocus } from "@/components/home/CurrentFocus";
 import { FeaturedWork } from "@/components/home/FeaturedWork";
 import { ContactCTA } from "@/components/home/ContactCTA";
-import { featuredProjects, localizeProjects } from "@/data/projects";
+import { projects, localizeProjects } from "@/data/projects";
 import { locales, type Locale } from "@/lib/i18n/config";
 
 export function generateStaticParams() {
@@ -123,7 +123,7 @@ export default async function HomePage({ params }: PageProps) {
 
       <FeaturedWork
         locale={locale}
-        projects={localizeProjects(tProjects, featuredProjects)}
+        projects={localizeProjects(tProjects, projects)}
         t={{
           label: tProjects("previewLabel"),
           heading: tProjects("previewHeading"),

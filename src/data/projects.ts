@@ -1,5 +1,17 @@
 export type ProjectStatus = "live" | "in-progress" | "planned";
-export type ProjectCategory = "ai-agent" | "data-platform" | "realtime" | "analytics" | "telemetry";
+export type ProjectCategory =
+  | "ai-agent"
+  | "data-platform"
+  | "realtime"
+  | "analytics"
+  | "telemetry"
+  | "research";
+
+export interface ProjectLinks {
+  demo?: string;
+  github?: string;
+  article?: string;
+}
 
 export interface ProjectDefinition {
   slug: string;
@@ -8,6 +20,7 @@ export interface ProjectDefinition {
   tags: string[];
   featured: boolean;
   coverImage?: string;
+  links?: ProjectLinks;
   copyKey: string;
 }
 
@@ -23,7 +36,7 @@ export const projects: ProjectDefinition[] = [
     slug: "gaming-club-data-platform",
     category: "data-platform",
     status: "in-progress",
-    tags: ["Airflow", "dbt", "ClickHouse"],
+    tags: ["Airflow", "dbt", "ClickHouse", "PostgreSQL"],
     featured: true,
     copyKey: "gamingClubDataPlatform",
   },
@@ -31,7 +44,7 @@ export const projects: ProjectDefinition[] = [
     slug: "ai-analytics-assistant",
     category: "ai-agent",
     status: "in-progress",
-    tags: ["RAG", "LangChain", "Claude"],
+    tags: ["RAG", "LangChain", "Claude", "ClickHouse"],
     featured: true,
     copyKey: "aiAnalyticsAssistant",
   },
@@ -48,7 +61,7 @@ export const projects: ProjectDefinition[] = [
     category: "analytics",
     status: "planned",
     tags: ["DuckDB", "Parquet", "Claude"],
-    featured: false,
+    featured: true,
     copyKey: "sportsAnalytics",
   },
   {
@@ -56,12 +69,12 @@ export const projects: ProjectDefinition[] = [
     category: "telemetry",
     status: "planned",
     tags: ["Iceberg", "S3", "Kafka"],
-    featured: false,
+    featured: true,
     copyKey: "issAnalytics",
   },
 ];
 
-export const featuredProjects = projects.filter((project) => project.featured);
+export const featuredProjects = projects.filter((p) => p.featured);
 
 type Translator = (key: string) => string;
 
