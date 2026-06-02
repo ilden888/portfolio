@@ -63,6 +63,27 @@
       "AI агенты над DWH"
     ]
   },
+  "journey": {
+    "label": "Профессиональный Путь",
+    "current": "Сейчас",
+    "company": "True Gamers",
+    "role": "Data Analyst",
+    "responsibilities": [
+      "Сбор и обработка данных",
+      "Аналитика и отчётность",
+      "Автоматизация отчётов",
+      "Разработка дашбордов",
+      "Data pipeline",
+      "Business intelligence"
+    ],
+    "evolutionLabel": "Эволюция карьеры",
+    "steps": [
+      { "title": "Data Analyst", "note": "С чего начиналось — SQL, метрики, дашборды, бизнес-контекст" },
+      { "title": "Analytics Engineering", "note": "dbt · семантические слои · моделирование данных · governance" },
+      { "title": "Data Platforms", "note": "Архитектура DWH · ClickHouse · Iceberg · Airflow" },
+      { "title": "AI-Native Systems", "note": "LLM-рассуждения над данными · автономные агенты · decision intelligence" }
+    ]
+  },
   "contact": {
     "label": "Контакт",
     "heading": "Давайте построим что-то.",

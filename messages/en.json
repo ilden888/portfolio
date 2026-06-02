@@ -63,6 +63,27 @@
       "AI agents over DWH"
     ]
   },
+  "journey": {
+    "label": "Professional Journey",
+    "current": "Currently",
+    "company": "True Gamers",
+    "role": "Data Analyst",
+    "responsibilities": [
+      "Data collection & pipelines",
+      "Analytics & reporting",
+      "Automated reporting",
+      "Dashboard development",
+      "Data pipelines",
+      "Business intelligence"
+    ],
+    "evolutionLabel": "Career Evolution",
+    "steps": [
+      { "title": "Data Analyst", "note": "Where it started — SQL, metrics, dashboards, business context" },
+      { "title": "Analytics Engineering", "note": "dbt · semantic layers · data modeling · governance" },
+      { "title": "Data Platforms", "note": "DWH architecture · ClickHouse · Iceberg · Airflow" },
+      { "title": "AI-Native Systems", "note": "LLM reasoning over data · autonomous agents · decision intelligence" }
+    ]
+  },
   "contact": {
     "label": "Contact",
     "heading": "Let's build something.",

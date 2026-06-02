@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/home/Hero";
+import { ProfessionalJourney } from "@/components/home/ProfessionalJourney";
 import { AboutSection } from "@/components/home/AboutSection";
 import { WhatIBuild } from "@/components/home/WhatIBuild";
 import { TechStack } from "@/components/home/TechStack";
@@ -21,8 +22,9 @@ export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const [tHero, tAbout, tBuild, tStack, tFocus, tProjects, tContact] = await Promise.all([
+  const [tHero, tJourney, tAbout, tBuild, tStack, tFocus, tProjects, tContact] = await Promise.all([
     getTranslations("hero"),
+    getTranslations("journey"),
     getTranslations("about"),
     getTranslations("build"),
     getTranslations("stack"),
@@ -40,6 +42,21 @@ export default async function HomePage({ params }: PageProps) {
           subtitle: tHero("subtitle"),
           cta: tHero("cta"),
           ctaSecondary: tHero("ctaSecondary"),
+        }}
+      />
+
+      <ProfessionalJourney
+        t={{
+          label: tJourney("label"),
+          current: tJourney("current"),
+          company: tJourney("company"),
+          role: tJourney("role"),
+          responsibilities: [0, 1, 2, 3, 4, 5].map((i) => tJourney(`responsibilities.${i}`)),
+          evolutionLabel: tJourney("evolutionLabel"),
+          steps: [0, 1, 2, 3].map((i) => ({
+            title: tJourney(`steps.${i}.title`),
+            note: tJourney(`steps.${i}.note`),
+          })),
         }}
       />
 
