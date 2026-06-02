@@ -21,7 +21,9 @@ export function NavLink({ href, children, className, onClick }: NavLinkProps) {
       onClick={onClick}
       className={cn(
         "relative text-sm transition-colors duration-200",
-        isActive ? "text-white" : "text-white/40 hover:text-white/80",
+        isActive
+          ? "text-[var(--foreground)]"
+          : "text-[var(--fg-40)] hover:text-[var(--fg-80)]",
         className
       )}
     >

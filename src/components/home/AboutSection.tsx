@@ -16,22 +16,22 @@ interface AboutSectionProps {
 
 export function AboutSection({ t }: AboutSectionProps) {
   return (
-    <Section className="border-t border-white/[0.04]">
+    <Section className="border-t border-[var(--border-subtle)]">
       <Container>
         <FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 md:gap-20 items-start">
             {/* Left — statement */}
             <div className="flex flex-col gap-6">
-              <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/25">
+              <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--fg-25)]">
                 {t.label}
               </span>
               <p
-                className="font-semibold leading-[1.15] tracking-[-0.02em] text-white"
+                className="font-semibold leading-[1.15] tracking-[-0.02em] text-[var(--foreground)]"
                 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)" }}
               >
                 {t.statement}
               </p>
-              <p className="max-w-[480px] text-[15px] leading-relaxed text-white/40">
+              <p className="max-w-[480px] text-[15px] leading-relaxed text-[var(--fg-40)]">
                 {t.description}
               </p>
             </div>
@@ -44,13 +44,13 @@ export function AboutSection({ t }: AboutSectionProps) {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
               className="flex flex-col gap-2 md:min-w-[200px]"
             >
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/20 mb-2">
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[var(--fg-20)] mb-2">
                 Focus Areas
               </span>
               {t.expertise.map((item, i) => (
                 <div key={i} className="flex items-center gap-3 py-1.5">
-                  <span className="h-px w-4 bg-white/20 shrink-0" />
-                  <span className="text-sm text-white/50 whitespace-nowrap">{item}</span>
+                  <span className="h-px w-4 bg-[var(--fg-20)] shrink-0" />
+                  <span className="text-sm text-[var(--fg-50)] whitespace-nowrap">{item}</span>
                 </div>
               ))}
             </motion.div>

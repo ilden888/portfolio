@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Nav } from "@/components/navigation/Nav";
 import { MobileNav } from "@/components/navigation/MobileNav";
 import { LocaleSwitcher } from "@/components/navigation/LocaleSwitcher";
+import { ThemeSwitcher } from "@/components/navigation/ThemeSwitcher";
 import { cn } from "@/lib/utils";
 import { type Locale } from "@/lib/i18n/config";
 
@@ -37,7 +38,7 @@ export function Header({ locale, t }: HeaderProps) {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 h-[60px] transition-all duration-500",
         scrolled
-          ? "border-b border-white/[0.06] bg-[#080808]/80 backdrop-blur-xl"
+          ? "border-b border-[var(--border-6)] bg-[var(--bg-glass)] backdrop-blur-xl"
           : "bg-transparent"
       )}
     >
@@ -45,20 +46,22 @@ export function Header({ locale, t }: HeaderProps) {
         {/* Logo */}
         <Link
           href={`/${locale}`}
-          className="font-mono text-sm font-semibold tracking-[0.2em] text-white/90 hover:text-white transition-colors duration-200"
+          className="font-mono text-sm font-semibold tracking-[0.2em] text-[var(--fg-90)] transition-colors duration-200 hover:text-[var(--foreground)]"
         >
           DENIS IL.
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           <Nav t={t} locale={locale} />
-          <div className="h-4 w-px bg-white/10" />
+          <div className="h-4 w-px bg-[var(--border)]" />
           <LocaleSwitcher currentLocale={locale} />
+          <ThemeSwitcher />
         </div>
 
         {/* Mobile */}
-        <div className="flex md:hidden items-center gap-4 relative z-50">
+        <div className="flex md:hidden items-center gap-3 relative z-50">
+          <ThemeSwitcher />
           <MobileNav t={t} locale={locale} />
         </div>
       </div>

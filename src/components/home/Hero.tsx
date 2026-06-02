@@ -29,7 +29,7 @@ interface HeroProps {
 
 export function Hero({ locale, t }: HeroProps) {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#080808]">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[var(--background)]">
 
       {/* ── Atmosphere ── */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -66,7 +66,7 @@ export function Hero({ locale, t }: HeroProps) {
           className="absolute inset-0 opacity-[0.025]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+              `linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)`,
             backgroundSize: "72px 72px",
           }}
         />
@@ -97,7 +97,7 @@ export function Hero({ locale, t }: HeroProps) {
                 transform: "scale(1.15)",
               }}
             />
-            <div className="relative h-20 w-20 overflow-hidden rounded-full border border-white/[0.12] ring-1 ring-white/[0.06]">
+            <div className="relative h-20 w-20 overflow-hidden rounded-full border border-[var(--border-12)] ring-1 ring-[var(--border-6)]">
               <Image
                 src="/avatar.png"
                 alt="Denis IL"
@@ -109,9 +109,9 @@ export function Hero({ locale, t }: HeroProps) {
           </div>
 
           {/* Status badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface-3)] px-4 py-1.5 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
-            <span className="font-mono text-[11px] tracking-widest uppercase text-white/40">
+            <span className="font-mono text-[11px] tracking-widest uppercase text-[var(--fg-40)]">
               {t.label}
             </span>
           </div>
@@ -120,7 +120,7 @@ export function Hero({ locale, t }: HeroProps) {
         {/* Main headline */}
         <motion.h1
           {...item(0.2)}
-          className="mb-6 font-sans font-semibold leading-[1.0] tracking-[-0.04em] text-white"
+          className="mb-6 font-sans font-semibold leading-[1.0] tracking-[-0.04em] text-[var(--foreground)]"
           style={{ fontSize: "clamp(3.2rem, 9vw, 7.5rem)" }}
         >
           {t.title}
@@ -129,7 +129,7 @@ export function Hero({ locale, t }: HeroProps) {
         {/* Core statement */}
         <motion.p
           {...item(0.3)}
-          className="mb-10 max-w-[580px] leading-relaxed text-white/40"
+          className="mb-10 max-w-[580px] leading-relaxed text-[var(--fg-40)]"
           style={{ fontSize: "clamp(1rem, 2vw, 1.15rem)", whiteSpace: "pre-line" }}
         >
           {t.subtitle}
@@ -139,14 +139,14 @@ export function Hero({ locale, t }: HeroProps) {
         <motion.div {...item(0.4)} className="flex flex-wrap items-center justify-center gap-3">
           <Link
             href={`/${locale}/projects`}
-            className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black transition-all duration-200 hover:bg-white/90 hover:gap-3"
+            className="group inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-6 py-2.5 text-sm font-medium text-[var(--primary-foreground)] transition-all duration-200 hover:opacity-90 hover:gap-3"
           >
             {t.cta}
             <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
           <Link
             href={`/${locale}/about`}
-            className="inline-flex items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.03] px-6 py-2.5 text-sm font-medium text-white/60 backdrop-blur-sm transition-all duration-200 hover:border-white/20 hover:text-white/90"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--border-10)] bg-[var(--surface-3)] px-6 py-2.5 text-sm font-medium text-[var(--fg-60)] backdrop-blur-sm transition-all duration-200 hover:border-[var(--border-20)] hover:text-[var(--fg-90)]"
           >
             {t.ctaSecondary}
           </Link>
@@ -161,7 +161,7 @@ export function Hero({ locale, t }: HeroProps) {
             (tech) => (
               <span
                 key={tech}
-                className="font-mono text-[11px] tracking-wider text-white/20 transition-colors duration-200 hover:text-white/50"
+                className="font-mono text-[11px] tracking-wider text-[var(--fg-20)] transition-colors duration-200 hover:text-[var(--fg-50)]"
               >
                 {tech}
               </span>
@@ -180,7 +180,7 @@ export function Hero({ locale, t }: HeroProps) {
         <div
           className="h-12 w-px"
           style={{
-            background: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.2))",
+            background: `linear-gradient(to bottom, transparent, var(--fg-20))`,
             animation: "glow-pulse 2.5s ease-in-out infinite",
           }}
         />

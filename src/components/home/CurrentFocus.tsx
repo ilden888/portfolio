@@ -15,7 +15,7 @@ interface CurrentFocusProps {
 
 export function CurrentFocus({ t }: CurrentFocusProps) {
   return (
-    <Section size="sm" className="border-t border-white/[0.04]">
+    <Section size="sm" className="border-t border-[var(--border-subtle)]">
       <Container>
         <FadeIn>
           <div className="flex flex-col sm:flex-row gap-10 sm:gap-20 items-start">
@@ -23,11 +23,11 @@ export function CurrentFocus({ t }: CurrentFocusProps) {
             <div className="flex flex-col gap-2 shrink-0 sm:w-[180px]">
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.7)]" />
-                <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/25">
+                <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--fg-25)]">
                   {t.label}
                 </span>
               </div>
-              <h2 className="text-xl font-semibold tracking-[-0.02em] text-white/60">
+              <h2 className="text-xl font-semibold tracking-[-0.02em] text-[var(--fg-60)]">
                 {t.heading}
               </h2>
             </div>
@@ -41,12 +41,12 @@ export function CurrentFocus({ t }: CurrentFocusProps) {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: i * 0.07 }}
-                  className="flex items-start gap-3 py-3 border-b border-white/[0.04] last:border-0"
+                  className="flex items-start gap-3 py-3 border-b border-[var(--border-subtle)] last:border-0"
                 >
-                  <span className="font-mono text-[11px] text-white/20 mt-0.5 shrink-0 w-4">
+                  <span className="font-mono text-[11px] text-[var(--fg-20)] mt-0.5 shrink-0 w-4">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-[15px] text-white/50 leading-snug">{item}</p>
+                  <p className="text-[15px] text-[var(--fg-50)] leading-snug">{item}</p>
                 </motion.div>
               ))}
             </div>

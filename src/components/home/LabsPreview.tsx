@@ -38,31 +38,31 @@ const tagColors: Record<string, string> = {
   "Experimento": "text-indigo-400/70 border-indigo-400/20 bg-indigo-400/[0.04]",
 };
 
-const fallbackTagColor = "text-white/40 border-white/[0.08] bg-white/[0.02]";
+const fallbackTagColor = "text-[var(--fg-40)] border-[var(--border)] bg-[var(--surface-2)]";
 
 export function LabsPreview({ locale, t }: LabsPreviewProps) {
   return (
-    <Section className="border-t border-white/[0.04]">
+    <Section className="border-t border-[var(--border-subtle)]">
       <Container>
         <FadeIn>
           <div className="flex flex-col gap-12">
             {/* Header */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
               <div className="flex flex-col gap-5 max-w-[480px]">
-                <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/25">
+                <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--fg-25)]">
                   {t.label}
                 </span>
                 <h2
-                  className="font-semibold leading-[1.1] tracking-[-0.03em] text-white"
+                  className="font-semibold leading-[1.1] tracking-[-0.03em] text-[var(--foreground)]"
                   style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
                 >
                   {t.heading}
                 </h2>
-                <p className="text-[15px] leading-relaxed text-white/40">{t.description}</p>
+                <p className="text-[15px] leading-relaxed text-[var(--fg-40)]">{t.description}</p>
               </div>
               <Link
                 href={`/${locale}/lab`}
-                className="group flex items-center gap-2 shrink-0 text-sm text-white/30 hover:text-white/70 transition-colors duration-200"
+                className="group flex items-center gap-2 shrink-0 text-sm text-[var(--fg-30)] hover:text-[var(--fg-70)] transition-colors duration-200"
               >
                 View Lab
                 <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -70,7 +70,7 @@ export function LabsPreview({ locale, t }: LabsPreviewProps) {
             </div>
 
             {/* Lab items */}
-            <div className="flex flex-col divide-y divide-white/[0.04]">
+            <div className="flex flex-col divide-y divide-[var(--border-subtle)]">
               {t.items.map((item, i) => (
                 <motion.div
                   key={item.title}
@@ -82,14 +82,14 @@ export function LabsPreview({ locale, t }: LabsPreviewProps) {
                 >
                   <div className="flex items-start gap-4">
                     {/* Icon */}
-                    <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/[0.07] bg-white/[0.02]">
-                      <FlaskConical size={14} className="text-white/30" />
+                    <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[var(--border-7)] bg-[var(--surface-2)]">
+                      <FlaskConical size={14} className="text-[var(--fg-30)]" />
                     </div>
                     <div className="flex flex-col gap-1.5">
-                      <h3 className="text-[15px] font-medium text-white/80 group-hover:text-white transition-colors duration-200">
+                      <h3 className="text-[15px] font-medium text-[var(--fg-80)] group-hover:text-[var(--foreground)] transition-colors duration-200">
                         {item.title}
                       </h3>
-                      <p className="text-[13px] leading-relaxed text-white/35 max-w-[480px]">
+                      <p className="text-[13px] leading-relaxed text-[var(--fg-35)] max-w-[480px]">
                         {item.description}
                       </p>
                     </div>

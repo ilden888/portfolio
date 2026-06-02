@@ -26,9 +26,9 @@ const techStack: TechItem[] = [
 ];
 
 const groups: { key: "data" | "ai" | "orchestration"; color: string; dot: string }[] = [
-  { key: "data",          color: "text-white/50 border-white/[0.08] bg-white/[0.02]",                   dot: "bg-white/30" },
-  { key: "orchestration", color: "text-amber-400/70 border-amber-400/[0.15] bg-amber-400/[0.04]",       dot: "bg-amber-400/70" },
-  { key: "ai",            color: "text-indigo-400/80 border-indigo-400/[0.2] bg-indigo-400/[0.05]",     dot: "bg-indigo-400" },
+  { key: "data",          color: "text-[var(--fg-50)] border-[var(--border)] bg-[var(--surface-2)]",     dot: "bg-[var(--fg-30)]" },
+  { key: "orchestration", color: "text-amber-400/70 border-amber-400/[0.15] bg-amber-400/[0.04]",         dot: "bg-amber-400/70" },
+  { key: "ai",            color: "text-indigo-400/80 border-indigo-400/[0.2] bg-indigo-400/[0.05]",       dot: "bg-indigo-400" },
 ];
 
 interface TechStackProps {
@@ -42,22 +42,22 @@ interface TechStackProps {
 
 export function TechStack({ t }: TechStackProps) {
   return (
-    <Section className="border-t border-white/[0.04]">
+    <Section className="border-t border-[var(--border-subtle)]">
       <Container>
         <FadeIn>
           <div className="flex flex-col gap-12">
             {/* Header */}
             <div className="flex flex-col gap-5 max-w-[480px]">
-              <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/25">
+              <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--fg-25)]">
                 {t.label}
               </span>
               <h2
-                className="font-semibold leading-[1.1] tracking-[-0.03em] text-white"
+                className="font-semibold leading-[1.1] tracking-[-0.03em] text-[var(--foreground)]"
                 style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
               >
                 {t.heading}
               </h2>
-              <p className="text-[15px] leading-relaxed text-white/40">{t.description}</p>
+              <p className="text-[15px] leading-relaxed text-[var(--fg-40)]">{t.description}</p>
             </div>
 
             {/* Grouped rows */}
@@ -69,7 +69,7 @@ export function TechStack({ t }: TechStackProps) {
                     {/* Category label */}
                     <div className="flex items-center gap-2">
                       <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
-                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-white/25">
+                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[var(--fg-25)]">
                         {t.categories[key]}
                       </span>
                     </div>
