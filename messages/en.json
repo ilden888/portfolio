@@ -234,6 +234,67 @@
         "technologies": "Technologies",
         "results": "Results",
         "lessons": "Lessons Learned"
+      },
+      "gamingClubDataPlatform": {
+        "overview": [
+          "Gaming clubs generate significant operational data — session bookings, equipment usage, payment transactions, and subscription lifecycle events. The challenge: all of this lived in disconnected systems, with no unified view for management or any agreed-upon metric definitions.",
+          "This project built an end-to-end analytics platform: automated nightly ingestion from operational sources into a central PostgreSQL data warehouse, dbt transformation layers with consistent metric definitions enforced as code, and a Metabase reporting layer that delivers trustworthy business metrics daily."
+        ],
+        "problem": {
+          "context": "Three operational systems produced conflicting revenue figures. Weekly reports were assembled manually from CSV exports. There was no agreed definition of core metrics, making strategic decisions harder and slower than necessary.",
+          "challenges": [
+            "Operational data distributed across three disconnected systems with no shared identifiers",
+            "Revenue figures differed between systems due to inconsistent calculation logic",
+            "Weekly reporting assembled manually from CSV exports — slow and error-prone",
+            "No single authoritative definition of core business metrics",
+            "No visibility into cross-system patterns, such as subscription vs. session revenue mix"
+          ]
+        },
+        "architecture": {
+          "description": "A layered data platform built around a central PostgreSQL data warehouse, with Airflow orchestrating nightly ingestion and dbt owning all transformation logic.",
+          "layers": [
+            { "label": "Operational Systems", "detail": "POS · Booking System · CRM · Subscription Service" },
+            { "label": "Data Ingestion", "detail": "Airflow DAGs · Python extractors · nightly schedule" },
+            { "label": "PostgreSQL DWH", "detail": "Raw → Staging → Mart layer separation" },
+            { "label": "dbt Models", "detail": "Business logic · metric definitions · data contracts" },
+            { "label": "Analytics Layer", "detail": "Aggregated KPIs · revenue attribution · cohort metrics" },
+            { "label": "Metabase Dashboards", "detail": "Operational reporting · management views" }
+          ]
+        },
+        "dataFlow": {
+          "streams": [
+            { "name": "Payments", "desc": "Transaction records extracted nightly, reconciled against session data, and classified by payment method and type." },
+            { "name": "Gaming Sessions", "desc": "Session start/end events with equipment allocation, duration tracking, and hourly utilization metrics." },
+            { "name": "Subscriptions", "desc": "Activation, renewal, and expiration events with revenue attribution and churn signal tracking." },
+            { "name": "CRM Data", "desc": "Customer profile updates, segment classification, and acquisition channel attribution." },
+            { "name": "Operational Metrics", "desc": "Hourly capacity utilization, peak period detection, and equipment availability signals." }
+          ]
+        },
+        "results": [
+          "Automated nightly pipeline replaced manual weekly CSV reporting cycle",
+          "Consistent metric definitions enforced across all dbt models and downstream dashboards",
+          "Single management dashboard covering revenue, sessions, and subscriptions",
+          "Data discrepancies between systems identified and resolved through reconciliation logic",
+          "Reporting cycle shortened from several days to overnight"
+        ],
+        "lessons": [
+          {
+            "title": "Data quality precedes modeling",
+            "body": "Source system inconsistencies required more attention than the pipeline itself. Invest in profiling and reconciliation before writing transformation logic — bad source data doesn't get fixed by good SQL."
+          },
+          {
+            "title": "Metrics are a business conversation",
+            "body": "Defining what 'revenue' or 'active session' means requires stakeholder alignment, not just technical decisions. Contested definitions produce contested dashboards and eroded trust."
+          },
+          {
+            "title": "Automation compounds in value",
+            "body": "Each additional data source added disproportionate value once the ingestion pattern was established. Pipeline infrastructure is a multiplier — the second source costs a fraction of the first."
+          },
+          {
+            "title": "Early mart delivery accelerates feedback",
+            "body": "Delivering mart-layer tables early gave stakeholders something concrete to react to, which improved requirements quality for subsequent iterations considerably."
+          }
+        ]
       }
     }
   },

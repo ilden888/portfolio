@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { CaseStudyShell, type CaseStudySection } from "@/components/projects/CaseStudyShell";
+import { CaseStudyShell, type CaseStudySection, type SectionContent } from "@/components/projects/CaseStudyShell";
 import { projects, localizeProjects } from "@/data/projects";
 import { locales, type Locale } from "@/lib/i18n/config";
 
@@ -14,6 +14,15 @@ interface PageProps {
   params: Promise<{ locale: Locale; slug: string }>;
 }
 
+interface GamingClubContent {
+  overview: string[];
+  problem: { context: string; challenges: string[] };
+  architecture: { description: string; layers: { label: string; detail: string }[] };
+  dataFlow: { streams: { name: string; desc: string }[] };
+  results: string[];
+  lessons: { title: string; body: string }[];
+}
+
 export default async function ProjectPage({ params }: PageProps) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
@@ -25,14 +34,32 @@ export default async function ProjectPage({ params }: PageProps) {
 
   if (!project) notFound();
 
+  let sectionContents: Partial<Record<string, SectionContent>> = {};
+
+  if (slug === "gaming-club-data-platform") {
+    const cs = t.raw("caseStudy.gamingClubDataPlatform") as GamingClubContent;
+    sectionContents = {
+      overview: { type: "prose", paragraphs: cs.overview },
+      problem: { type: "challenges", context: cs.problem.context, items: cs.problem.challenges },
+      architecture: {
+        type: "architecture",
+        description: cs.architecture.description,
+        layers: cs.architecture.layers,
+      },
+      dataFlow: { type: "dataflows", streams: cs.dataFlow.streams },
+      results: { type: "results", items: cs.results },
+      lessons: { type: "lessons", items: cs.lessons },
+    };
+  }
+
   const sections: CaseStudySection[] = [
-    { key: "overview", title: t("caseStudy.sections.overview") },
-    { key: "problem", title: t("caseStudy.sections.problem") },
-    { key: "architecture", title: t("caseStudy.sections.architecture") },
-    { key: "dataFlow", title: t("caseStudy.sections.dataFlow") },
+    { key: "overview", title: t("caseStudy.sections.overview"), content: sectionContents.overview },
+    { key: "problem", title: t("caseStudy.sections.problem"), content: sectionContents.problem },
+    { key: "architecture", title: t("caseStudy.sections.architecture"), content: sectionContents.architecture },
+    { key: "dataFlow", title: t("caseStudy.sections.dataFlow"), content: sectionContents.dataFlow },
     { key: "technologies", title: t("caseStudy.sections.technologies") },
-    { key: "results", title: t("caseStudy.sections.results") },
-    { key: "lessons", title: t("caseStudy.sections.lessons") },
+    { key: "results", title: t("caseStudy.sections.results"), content: sectionContents.results },
+    { key: "lessons", title: t("caseStudy.sections.lessons"), content: sectionContents.lessons },
   ];
 
   return (

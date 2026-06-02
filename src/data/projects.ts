@@ -36,7 +36,7 @@ export const projects: ProjectDefinition[] = [
     slug: "gaming-club-data-platform",
     category: "data-platform",
     status: "in-progress",
-    tags: ["Airflow", "dbt", "ClickHouse", "PostgreSQL"],
+    tags: ["PostgreSQL", "ClickHouse", "Airflow", "dbt", "Metabase", "Python"],
     featured: true,
     copyKey: "gamingClubDataPlatform",
   },

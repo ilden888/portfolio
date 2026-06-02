@@ -234,6 +234,67 @@
         "technologies": "Tecnologías",
         "results": "Resultados",
         "lessons": "Lecciones Aprendidas"
+      },
+      "gamingClubDataPlatform": {
+        "overview": [
+          "Los clubs de gaming generan datos operativos significativos — reservas de sesiones, uso de equipos, transacciones de pago y eventos del ciclo de vida de suscripciones. El problema: todo esto vivía en sistemas desconectados, sin una vista unificada para la dirección ni definiciones de métricas acordadas.",
+          "Este proyecto construyó una plataforma analítica de extremo a extremo: ingesta nocturna automatizada desde fuentes operativas hacia un almacén de datos central en PostgreSQL, capas de transformación dbt con definiciones de métricas consistentes codificadas, y una capa de reporting en Metabase que entrega métricas de negocio fiables diariamente."
+        ],
+        "problem": {
+          "context": "Tres sistemas operativos producían cifras de ingresos contradictorias. Los reportes semanales se elaboraban manualmente desde exportaciones CSV. No existía una definición acordada de las métricas clave, lo que hacía las decisiones estratégicas más difíciles y lentas de lo necesario.",
+          "challenges": [
+            "Datos operativos distribuidos en tres sistemas desconectados sin identificadores compartidos",
+            "Las cifras de ingresos diferían entre sistemas por lógica de cálculo inconsistente",
+            "Reportes semanales elaborados manualmente desde exportaciones CSV — lentos y propensos a errores",
+            "Sin una definición única y autoritativa de las métricas de negocio clave",
+            "Sin visibilidad sobre patrones entre sistemas, como la mezcla de ingresos por suscripción vs. por sesión"
+          ]
+        },
+        "architecture": {
+          "description": "Una plataforma de datos por capas construida alrededor de un almacén de datos PostgreSQL central, con Airflow orquestando la ingesta nocturna y dbt gestionando toda la lógica de transformación.",
+          "layers": [
+            { "label": "Sistemas Operativos", "detail": "POS · Sistema de Reservas · CRM · Servicio de Suscripciones" },
+            { "label": "Ingesta de Datos", "detail": "DAGs de Airflow · extractores Python · programación nocturna" },
+            { "label": "PostgreSQL DWH", "detail": "Separación de capas Raw → Staging → Mart" },
+            { "label": "Modelos dbt", "detail": "Lógica de negocio · definiciones de métricas · contratos de datos" },
+            { "label": "Capa Analítica", "detail": "KPIs agregados · atribución de ingresos · métricas de cohorte" },
+            { "label": "Dashboards Metabase", "detail": "Reporting operativo · vistas de dirección" }
+          ]
+        },
+        "dataFlow": {
+          "streams": [
+            { "name": "Pagos", "desc": "Registros de transacciones extraídos nocturnamente, conciliados contra datos de sesión y clasificados por método y tipo de pago." },
+            { "name": "Sesiones de Gaming", "desc": "Eventos de inicio/fin de sesión con asignación de equipos, seguimiento de duración y métricas de utilización horaria." },
+            { "name": "Suscripciones", "desc": "Eventos de activación, renovación y expiración con atribución de ingresos y seguimiento de señales de churn." },
+            { "name": "Datos CRM", "desc": "Actualizaciones de perfil de cliente, clasificación de segmentos y atribución del canal de adquisición." },
+            { "name": "Métricas Operativas", "desc": "Utilización horaria de capacidad, detección de períodos pico y señales de disponibilidad de equipos." }
+          ]
+        },
+        "results": [
+          "Pipeline nocturno automatizado reemplazó el ciclo de reporting manual semanal de CSV",
+          "Definiciones de métricas consistentes implementadas en todos los modelos dbt y dashboards derivados",
+          "Dashboard único de dirección que cubre ingresos, sesiones y suscripciones",
+          "Discrepancias de datos entre sistemas identificadas y resueltas mediante lógica de conciliación",
+          "Ciclo de reporting reducido de varios días a una noche"
+        ],
+        "lessons": [
+          {
+            "title": "La calidad de datos precede al modelado",
+            "body": "Las inconsistencias en los sistemas fuente requirieron más atención que el pipeline en sí. Invertir en profiling y conciliación antes de escribir lógica de transformación — los datos fuente deficientes no se arreglan con buen SQL."
+          },
+          {
+            "title": "Las métricas son una conversación de negocio",
+            "body": "Definir qué significa 'ingresos' o 'sesión activa' requiere alineación con stakeholders, no solo decisiones técnicas. Las definiciones en disputa producen dashboards en disputa y erosionan la confianza."
+          },
+          {
+            "title": "La automatización multiplica el valor",
+            "body": "Cada fuente de datos adicional añadió valor desproporcionado una vez establecido el patrón de ingesta. La infraestructura de pipeline es un multiplicador — la segunda fuente cuesta una fracción de la primera."
+          },
+          {
+            "title": "La entrega temprana de marts acelera el feedback",
+            "body": "Entregar las tablas de capa mart temprano dio a los stakeholders algo concreto sobre lo que dar feedback, mejorando considerablemente la calidad de los requisitos en iteraciones posteriores."
+          }
+        ]
       }
     }
   },

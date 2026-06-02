@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, GitBranch } from "lucide-react";
+import { ArrowLeft, ExternalLink, GitBranch, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { type ProjectCardData } from "@/data/projects";
 import { Container } from "@/components/layout/Container";
@@ -20,9 +20,18 @@ const statusStyle: Record<string, { dot: string; label: string }> = {
   planned: { dot: "bg-[var(--fg-20)]", label: "text-[var(--fg-35)]" },
 };
 
+export type SectionContent =
+  | { type: "prose"; paragraphs: string[] }
+  | { type: "challenges"; context?: string; items: string[] }
+  | { type: "architecture"; description?: string; layers: { label: string; detail: string }[] }
+  | { type: "dataflows"; streams: { name: string; desc: string }[] }
+  | { type: "results"; items: string[] }
+  | { type: "lessons"; items: { title: string; body: string }[] };
+
 export interface CaseStudySection {
   key: string;
   title: string;
+  content?: SectionContent;
 }
 
 interface CaseStudyShellProps {
@@ -32,6 +41,173 @@ interface CaseStudyShellProps {
   inProgressLabel: string;
   inProgressSub: string;
   sections: CaseStudySection[];
+}
+
+// ── Content renderers ──────────────────────────────────────────────────────
+
+function ProseContent({ paragraphs }: { paragraphs: string[] }) {
+  return (
+    <div className="flex flex-col gap-4">
+      {paragraphs.map((p, i) => (
+        <p key={i} className="text-[14px] leading-relaxed text-[var(--fg-45)]">
+          {p}
+        </p>
+      ))}
+    </div>
+  );
+}
+
+function ChallengesContent({ context, items }: { context?: string; items: string[] }) {
+  return (
+    <div className="flex flex-col gap-5">
+      {context && (
+        <p className="text-[14px] leading-relaxed text-[var(--fg-45)]">{context}</p>
+      )}
+      <ul className="flex flex-col gap-3">
+        {items.map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--fg-20)]" />
+            <span className="text-[14px] leading-relaxed text-[var(--fg-45)]">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function ArchitectureContent({
+  description,
+  layers,
+}: {
+  description?: string;
+  layers: { label: string; detail: string }[];
+}) {
+  return (
+    <div className="flex flex-col gap-5">
+      {description && (
+        <p className="text-[14px] leading-relaxed text-[var(--fg-45)]">{description}</p>
+      )}
+      <div className="flex flex-col">
+        {layers.map((layer, i) => (
+          <div key={i} className="flex flex-col items-stretch">
+            <div className="rounded-xl border border-[var(--border-7)] bg-[var(--surface-2)] px-5 py-4">
+              <div className="text-[14px] font-semibold tracking-[-0.01em] text-[var(--fg-70)]">
+                {layer.label}
+              </div>
+              <div className="mt-1 font-mono text-[11px] tracking-wide text-[var(--fg-25)]">
+                {layer.detail}
+              </div>
+            </div>
+            {i < layers.length - 1 && (
+              <div className="flex justify-center py-1">
+                <ChevronDown size={14} className="text-[var(--fg-20)]" />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DataflowsContent({ streams }: { streams: { name: string; desc: string }[] }) {
+  return (
+    <div className="flex flex-col gap-3">
+      {streams.map((stream, i) => (
+        <div
+          key={i}
+          className="rounded-xl border border-[var(--border-7)] bg-[var(--surface-2)] px-5 py-4"
+        >
+          <div className="font-mono text-[12px] font-semibold tracking-wide text-[var(--fg-60)]">
+            {stream.name}
+          </div>
+          <div className="mt-2 text-[13px] leading-relaxed text-[var(--fg-40)]">{stream.desc}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ResultsContent({ items }: { items: string[] }) {
+  return (
+    <ul className="flex flex-col gap-3">
+      {items.map((item, i) => (
+        <li key={i} className="flex items-start gap-3">
+          <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400/60" />
+          <span className="text-[14px] leading-relaxed text-[var(--fg-45)]">{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function LessonsContent({ items }: { items: { title: string; body: string }[] }) {
+  return (
+    <div className="flex flex-col gap-3">
+      {items.map((lesson, i) => (
+        <div
+          key={i}
+          className="rounded-xl border border-[var(--border-7)] bg-[var(--surface-2)] px-5 py-4"
+        >
+          <div className="text-[13px] font-semibold tracking-[-0.01em] text-[var(--fg-70)]">
+            {lesson.title}
+          </div>
+          <div className="mt-2 text-[13px] leading-relaxed text-[var(--fg-40)]">{lesson.body}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function renderContent(content: SectionContent) {
+  switch (content.type) {
+    case "prose":
+      return <ProseContent paragraphs={content.paragraphs} />;
+    case "challenges":
+      return <ChallengesContent context={content.context} items={content.items} />;
+    case "architecture":
+      return <ArchitectureContent description={content.description} layers={content.layers} />;
+    case "dataflows":
+      return <DataflowsContent streams={content.streams} />;
+    case "results":
+      return <ResultsContent items={content.items} />;
+    case "lessons":
+      return <LessonsContent items={content.items} />;
+  }
+}
+
+// ── Section wrappers ───────────────────────────────────────────────────────
+
+function SectionWrapper({
+  index,
+  title,
+  children,
+}: {
+  index: number;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5, ease, delay: index * 0.04 }}
+      className="border-t border-[var(--border-subtle)] py-10"
+    >
+      <div className="flex flex-col gap-6 sm:flex-row sm:gap-16">
+        <div className="flex shrink-0 flex-col gap-1 sm:w-[200px]">
+          <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--fg-20)]">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <h2 className="text-[15px] font-semibold tracking-[-0.01em] text-[var(--fg-60)]">
+            {title}
+          </h2>
+        </div>
+        <div className="flex-1">{children}</div>
+      </div>
+    </motion.div>
+  );
 }
 
 function SectionPlaceholder({
@@ -46,34 +222,13 @@ function SectionPlaceholder({
   inProgressSub: string;
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, ease, delay: index * 0.04 }}
-      className="border-t border-[var(--border-subtle)] py-10"
-    >
-      <div className="flex flex-col gap-6 sm:flex-row sm:gap-16">
-        {/* Section label */}
-        <div className="flex shrink-0 flex-col gap-1 sm:w-[200px]">
-          <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--fg-20)]">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <h2 className="text-[15px] font-semibold tracking-[-0.01em] text-[var(--fg-60)]">
-            {title}
-          </h2>
-        </div>
-
-        {/* Placeholder body */}
-        <div className="flex-1">
-          <div className="flex flex-col items-start gap-3 rounded-xl border border-dashed border-[var(--border-7)] p-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--fg-20)]" />
-            <p className="text-[13px] font-medium text-[var(--fg-40)]">{inProgressLabel}</p>
-            <p className="text-[12px] leading-relaxed text-[var(--fg-25)]">{inProgressSub}</p>
-          </div>
-        </div>
+    <SectionWrapper index={index} title={title}>
+      <div className="flex flex-col items-start gap-3 rounded-xl border border-dashed border-[var(--border-7)] p-6">
+        <span className="h-1.5 w-1.5 rounded-full bg-[var(--fg-20)]" />
+        <p className="text-[13px] font-medium text-[var(--fg-40)]">{inProgressLabel}</p>
+        <p className="text-[12px] leading-relaxed text-[var(--fg-25)]">{inProgressSub}</p>
       </div>
-    </motion.div>
+    </SectionWrapper>
   );
 }
 
@@ -87,38 +242,22 @@ function TechnologiesSection({
   tags: string[];
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, ease, delay: index * 0.04 }}
-      className="border-t border-[var(--border-subtle)] py-10"
-    >
-      <div className="flex flex-col gap-6 sm:flex-row sm:gap-16">
-        <div className="flex shrink-0 flex-col gap-1 sm:w-[200px]">
-          <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--fg-20)]">
-            {String(index + 1).padStart(2, "0")}
+    <SectionWrapper index={index} title={title}>
+      <div className="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span
+            key={tag}
+            className="rounded-lg border border-[var(--border-7)] bg-[var(--surface-2)] px-3.5 py-1.5 font-mono text-[13px] text-[var(--fg-50)]"
+          >
+            {tag}
           </span>
-          <h2 className="text-[15px] font-semibold tracking-[-0.01em] text-[var(--fg-60)]">
-            {title}
-          </h2>
-        </div>
-        <div className="flex-1">
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-lg border border-[var(--border-7)] bg-[var(--surface-2)] px-3.5 py-1.5 font-mono text-[13px] text-[var(--fg-50)]"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
-    </motion.div>
+    </SectionWrapper>
   );
 }
+
+// ── Shell ──────────────────────────────────────────────────────────────────
 
 export function CaseStudyShell({
   project,
@@ -134,7 +273,6 @@ export function CaseStudyShell({
     <div className="min-h-screen">
       {/* ── Page hero ── */}
       <section className="relative overflow-hidden pb-16 pt-[120px]">
-        {/* Atmosphere */}
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div
             className="absolute left-1/4 top-0 h-[500px] w-[700px]"
@@ -146,7 +284,6 @@ export function CaseStudyShell({
         </div>
 
         <Container>
-          {/* Back link */}
           <motion.div
             initial={{ opacity: 0, x: -8 }}
             animate={{ opacity: 1, x: 0 }}
@@ -166,7 +303,6 @@ export function CaseStudyShell({
           </motion.div>
 
           <div className="flex max-w-[760px] flex-col gap-6">
-            {/* Category + status */}
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
@@ -185,7 +321,6 @@ export function CaseStudyShell({
               </div>
             </motion.div>
 
-            {/* Title */}
             <motion.h1
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -196,7 +331,6 @@ export function CaseStudyShell({
               {project.title}
             </motion.h1>
 
-            {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
@@ -207,7 +341,6 @@ export function CaseStudyShell({
               {project.description}
             </motion.p>
 
-            {/* Tag pills */}
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
@@ -224,7 +357,6 @@ export function CaseStudyShell({
               ))}
             </motion.div>
 
-            {/* External links */}
             {project.links && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -271,6 +403,10 @@ export function CaseStudyShell({
                 title={section.title}
                 tags={project.tags}
               />
+            ) : section.content ? (
+              <SectionWrapper key={section.key} index={i} title={section.title}>
+                {renderContent(section.content)}
+              </SectionWrapper>
             ) : (
               <SectionPlaceholder
                 key={section.key}
