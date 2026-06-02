@@ -120,33 +120,55 @@
     "name": "Denis IL"
   },
   "aboutPage": {
-    "title": "Denis IL",
-    "role": "Ingeniero de Plataformas de Datos AI-Native",
-    "bio": "Soy un ingeniero de datos y arquitecto de sistemas IA especializado en infraestructura analítica AI-native. Mi trabajo está en la intersección de la ingeniería de datos, el modelado semántico y los sistemas LLM.",
-    "whatIDo": {
-      "label": "Qué Construyo",
-      "items": [
-        { "title": "Sistemas Analíticos AI-Native", "description": "Pipelines end-to-end desde ingesta hasta capas de razonamiento LLM y agentes de informes autónomos." },
-        { "title": "Arquitectura Data Warehouse", "description": "Diseño DWH escalable con ClickHouse, PostgreSQL, Apache Iceberg — para cargas BI y IA." },
-        { "title": "Capas Semánticas", "description": "Modelos semánticos estructurados que permiten a los LLMs consultar datos de negocio sin alucinaciones." },
-        { "title": "Ingeniería Analítica", "description": "Pipelines dbt, marcos de calidad de datos y capas de métricas gobernadas." },
-        { "title": "Workflows IA Autónomos", "description": "Agentes LangChain y Claude que monitorean KPIs, detectan anomalías y generan insights." }
+    "hero": {
+      "eyebrow": "Ingeniero de Plataformas de Datos AI-Native",
+      "tagline": "Diseño y construyo fundamentos de datos que convierten analytics confiable en sistemas inteligentes y autónomos.",
+      "availability": "Abierto a proyectos"
+    },
+    "background": {
+      "label": "Experiencia Profesional",
+      "current": "Actualmente",
+      "company": "True Gamers",
+      "role": "Data Analyst",
+      "focusLabel": "Áreas de Enfoque",
+      "focus": ["Analytics", "Data Engineering", "Automatización", "Business Intelligence"]
+    },
+    "evolution": {
+      "label": "Evolución de Carrera",
+      "steps": [
+        { "title": "Data Analyst", "note": "SQL · métricas · dashboards · contexto de negocio" },
+        { "title": "Analytics Engineering", "note": "dbt · capas semánticas · modelado de datos" },
+        { "title": "Data Platforms", "note": "Arquitectura DWH · ClickHouse · Iceberg · Airflow" },
+        { "title": "AI-Native Systems", "note": "Razonamiento LLM · agentes autónomos · decision intelligence" }
       ]
     },
-    "approach": {
-      "label": "Enfoque",
-      "heading": "Cómo pienso sobre los datos",
-      "text": "La mayoría de las herramientas BI responden preguntas que los humanos ya saben hacer. Yo construyo sistemas que encuentran las preguntas — y las responden — antes de que alguien piense en hacerlas.",
+    "philosophy": {
+      "label": "Filosofía de Ingeniería",
       "principles": [
-        { "title": "AI-first, no AI-added", "description": "Las decisiones de arquitectura se toman pensando en razonamiento LLM desde el primer día." },
-        { "title": "Semántico sobre ad-hoc", "description": "Una capa semántica bien definida supera a mil consultas SQL ad-hoc." },
-        { "title": "Autonomía sobre automatización", "description": "El objetivo es eliminar al humano del ciclo de retroalimentación, no automatizar dashboards." }
+        {
+          "statement": "El analytics confiable empieza con datos confiables.",
+          "sub": "Todo sistema de IA es tan confiable como los fundamentos de datos que lo sostienen."
+        },
+        {
+          "statement": "La automatización escala la toma de decisiones.",
+          "sub": "El objetivo no es reportar. Es eliminar al humano del ciclo de retroalimentación."
+        },
+        {
+          "statement": "La IA requiere fundamentos de datos confiables.",
+          "sub": "Los LLMs no arreglan datos malos. Los amplifican. Construye el fundamento primero."
+        }
       ]
     },
-    "availability": {
-      "label": "Disponibilidad",
-      "status": "Abierto a proyectos",
-      "description": "Disponible para proyectos de datos AI-native, consultoría y revisiones de arquitectura."
+    "learning": {
+      "label": "Aprendiendo Ahora",
+      "intro": "Profundizando expertise en la siguiente capa del stack:",
+      "topics": ["Apache Iceberg", "Lakehouse Architecture", "Capas Semánticas", "Analytics Autónomo", "Agentes IA"]
+    },
+    "vision": {
+      "label": "Visión",
+      "heading": "Construyendo el stack de datos\npara inteligencia AI-native.",
+      "text": "La próxima generación de sistemas analíticos no solo visualizará datos — razonará sobre ellos, actuará y cerrará el ciclo de retroalimentación de forma autónoma. Estoy construyendo hacia ese futuro: sistemas AI-native que combinan plataformas de datos gobernadas, capas semánticas y agentes IA autónomos en un stack único y coherente.",
+      "cta": "Escribir"
     }
   },
   "projects": {

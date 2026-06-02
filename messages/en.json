@@ -120,33 +120,55 @@
     "name": "Denis IL"
   },
   "aboutPage": {
-    "title": "Denis IL",
-    "role": "AI-Native Data Platform Engineer",
-    "bio": "I'm a data engineer and AI systems architect specialising in AI-native analytics infrastructure. My work sits at the intersection of data engineering, semantic modelling, and LLM systems — building platforms where AI reasons over data, not just visualises it.",
-    "whatIDo": {
-      "label": "What I Build",
-      "items": [
-        { "title": "AI-Native Analytics Systems", "description": "End-to-end pipelines from raw ingestion to LLM reasoning layers and autonomous reporting agents." },
-        { "title": "Data Warehouse Architecture", "description": "Scalable DWH design with ClickHouse, PostgreSQL, Apache Iceberg — built for both BI and AI workloads." },
-        { "title": "Semantic Data Layers", "description": "Structured semantic models that enable LLMs to query business data reliably without hallucinating SQL." },
-        { "title": "Analytics Engineering", "description": "dbt-based transformation pipelines, data quality frameworks, and governed metric layers." },
-        { "title": "Autonomous AI Workflows", "description": "LangChain and Claude-powered agents that monitor KPIs, detect anomalies, and generate insights autonomously." }
+    "hero": {
+      "eyebrow": "AI-Native Data Platform Engineer",
+      "tagline": "I design and build data foundations that turn trusted analytics into intelligent, autonomous systems.",
+      "availability": "Open to projects"
+    },
+    "background": {
+      "label": "Professional Background",
+      "current": "Currently",
+      "company": "True Gamers",
+      "role": "Data Analyst",
+      "focusLabel": "Focus Areas",
+      "focus": ["Analytics", "Data Engineering", "Automation", "Business Intelligence"]
+    },
+    "evolution": {
+      "label": "Career Evolution",
+      "steps": [
+        { "title": "Data Analyst", "note": "SQL · metrics · dashboards · business context" },
+        { "title": "Analytics Engineering", "note": "dbt · semantic layers · data modeling · governance" },
+        { "title": "Data Platforms", "note": "DWH architecture · ClickHouse · Iceberg · Airflow" },
+        { "title": "AI-Native Systems", "note": "LLM reasoning · autonomous agents · decision intelligence" }
       ]
     },
-    "approach": {
-      "label": "Approach",
-      "heading": "How I think about data",
-      "text": "Most BI tools are built to answer questions humans already know to ask. I build systems that find the questions — and answer them — before anyone thinks to look.",
+    "philosophy": {
+      "label": "Engineering Philosophy",
       "principles": [
-        { "title": "AI-first, not AI-added", "description": "Architecture decisions are made with LLM reasoning in mind from day one, not retrofitted later." },
-        { "title": "Semantic over ad-hoc", "description": "A well-defined semantic layer beats a thousand ad-hoc SQL queries every time." },
-        { "title": "Autonomy over automation", "description": "The goal isn't to automate dashboards. It's to remove the human from the feedback loop entirely." }
+        {
+          "statement": "Reliable analytics starts with reliable data.",
+          "sub": "Every AI system is only as trustworthy as the data foundations beneath it."
+        },
+        {
+          "statement": "Automation scales decision making.",
+          "sub": "The goal isn't reporting. It's removing the human from the feedback loop entirely."
+        },
+        {
+          "statement": "AI requires trustworthy data foundations.",
+          "sub": "LLMs don't fix bad data. They amplify it. Build the foundation first."
+        }
       ]
     },
-    "availability": {
-      "label": "Availability",
-      "status": "Open to projects",
-      "description": "Available for AI-native data projects, consulting, and architecture reviews."
+    "learning": {
+      "label": "Currently Learning",
+      "intro": "Deepening expertise in the next layer of the stack:",
+      "topics": ["Apache Iceberg", "Lakehouse Architecture", "Semantic Layers", "Autonomous Analytics", "AI Agents"]
+    },
+    "vision": {
+      "label": "Vision",
+      "heading": "Building the data stack\nfor AI-native intelligence.",
+      "text": "The next generation of analytics systems won't just visualise data — they'll reason over it, act on it, and close the feedback loop autonomously. I'm building toward that future: AI-native systems that combine governed data platforms, semantic layers, and autonomous AI agents into a single, coherent stack.",
+      "cta": "Get in Touch"
     }
   },
   "projects": {
