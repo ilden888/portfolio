@@ -17,7 +17,7 @@ interface ContactCTAProps {
 
 export function ContactCTA({ t }: ContactCTAProps) {
   return (
-    <Section className="border-t border-[var(--border-subtle)]">
+    <Section id="contact" className="border-t border-[var(--border-subtle)]">
       <Container>
         <div className="relative overflow-hidden rounded-2xl border border-[var(--border-7)] bg-[var(--surface-2)] px-8 py-16 md:px-16 md:py-20 text-center">
 

@@ -1,8 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Mail, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { Mail } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { locales } from "@/lib/i18n/config";

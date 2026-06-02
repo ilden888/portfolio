@@ -28,14 +28,6 @@ interface ProjectsGridProps {
   filters: FilterLabel;
 }
 
-const categoryMap: Record<ProjectCategory, keyof FilterLabel> = {
-  "ai-agent": "aiAgent",
-  "data-platform": "dataPlatform",
-  "realtime": "realtime",
-  "analytics": "analytics",
-  "telemetry": "telemetry",
-};
-
 const accentColors: Record<ProjectCategory, string> = {
   "ai-agent": "border-indigo-500/25 bg-indigo-500/[0.06]",
   "data-platform": "border-violet-500/20 bg-violet-500/[0.05]",

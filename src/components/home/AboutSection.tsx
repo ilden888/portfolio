@@ -17,7 +17,7 @@ interface AboutSectionProps {
 
 export function AboutSection({ t }: AboutSectionProps) {
   return (
-    <Section className="border-t border-[var(--border-subtle)]">
+    <Section id="about" className="border-t border-[var(--border-subtle)]">
       <Container>
         <FadeIn>
           <div className="flex flex-col gap-10 max-w-[860px]">

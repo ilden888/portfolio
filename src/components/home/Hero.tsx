@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { type Locale } from "@/lib/i18n/config";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -17,7 +16,6 @@ function item(delay: number) {
 }
 
 interface HeroProps {
-  locale: Locale;
   t: {
     label: string;
     title: string;
@@ -27,7 +25,7 @@ interface HeroProps {
   };
 }
 
-export function Hero({ locale, t }: HeroProps) {
+export function Hero({ t }: HeroProps) {
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[var(--background)]">
 
@@ -138,14 +136,14 @@ export function Hero({ locale, t }: HeroProps) {
         {/* CTAs */}
         <motion.div {...item(0.4)} className="flex flex-wrap items-center justify-center gap-3">
           <Link
-            href={`/${locale}/projects`}
+            href="#projects"
             className="group inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-6 py-2.5 text-sm font-medium text-[var(--primary-foreground)] transition-all duration-200 hover:opacity-90 hover:gap-3"
           >
             {t.cta}
             <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
           <Link
-            href={`/${locale}/about`}
+            href="#about"
             className="inline-flex items-center gap-2 rounded-full border border-[var(--border-10)] bg-[var(--surface-3)] px-6 py-2.5 text-sm font-medium text-[var(--fg-60)] backdrop-blur-sm transition-all duration-200 hover:border-[var(--border-20)] hover:text-[var(--fg-90)]"
           >
             {t.ctaSecondary}

@@ -15,7 +15,7 @@ interface TechGroup {
 const techGroups: TechGroup[] = [
   {
     key: "dataEng",
-    items: ["PostgreSQL", "ClickHouse", "Airflow", "dbt", "Kafka"],
+    items: ["PostgreSQL", "ClickHouse", "Airflow", "DBT", "Kafka"],
     color: "text-[var(--fg-50)] border-[var(--border)] bg-[var(--surface-2)]",
     dot: "bg-[var(--fg-30)]",
   },
@@ -26,16 +26,16 @@ const techGroups: TechGroup[] = [
     dot: "bg-cyan-400/70",
   },
   {
-    key: "ai",
-    items: ["OpenAI", "Claude", "LangChain", "RAG"],
-    color: "text-indigo-400/80 border-indigo-400/[0.2] bg-indigo-400/[0.05]",
-    dot: "bg-indigo-400",
-  },
-  {
     key: "analytics",
     items: ["Metabase", "Power BI"],
     color: "text-amber-400/70 border-amber-400/[0.15] bg-amber-400/[0.04]",
     dot: "bg-amber-400/70",
+  },
+  {
+    key: "ai",
+    items: ["OpenAI", "Claude", "LangChain", "RAG"],
+    color: "text-indigo-400/80 border-indigo-400/[0.2] bg-indigo-400/[0.05]",
+    dot: "bg-indigo-400",
   },
 ];
 
@@ -55,7 +55,7 @@ interface TechStackProps {
 
 export function TechStack({ t }: TechStackProps) {
   return (
-    <Section className="border-t border-[var(--border-subtle)]">
+    <Section id="stack" className="border-t border-[var(--border-subtle)]">
       <Container>
         <FadeIn>
           <div className="flex flex-col gap-12">

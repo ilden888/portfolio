@@ -15,9 +15,10 @@
   },
   "about": {
     "label": "Acerca de",
-    "heading": "Denis — Ingeniero de\nPlataformas de Datos AI-Native",
-    "bio": "Construyo infraestructura de datos end-to-end donde la IA no solo visualiza datos — razona sobre ellos, toma decisiones y cierra el ciclo de forma autónoma.",
-    "domains": ["Data Engineering", "Analytics Engineering", "AI Systems", "Data Platforms"]
+    "heading": "Construyendo plataformas de datos\npara la era de la IA",
+    "bio": "Denis — AI-Native Data Platform Engineer. Diseño bases de datos modernas que convierten analytics confiable en sistemas inteligentes.",
+    "domains": ["Data Engineering", "Analytics Engineering", "AI-Native Systems", "Modern Data Platforms"],
+    "availability": "Abierto a proyectos"
   },
   "build": {
     "label": "Qué Construyo",
@@ -31,7 +32,7 @@
         "description": "Pipelines end-to-end desde ingesta hasta capas semánticas gobernadas pasando por transformaciones dbt."
       },
       {
-        "title": "AI-Native Workflows",
+        "title": "AI Workflows",
         "description": "Agentes LangChain y Claude que monitorean KPIs, detectan anomalías y generan insights autónomamente."
       },
       {
@@ -57,9 +58,47 @@
     "items": [
       "Analytics AI-native",
       "Capas semánticas",
+      "Apache Iceberg",
       "Analytics autónomo",
-      "Plataformas de datos modernas",
       "Agentes IA sobre DWH"
+    ]
+  },
+  "futureProjects": {
+    "label": "Proyectos Futuros",
+    "heading": "Sistemas en preparación",
+    "description": "Un avance de las plataformas, asistentes y experimentos analíticos que tomarán forma próximamente.",
+    "comingSoon": "Avance",
+    "items": [
+      {
+        "title": "Gaming Club Data Platform",
+        "description": "Una capa de datos moderna para clubes gaming, desde la ingesta hasta métricas listas para decidir.",
+        "category": "Data Platform",
+        "tags": ["Airflow", "dbt", "ClickHouse"]
+      },
+      {
+        "title": "AI Analytics Assistant",
+        "description": "Una interfaz conversacional gobernada para explorar datos del warehouse con contexto de negocio.",
+        "category": "AI Workflow",
+        "tags": ["RAG", "LangChain", "Claude"]
+      },
+      {
+        "title": "Tournament Intelligence",
+        "description": "Señales en vivo, tendencias de rendimiento e inteligencia para operaciones competitivas.",
+        "category": "Real-time",
+        "tags": ["Kafka", "PostgreSQL", "OpenAI"]
+      },
+      {
+        "title": "Sports Analytics",
+        "description": "Un espacio analítico para modelar rendimiento de jugadores y explorar datos rápidamente.",
+        "category": "Analytics",
+        "tags": ["DuckDB", "Parquet", "Claude"]
+      },
+      {
+        "title": "ISS Analytics",
+        "description": "Un experimento lakehouse para telemetría, detección de anomalías e insights orbitales.",
+        "category": "Telemetry",
+        "tags": ["Iceberg", "S3", "Kafka"]
+      }
     ]
   },
   "contact": {

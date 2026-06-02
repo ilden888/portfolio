@@ -15,7 +15,7 @@ interface CurrentFocusProps {
 
 export function CurrentFocus({ t }: CurrentFocusProps) {
   return (
-    <Section size="sm" className="border-t border-[var(--border-subtle)]">
+    <Section id="focus" size="sm" className="border-t border-[var(--border-subtle)]">
       <Container>
         <FadeIn>
           <div className="flex flex-col sm:flex-row gap-10 sm:gap-20 items-start">

@@ -15,9 +15,10 @@
   },
   "about": {
     "label": "Обо мне",
-    "heading": "Denis — AI-Native\nИнженер Данных",
-    "bio": "Строю data-инфраструктуру, где ИИ не просто визуализирует данные — он рассуждает над ними, принимает решения и замыкает петлю автономно.",
-    "domains": ["Data Engineering", "Analytics Engineering", "AI Системы", "Data Platforms"]
+    "heading": "Создаю data-платформы\nдля эпохи ИИ",
+    "bio": "Denis — AI-Native Data Platform Engineer. Проектирую современные data-платформы, которые превращают надёжную аналитику в интеллектуальные системы.",
+    "domains": ["Data Engineering", "Analytics Engineering", "AI-Native Systems", "Modern Data Platforms"],
+    "availability": "Открыт к проектам"
   },
   "build": {
     "label": "Что строю",
@@ -31,7 +32,7 @@
         "description": "End-to-end пайплайны от приёма данных через dbt трансформации до управляемых семантических слоёв."
       },
       {
-        "title": "AI-Native Workflows",
+        "title": "AI Workflows",
         "description": "Агенты на LangChain и Claude, которые мониторят KPI, выявляют аномалии и генерируют инсайты автономно."
       },
       {
@@ -57,9 +58,47 @@
     "items": [
       "AI-native аналитика",
       "Семантические слои",
+      "Apache Iceberg",
       "Автономная аналитика",
-      "Современные data platforms",
       "AI агенты над DWH"
+    ]
+  },
+  "futureProjects": {
+    "label": "Будущие проекты",
+    "heading": "Системы в разработке",
+    "description": "Превью платформ, ассистентов и аналитических экспериментов, которые появятся здесь дальше.",
+    "comingSoon": "Превью",
+    "items": [
+      {
+        "title": "Gaming Club Data Platform",
+        "description": "Современный слой данных для игровых клубов: от сбора данных до метрик для принятия решений.",
+        "category": "Data Platform",
+        "tags": ["Airflow", "dbt", "ClickHouse"]
+      },
+      {
+        "title": "AI Analytics Assistant",
+        "description": "Управляемый разговорный интерфейс для исследования данных DWH в бизнес-контексте.",
+        "category": "AI Workflow",
+        "tags": ["RAG", "LangChain", "Claude"]
+      },
+      {
+        "title": "Tournament Intelligence",
+        "description": "Live-сигналы турниров, тренды производительности и аналитика для соревновательных операций.",
+        "category": "Real-time",
+        "tags": ["Kafka", "PostgreSQL", "OpenAI"]
+      },
+      {
+        "title": "Sports Analytics",
+        "description": "Аналитическое пространство для моделирования результатов игроков и быстрых исследований.",
+        "category": "Analytics",
+        "tags": ["DuckDB", "Parquet", "Claude"]
+      },
+      {
+        "title": "ISS Analytics",
+        "description": "Lakehouse-эксперимент для потоков телеметрии, поиска аномалий и орбитальной аналитики.",
+        "category": "Telemetry",
+        "tags": ["Iceberg", "S3", "Kafka"]
+      }
     ]
   },
   "contact": {

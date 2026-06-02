@@ -4,6 +4,7 @@ import { AboutSection } from "@/components/home/AboutSection";
 import { WhatIBuild } from "@/components/home/WhatIBuild";
 import { TechStack } from "@/components/home/TechStack";
 import { CurrentFocus } from "@/components/home/CurrentFocus";
+import { FeaturedWork } from "@/components/home/FeaturedWork";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { locales, type Locale } from "@/lib/i18n/config";
 
@@ -19,19 +20,19 @@ export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const [tHero, tAbout, tBuild, tStack, tFocus, tContact] = await Promise.all([
+  const [tHero, tAbout, tBuild, tStack, tFocus, tFutureProjects, tContact] = await Promise.all([
     getTranslations("hero"),
     getTranslations("about"),
     getTranslations("build"),
     getTranslations("stack"),
     getTranslations("focus"),
+    getTranslations("futureProjects"),
     getTranslations("contact"),
   ]);
 
   return (
     <>
       <Hero
-        locale={locale}
         t={{
           label: tHero("label"),
           title: tHero("title"),
@@ -52,7 +53,7 @@ export default async function HomePage({ params }: PageProps) {
             tAbout("domains.2"),
             tAbout("domains.3"),
           ],
-          availability: "Open to projects",
+          availability: tAbout("availability"),
         }}
       />
 
@@ -85,6 +86,21 @@ export default async function HomePage({ params }: PageProps) {
           label: tFocus("label"),
           heading: tFocus("heading"),
           items: [0, 1, 2, 3, 4].map((i) => tFocus(`items.${i}`)),
+        }}
+      />
+
+      <FeaturedWork
+        t={{
+          label: tFutureProjects("label"),
+          heading: tFutureProjects("heading"),
+          description: tFutureProjects("description"),
+          comingSoon: tFutureProjects("comingSoon"),
+          items: [0, 1, 2, 3, 4].map((i) => ({
+            title: tFutureProjects(`items.${i}.title`),
+            description: tFutureProjects(`items.${i}.description`),
+            category: tFutureProjects(`items.${i}.category`),
+            tags: [0, 1, 2].map((tag) => tFutureProjects(`items.${i}.tags.${tag}`)),
+          })),
         }}
       />
 
