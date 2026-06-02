@@ -63,6 +63,29 @@
       "AI agents over DWH"
     ]
   },
+  "philosophy": {
+    "label": "Engineering Philosophy",
+    "axiom": "Reliable AI requires reliable data.",
+    "axiomSub": "The principle behind every system Denis builds.",
+    "pillars": [
+      {
+        "title": "Data before AI",
+        "body": "Modern AI is only as trustworthy as the data it reasons over. Foundations first."
+      },
+      {
+        "title": "From Dashboards to Decisions",
+        "body": "The goal isn't a report. It's a decision made faster, with more confidence."
+      },
+      {
+        "title": "AI-Native Analytics",
+        "body": "AI should operate on governed, structured, trustworthy platforms — not raw chaos."
+      },
+      {
+        "title": "Platform Thinking",
+        "body": "Build once. Reuse at scale. Automate the feedback loop."
+      }
+    ]
+  },
   "journey": {
     "label": "Professional Journey",
     "current": "Currently",

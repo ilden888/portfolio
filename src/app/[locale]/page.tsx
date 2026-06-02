@@ -3,6 +3,7 @@ import { Hero } from "@/components/home/Hero";
 import { ProfessionalJourney } from "@/components/home/ProfessionalJourney";
 import { AboutSection } from "@/components/home/AboutSection";
 import { WhatIBuild } from "@/components/home/WhatIBuild";
+import { EngineeringPhilosophy } from "@/components/home/EngineeringPhilosophy";
 import { TechStack } from "@/components/home/TechStack";
 import { CurrentFocus } from "@/components/home/CurrentFocus";
 import { FeaturedWork } from "@/components/home/FeaturedWork";
@@ -22,11 +23,12 @@ export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const [tHero, tJourney, tAbout, tBuild, tStack, tFocus, tProjects, tContact] = await Promise.all([
+  const [tHero, tJourney, tAbout, tBuild, tPhilosophy, tStack, tFocus, tProjects, tContact] = await Promise.all([
     getTranslations("hero"),
     getTranslations("journey"),
     getTranslations("about"),
     getTranslations("build"),
+    getTranslations("philosophy"),
     getTranslations("stack"),
     getTranslations("focus"),
     getTranslations("projects"),
@@ -81,6 +83,18 @@ export default async function HomePage({ params }: PageProps) {
           items: [0, 1, 2, 3].map((i) => ({
             title: tBuild(`items.${i}.title`),
             description: tBuild(`items.${i}.description`),
+          })),
+        }}
+      />
+
+      <EngineeringPhilosophy
+        t={{
+          label: tPhilosophy("label"),
+          axiom: tPhilosophy("axiom"),
+          axiomSub: tPhilosophy("axiomSub"),
+          pillars: [0, 1, 2, 3].map((i) => ({
+            title: tPhilosophy(`pillars.${i}.title`),
+            body: tPhilosophy(`pillars.${i}.body`),
           })),
         }}
       />

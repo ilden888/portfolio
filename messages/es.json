@@ -63,6 +63,29 @@
       "Agentes IA sobre DWH"
     ]
   },
+  "philosophy": {
+    "label": "Filosofía de Ingeniería",
+    "axiom": "La IA confiable requiere datos confiables.",
+    "axiomSub": "El principio detrás de cada sistema que Denis construye.",
+    "pillars": [
+      {
+        "title": "Datos antes que IA",
+        "body": "La IA moderna es tan confiable como los datos sobre los que razona. Primero los cimientos."
+      },
+      {
+        "title": "De Dashboards a Decisiones",
+        "body": "El objetivo no es un reporte. Es una decisión tomada más rápido, con más confianza."
+      },
+      {
+        "title": "Analítica AI-Native",
+        "body": "La IA debe operar sobre plataformas gobernadas, estructuradas y confiables — no sobre caos crudo."
+      },
+      {
+        "title": "Pensamiento de Plataforma",
+        "body": "Construir una vez. Reutilizar a escala. Automatizar el ciclo de retroalimentación."
+      }
+    ]
+  },
   "journey": {
     "label": "Trayectoria Profesional",
     "current": "Actualmente",
