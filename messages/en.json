@@ -63,44 +63,6 @@
       "AI agents over DWH"
     ]
   },
-  "futureProjects": {
-    "label": "Future Projects",
-    "heading": "Systems in the pipeline",
-    "description": "A preview of the platforms, assistants, and analytics experiments taking shape next.",
-    "comingSoon": "Preview",
-    "items": [
-      {
-        "title": "Gaming Club Data Platform",
-        "description": "A modern operating data layer for gaming venues, from ingestion to decision-ready metrics.",
-        "category": "Data Platform",
-        "tags": ["Airflow", "dbt", "ClickHouse"]
-      },
-      {
-        "title": "AI Analytics Assistant",
-        "description": "A governed conversational interface for exploring warehouse data with business context.",
-        "category": "AI Workflow",
-        "tags": ["RAG", "LangChain", "Claude"]
-      },
-      {
-        "title": "Tournament Intelligence",
-        "description": "Live tournament signals, performance trends, and intelligence for competitive operations.",
-        "category": "Real-time",
-        "tags": ["Kafka", "PostgreSQL", "OpenAI"]
-      },
-      {
-        "title": "Sports Analytics",
-        "description": "A focused analytics workspace for player performance modelling and fast exploration.",
-        "category": "Analytics",
-        "tags": ["DuckDB", "Parquet", "Claude"]
-      },
-      {
-        "title": "ISS Analytics",
-        "description": "A lakehouse experiment for telemetry streams, anomaly detection, and orbital insights.",
-        "category": "Telemetry",
-        "tags": ["Iceberg", "S3", "Kafka"]
-      }
-    ]
-  },
   "contact": {
     "label": "Contact",
     "heading": "Let's build something.",
@@ -146,7 +108,10 @@
   "projects": {
     "label": "Selected Work",
     "heading": "Projects",
-    "description": "Case studies in AI-native analytics, data platform architecture, and autonomous systems.",
+    "description": "A growing catalog of data platforms, AI workflows, and analytics systems. Detailed engineering case studies will follow.",
+    "previewLabel": "Featured Projects",
+    "previewHeading": "Platforms built for real decisions",
+    "previewDescription": "A selected preview of the engineering systems taking shape.",
     "comingSoon": "Coming soon",
     "viewAll": "View All Projects",
     "filterAll": "All",
@@ -155,43 +120,40 @@
     "filterRealtime": "Real-time",
     "filterAnalytics": "Analytics",
     "filterTelemetry": "Telemetry",
-    "items": [
-      {
-        "slug": "ai-analytics-assistant",
+    "statuses": {
+      "live": "Live",
+      "in-progress": "In progress",
+      "planned": "Planned"
+    },
+    "categories": {
+      "ai-agent": "AI Workflow",
+      "data-platform": "Data Platform",
+      "realtime": "Real-time",
+      "analytics": "Analytics",
+      "telemetry": "Telemetry"
+    },
+    "items": {
+      "gamingClubDataPlatform": {
+        "title": "Gaming Club Data Platform",
+        "description": "A modern operating data layer for gaming venues, from ingestion to decision-ready metrics."
+      },
+      "aiAnalyticsAssistant": {
         "title": "AI Analytics Assistant",
-        "description": "Natural language interface over ClickHouse with RAG-based context and LLM reasoning layer.",
-        "tags": ["ClickHouse", "LangChain", "RAG"],
-        "category": "AI Agent"
+        "description": "A governed conversational interface for exploring warehouse data with business context."
       },
-      {
-        "slug": "gaming-club-dwh",
-        "title": "Gaming Club DWH",
-        "description": "Multi-source data warehouse for a gaming network — Airflow pipelines, dbt models, ClickHouse storage, Metabase reporting.",
-        "tags": ["Airflow", "dbt", "ClickHouse"],
-        "category": "Data Platform"
-      },
-      {
-        "slug": "tournament-intelligence",
+      "tournamentIntelligence": {
         "title": "Tournament Intelligence",
-        "description": "Real-time analytics for esports. Kafka event stream, live stat aggregation, AI commentary generation.",
-        "tags": ["Kafka", "PostgreSQL", "OpenAI"],
-        "category": "Real-time Analytics"
+        "description": "Real-time analytics for esports. Kafka event stream, live stat aggregation, AI commentary generation."
       },
-      {
-        "slug": "sports-analytics-lab",
-        "title": "Sports Analytics Lab",
-        "description": "Player performance modelling and predictive analytics. DuckDB for fast exploration, Claude for narrative.",
-        "tags": ["DuckDB", "dbt", "Claude"],
-        "category": "Analytics"
+      "sportsAnalytics": {
+        "title": "Sports Analytics",
+        "description": "A focused analytics workspace for player performance modelling and fast exploration."
       },
-      {
-        "slug": "iss-telemetry-analytics",
-        "title": "ISS Telemetry Analytics",
-        "description": "Telemetry pipeline and anomaly detection for orbital station sensors. Iceberg lakehouse with Kafka streaming.",
-        "tags": ["Kafka", "Iceberg", "S3"],
-        "category": "Telemetry"
+      "issAnalytics": {
+        "title": "ISS Analytics",
+        "description": "A lakehouse experiment for telemetry streams, anomaly detection, and orbital insights."
       }
-    ]
+    }
   },
   "labs": {
     "label": "Analytics Labs",

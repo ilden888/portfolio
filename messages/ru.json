@@ -63,44 +63,6 @@
       "AI агенты над DWH"
     ]
   },
-  "futureProjects": {
-    "label": "Будущие проекты",
-    "heading": "Системы в разработке",
-    "description": "Превью платформ, ассистентов и аналитических экспериментов, которые появятся здесь дальше.",
-    "comingSoon": "Превью",
-    "items": [
-      {
-        "title": "Gaming Club Data Platform",
-        "description": "Современный слой данных для игровых клубов: от сбора данных до метрик для принятия решений.",
-        "category": "Data Platform",
-        "tags": ["Airflow", "dbt", "ClickHouse"]
-      },
-      {
-        "title": "AI Analytics Assistant",
-        "description": "Управляемый разговорный интерфейс для исследования данных DWH в бизнес-контексте.",
-        "category": "AI Workflow",
-        "tags": ["RAG", "LangChain", "Claude"]
-      },
-      {
-        "title": "Tournament Intelligence",
-        "description": "Live-сигналы турниров, тренды производительности и аналитика для соревновательных операций.",
-        "category": "Real-time",
-        "tags": ["Kafka", "PostgreSQL", "OpenAI"]
-      },
-      {
-        "title": "Sports Analytics",
-        "description": "Аналитическое пространство для моделирования результатов игроков и быстрых исследований.",
-        "category": "Analytics",
-        "tags": ["DuckDB", "Parquet", "Claude"]
-      },
-      {
-        "title": "ISS Analytics",
-        "description": "Lakehouse-эксперимент для потоков телеметрии, поиска аномалий и орбитальной аналитики.",
-        "category": "Telemetry",
-        "tags": ["Iceberg", "S3", "Kafka"]
-      }
-    ]
-  },
   "contact": {
     "label": "Контакт",
     "heading": "Давайте построим что-то.",
@@ -146,7 +108,10 @@
   "projects": {
     "label": "Избранные работы",
     "heading": "Проекты",
-    "description": "Кейсы по AI-native аналитике, архитектуре data platform и автономным системам.",
+    "description": "Развивающийся каталог data-платформ, AI-воркфлоу и аналитических систем. Подробные инженерные кейсы появятся позже.",
+    "previewLabel": "Избранные проекты",
+    "previewHeading": "Платформы для реальных решений",
+    "previewDescription": "Выбранные инженерные системы, которые сейчас обретают форму.",
     "comingSoon": "Скоро",
     "viewAll": "Все проекты",
     "filterAll": "Все",
@@ -155,43 +120,40 @@
     "filterRealtime": "Real-time",
     "filterAnalytics": "Аналитика",
     "filterTelemetry": "Телеметрия",
-    "items": [
-      {
-        "slug": "ai-analytics-assistant",
+    "statuses": {
+      "live": "Запущен",
+      "in-progress": "В разработке",
+      "planned": "Запланирован"
+    },
+    "categories": {
+      "ai-agent": "AI Workflow",
+      "data-platform": "Data Platform",
+      "realtime": "Real-time",
+      "analytics": "Аналитика",
+      "telemetry": "Телеметрия"
+    },
+    "items": {
+      "gamingClubDataPlatform": {
+        "title": "Gaming Club Data Platform",
+        "description": "Современный слой данных для игровых клубов: от сбора данных до метрик для принятия решений."
+      },
+      "aiAnalyticsAssistant": {
         "title": "AI Analytics Assistant",
-        "description": "Интерфейс на естественном языке над ClickHouse с RAG-контекстом и LLM рассуждением.",
-        "tags": ["ClickHouse", "LangChain", "RAG"],
-        "category": "AI Агент"
+        "description": "Управляемый разговорный интерфейс для исследования данных DWH в бизнес-контексте."
       },
-      {
-        "slug": "gaming-club-dwh",
-        "title": "DWH Игрового Клуба",
-        "description": "Мультисорс хранилище для сети игровых клубов — Airflow пайплайны, dbt трансформации, ClickHouse и Metabase.",
-        "tags": ["Airflow", "dbt", "ClickHouse"],
-        "category": "Data Platform"
-      },
-      {
-        "slug": "tournament-intelligence",
+      "tournamentIntelligence": {
         "title": "Tournament Intelligence",
-        "description": "Real-time платформа для киберспортивных турниров. Kafka event stream, агрегация статистики, AI комментарии.",
-        "tags": ["Kafka", "PostgreSQL", "OpenAI"],
-        "category": "Real-time Аналитика"
+        "description": "Real-time платформа для киберспортивных турниров. Kafka event stream, агрегация статистики, AI комментарии."
       },
-      {
-        "slug": "sports-analytics-lab",
-        "title": "Аналитика Спорта",
-        "description": "Моделирование результативности и предиктивная аналитика. DuckDB для анализа, Claude для нарративов.",
-        "tags": ["DuckDB", "dbt", "Claude"],
-        "category": "Аналитика"
+      "sportsAnalytics": {
+        "title": "Sports Analytics",
+        "description": "Аналитическое пространство для моделирования результатов игроков и быстрых исследований."
       },
-      {
-        "slug": "iss-telemetry-analytics",
-        "title": "Телеметрия МКС",
-        "description": "Пайплайн телеметрии и обнаружение аномалий для сенсоров орбитальной станции. Iceberg lakehouse с Kafka.",
-        "tags": ["Kafka", "Iceberg", "S3"],
-        "category": "Телеметрия"
+      "issAnalytics": {
+        "title": "ISS Analytics",
+        "description": "Lakehouse-эксперимент для потоков телеметрии, поиска аномалий и орбитальной аналитики."
       }
-    ]
+    }
   },
   "labs": {
     "label": "Лаборатория",

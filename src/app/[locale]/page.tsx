@@ -6,6 +6,7 @@ import { TechStack } from "@/components/home/TechStack";
 import { CurrentFocus } from "@/components/home/CurrentFocus";
 import { FeaturedWork } from "@/components/home/FeaturedWork";
 import { ContactCTA } from "@/components/home/ContactCTA";
+import { featuredProjects, localizeProjects } from "@/data/projects";
 import { locales, type Locale } from "@/lib/i18n/config";
 
 export function generateStaticParams() {
@@ -20,13 +21,13 @@ export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const [tHero, tAbout, tBuild, tStack, tFocus, tFutureProjects, tContact] = await Promise.all([
+  const [tHero, tAbout, tBuild, tStack, tFocus, tProjects, tContact] = await Promise.all([
     getTranslations("hero"),
     getTranslations("about"),
     getTranslations("build"),
     getTranslations("stack"),
     getTranslations("focus"),
-    getTranslations("futureProjects"),
+    getTranslations("projects"),
     getTranslations("contact"),
   ]);
 
@@ -90,17 +91,13 @@ export default async function HomePage({ params }: PageProps) {
       />
 
       <FeaturedWork
+        locale={locale}
+        projects={localizeProjects(tProjects, featuredProjects)}
         t={{
-          label: tFutureProjects("label"),
-          heading: tFutureProjects("heading"),
-          description: tFutureProjects("description"),
-          comingSoon: tFutureProjects("comingSoon"),
-          items: [0, 1, 2, 3, 4].map((i) => ({
-            title: tFutureProjects(`items.${i}.title`),
-            description: tFutureProjects(`items.${i}.description`),
-            category: tFutureProjects(`items.${i}.category`),
-            tags: [0, 1, 2].map((tag) => tFutureProjects(`items.${i}.tags.${tag}`)),
-          })),
+          label: tProjects("previewLabel"),
+          heading: tProjects("previewHeading"),
+          description: tProjects("previewDescription"),
+          viewAll: tProjects("viewAll"),
         }}
       />
 
