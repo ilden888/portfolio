@@ -15,13 +15,28 @@ interface PageProps {
   params: Promise<{ locale: Locale; slug: string }>;
 }
 
+interface DwhModel {
+  name: string;
+  description: string;
+}
+
+interface DwhLayer {
+  name: string;
+  tag: string;
+  description: string;
+  models: DwhModel[];
+}
+
 interface GamingClubContent {
   overview: string[];
   problem: { context: string; challenges: string[] };
   architecture: { description: string; layers: { label: string; detail: string }[] };
   dataFlow: { streams: { name: string; desc: string }[] };
+  dwhModeling: { description: string; layers: DwhLayer[] };
+  reportingLayer: { streams: { name: string; desc: string }[] };
   results: string[];
   lessons: { title: string; body: string }[];
+  futureImprovements: { title: string; description: string; priority: "high" | "medium" | "low" }[];
 }
 
 export default async function ProjectPage({ params }: PageProps) {
@@ -59,8 +74,15 @@ export default async function ProjectPage({ params }: PageProps) {
         diagram: gamingClubDiagram,
       },
       dataFlow: { type: "dataflows", streams: cs.dataFlow.streams },
+      dwhModeling: {
+        type: "dwh-modeling",
+        description: cs.dwhModeling.description,
+        layers: cs.dwhModeling.layers,
+      },
+      reportingLayer: { type: "dataflows", streams: cs.reportingLayer.streams },
       results: { type: "results", items: cs.results },
       lessons: { type: "lessons", items: cs.lessons },
+      futureImprovements: { type: "future", items: cs.futureImprovements },
     };
   }
 
@@ -69,9 +91,12 @@ export default async function ProjectPage({ params }: PageProps) {
     { key: "problem", title: t("caseStudy.sections.problem"), content: sectionContents.problem },
     { key: "architecture", title: t("caseStudy.sections.architecture"), content: sectionContents.architecture },
     { key: "dataFlow", title: t("caseStudy.sections.dataFlow"), content: sectionContents.dataFlow },
+    { key: "dwhModeling", title: t("caseStudy.sections.dwhModeling"), content: sectionContents.dwhModeling },
+    { key: "reportingLayer", title: t("caseStudy.sections.reportingLayer"), content: sectionContents.reportingLayer },
     { key: "technologies", title: t("caseStudy.sections.technologies") },
     { key: "results", title: t("caseStudy.sections.results"), content: sectionContents.results },
     { key: "lessons", title: t("caseStudy.sections.lessons"), content: sectionContents.lessons },
+    { key: "futureImprovements", title: t("caseStudy.sections.futureImprovements"), content: sectionContents.futureImprovements },
   ];
 
   return (

@@ -3,7 +3,8 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
-    "lab": "Lab",
+    "labs": "Labs",
+    "expertise": "Expertise",
     "blog": "Blog"
   },
   "hero": {
@@ -236,9 +237,13 @@
         "problem": "Problem & Context",
         "architecture": "Architecture",
         "dataFlow": "Data Flow",
+        "dwhModeling": "DWH Modeling",
+        "reportingLayer": "Reporting Layer",
         "technologies": "Technologies",
+        "implementation": "Implementation",
         "results": "Results",
-        "lessons": "Lessons Learned"
+        "lessons": "Lessons Learned",
+        "futureImprovements": "Future Improvements"
       },
       "gamingClubDataPlatform": {
         "overview": [
@@ -299,6 +304,158 @@
             "title": "Early mart delivery accelerates feedback",
             "body": "Delivering mart-layer tables early gave stakeholders something concrete to react to, which improved requirements quality for subsequent iterations considerably."
           }
+        ],
+        "dwhModeling": {
+          "description": "The warehouse follows a three-layer medallion architecture enforced through dbt project structure. Each layer has a distinct contract: raw data is never modified, staging is where cleaning happens, marts are where business logic lives.",
+          "layers": [
+            {
+              "name": "Raw Layer",
+              "tag": "raw",
+              "description": "Exact copies of source system data. Insert-only, no transformations, full history preserved. Serves as an audit log and re-processing baseline.",
+              "models": [
+                { "name": "raw_pos_transactions", "description": "Direct copy of POS transaction records with original field names and types" },
+                { "name": "raw_bookings", "description": "Session booking events exactly as received from the booking system API" },
+                { "name": "raw_subscriptions", "description": "Subscription lifecycle events: activations, renewals, cancellations, expirations" },
+                { "name": "raw_crm_profiles", "description": "Customer profile snapshots from CRM with full field history" }
+              ]
+            },
+            {
+              "name": "Staging Layer",
+              "tag": "stg",
+              "description": "Cleaned, typed, and deduplicated source data. One staging model per source table. Business logic is explicitly forbidden at this layer.",
+              "models": [
+                { "name": "stg_payments", "description": "Typed payment records with nulls handled, currency normalised, duplicates removed" },
+                { "name": "stg_sessions", "description": "Normalised session events with duration computed, equipment IDs standardised" },
+                { "name": "stg_subscriptions", "description": "Unified subscription events with consistent status codes and date types" },
+                { "name": "stg_customers", "description": "Merged customer profiles with segment tags and acquisition channel attribution" }
+              ]
+            },
+            {
+              "name": "Mart Layer",
+              "tag": "mart",
+              "description": "Business-facing tables optimised for reporting queries. Aggregated KPIs, revenue attribution logic, and cohort metrics all live here.",
+              "models": [
+                { "name": "mart_revenue", "description": "Daily and monthly revenue broken down by category, payment method, and source system" },
+                { "name": "mart_sessions", "description": "Hourly utilisation metrics, equipment allocation rates, peak period flags" },
+                { "name": "mart_subscriptions", "description": "Active subscriber counts, churn rates, renewal pipeline, and MRR tracking" },
+                { "name": "mart_customers", "description": "Customer segments, LTV estimates, acquisition cohorts, and engagement scores" }
+              ]
+            }
+          ]
+        },
+        "reportingLayer": {
+          "streams": [
+            { "name": "Executive Daily Summary", "desc": "Single-page management dashboard covering yesterday's revenue, active sessions, and subscriber count versus prior periods. Delivered as a scheduled Metabase email at 8am." },
+            { "name": "Revenue Analytics", "desc": "Payment method mix, revenue breakdown by category (sessions vs. subscriptions vs. merchandise), trend lines, and daily deviation from weekly averages." },
+            { "name": "Session Utilisation", "desc": "Equipment allocation by hour-of-day, seat utilisation heatmap, peak period identification, and capacity headroom analysis for operational planning." },
+            { "name": "Subscription Health", "desc": "Active subscriber counts, renewal pipeline for the next 30 days, churn signals from declining engagement, and MRR trend with cohort breakdown." }
+          ]
+        },
+        "futureImprovements": [
+          {
+            "title": "ClickHouse Migration",
+            "description": "Move analytical query workloads from PostgreSQL to ClickHouse. Sub-second aggregations on large time-series datasets will unlock real-time operational dashboards that PostgreSQL cannot serve at scale.",
+            "priority": "high"
+          },
+          {
+            "title": "Real-time Streaming Pipeline",
+            "description": "Add a Kafka-based streaming layer alongside the nightly batch pipeline. Priority data streams: payment events and session open/close events. Enables live utilisation monitoring and instant revenue visibility.",
+            "priority": "high"
+          },
+          {
+            "title": "AI Analytics Layer",
+            "description": "Expose the dbt semantic layer via a natural language interface powered by Claude. Management self-service queries — 'what drove revenue growth last week?' — without writing SQL or relying on predefined reports.",
+            "priority": "medium"
+          },
+          {
+            "title": "Semantic Layer API",
+            "description": "Formalise metric definitions as a programmatic API using dbt metrics or Cube.dev. Enables consistent metric consumption across Metabase, future AI agents, and any downstream application.",
+            "priority": "medium"
+          }
+        ]
+      }
+    }
+  },
+  "labsPage": {
+    "label": "Analytics Labs",
+    "heading": "The Labs",
+    "description": "A growing research space for experiments in data engineering, AI analytics, and autonomous systems.",
+    "comingSoon": "Coming soon",
+    "comingSoonSub": "Experiments and research in this category are being scoped.",
+    "categories": {
+      "dataEngineering": {
+        "label": "Data Engineering",
+        "description": "Pipeline architecture, lakehouse experiments, and storage format research."
+      },
+      "aiAnalytics": {
+        "label": "AI Analytics",
+        "description": "LLM reasoning over structured data, autonomous reporting agents, and semantic layer experiments."
+      },
+      "sportsAnalytics": {
+        "label": "Sports Analytics",
+        "description": "Performance modelling, event stream analysis, and predictive systems for competitive sports."
+      },
+      "research": {
+        "label": "Research",
+        "description": "Deep dives into emerging data infrastructure patterns and architectural trade-offs."
+      },
+      "experiments": {
+        "label": "Experiments",
+        "description": "Short-cycle prototypes and proof-of-concept implementations."
+      }
+    }
+  },
+  "expertisePage": {
+    "label": "Engineering Capabilities",
+    "heading": "Expertise",
+    "description": "A structured view of the engineering capabilities behind the systems I build.",
+    "domains": {
+      "dataEngineering": {
+        "label": "Data Engineering",
+        "description": "Building reliable, scalable pipelines that move and transform data at production quality.",
+        "capabilities": [
+          "Batch pipeline design and orchestration with Apache Airflow",
+          "Real-time streaming architecture with Apache Kafka",
+          "Python-based extraction, transformation, and loading",
+          "Data lake and lakehouse design with Apache Iceberg and Delta Lake",
+          "ELT pattern implementation and scheduling",
+          "Schema evolution and pipeline reliability strategies"
+        ]
+      },
+      "analyticsEngineering": {
+        "label": "Analytics Engineering",
+        "description": "Turning raw pipeline output into trusted, governed analytical assets.",
+        "capabilities": [
+          "dbt modeling across raw, staging, and mart layers",
+          "Metric definitions as code with data contracts",
+          "Business logic governance and testing strategies",
+          "Semantic layer design for governed metric access",
+          "Data quality framework implementation",
+          "Documentation-driven development with dbt docs"
+        ]
+      },
+      "dataPlatforms": {
+        "label": "Data Platforms",
+        "description": "Designing and operating the infrastructure layer that everything else depends on.",
+        "capabilities": [
+          "PostgreSQL data warehouse architecture and optimisation",
+          "ClickHouse OLAP design for sub-second analytical queries",
+          "Multi-layer schema design and indexing strategies",
+          "Platform reliability, monitoring, and alerting",
+          "Storage format selection and trade-off analysis",
+          "Cost and performance optimisation for analytical workloads"
+        ]
+      },
+      "aiSystems": {
+        "label": "AI Systems",
+        "description": "Building AI workflows that reason over governed data and close the feedback loop autonomously.",
+        "capabilities": [
+          "LLM reasoning over structured data via semantic layers",
+          "Retrieval-Augmented Generation for analytical context",
+          "Autonomous analytics agents with LangChain",
+          "Claude API integration for natural language data interfaces",
+          "Anomaly detection and KPI monitoring automation",
+          "Decision intelligence systems that eliminate manual reporting"
         ]
       }
     }

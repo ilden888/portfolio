@@ -102,7 +102,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     home: string;
     about: string;
     projects: string;
-    lab: string;
+    labs: string;
+    expertise: string;
     blog: string;
   };
   const footer = (messages as Messages).footer;

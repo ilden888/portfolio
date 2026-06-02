@@ -6,7 +6,8 @@ interface NavProps {
     home: string;
     about: string;
     projects: string;
-    lab: string;
+    labs: string;
+    expertise: string;
     blog: string;
   };
   locale: Locale;
@@ -18,7 +19,8 @@ export function Nav({ t, locale, onLinkClick }: NavProps) {
     { href: `/${locale}`, label: t.home },
     { href: `/${locale}/about`, label: t.about },
     { href: `/${locale}/projects`, label: t.projects },
-    { href: `/${locale}/lab`, label: t.lab },
+    { href: `/${locale}/labs`, label: t.labs },
+    { href: `/${locale}/expertise`, label: t.expertise },
     { href: `/${locale}/blog`, label: t.blog },
   ];
 

@@ -25,7 +25,10 @@ export type SectionContent =
   | { type: "architecture"; description?: string; layers: { label: string; detail: string }[]; diagram?: DiagramNode[] }
   | { type: "dataflows"; streams: { name: string; desc: string }[] }
   | { type: "results"; items: string[] }
-  | { type: "lessons"; items: { title: string; body: string }[] };
+  | { type: "lessons"; items: { title: string; body: string }[] }
+  | { type: "dwh-modeling"; description?: string; layers: { name: string; tag: string; description: string; models: { name: string; description: string }[] }[] }
+  | { type: "future"; items: { title: string; description: string; priority?: "high" | "medium" | "low" }[] }
+  | { type: "implementation"; steps: { title: string; body: string }[] };
 
 export interface CaseStudySection {
   key: string;
@@ -164,6 +167,132 @@ function LessonsContent({ items }: { items: { title: string; body: string }[] })
   );
 }
 
+const layerTagColors: Record<string, { border: string; bg: string; text: string; dot: string }> = {
+  raw: {
+    border: "border-[var(--border-7)]",
+    bg: "bg-[var(--surface-2)]",
+    text: "text-[var(--fg-35)]",
+    dot: "bg-[var(--fg-20)]",
+  },
+  stg: {
+    border: "border-cyan-500/20",
+    bg: "bg-cyan-500/[0.04]",
+    text: "text-cyan-400/60",
+    dot: "bg-cyan-400/60",
+  },
+  mart: {
+    border: "border-indigo-500/25",
+    bg: "bg-indigo-500/[0.06]",
+    text: "text-indigo-400/70",
+    dot: "bg-indigo-400/70",
+  },
+};
+
+function DwhModelingContent({
+  description,
+  layers,
+}: {
+  description?: string;
+  layers: { name: string; tag: string; description: string; models: { name: string; description: string }[] }[];
+}) {
+  return (
+    <div className="flex flex-col gap-5">
+      {description && (
+        <p className="text-[14px] leading-relaxed text-[var(--fg-40)]">{description}</p>
+      )}
+      <div className="flex flex-col gap-4">
+        {layers.map((layer, i) => {
+          const cfg = layerTagColors[layer.tag] ?? layerTagColors.raw;
+          return (
+            <div key={i} className={`rounded-xl border ${cfg.border} ${cfg.bg} overflow-hidden`}>
+              <div className="flex items-center gap-3 border-b border-[var(--border-5)] px-5 py-3">
+                <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${cfg.dot}`} />
+                <span className={`font-mono text-[10px] tracking-[0.2em] uppercase ${cfg.text}`}>
+                  {layer.tag}
+                </span>
+                <span className="font-mono text-[12px] font-semibold text-[var(--fg-55)]">
+                  {layer.name}
+                </span>
+              </div>
+              <div className="px-5 py-3">
+                <p className="mb-3 text-[13px] leading-relaxed text-[var(--fg-35)]">{layer.description}</p>
+                <div className="flex flex-col gap-2">
+                  {layer.models.map((model, j) => (
+                    <div key={j} className="flex items-start gap-3">
+                      <code className="mt-[1px] shrink-0 rounded-md border border-[var(--border-7)] bg-[var(--surface-2)] px-2 py-0.5 font-mono text-[11px] text-[var(--fg-45)]">
+                        {model.name}
+                      </code>
+                      <span className="text-[12px] leading-relaxed text-[var(--fg-30)]">{model.description}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+const priorityColors: Record<string, { dot: string; label: string }> = {
+  high: { dot: "bg-amber-400/70", label: "text-amber-400/60" },
+  medium: { dot: "bg-indigo-400/60", label: "text-indigo-400/50" },
+  low: { dot: "bg-[var(--fg-20)]", label: "text-[var(--fg-25)]" },
+};
+
+function FutureContent({ items }: { items: { title: string; description: string; priority?: "high" | "medium" | "low" }[] }) {
+  return (
+    <div className="flex flex-col gap-3">
+      {items.map((item, i) => {
+        const p = item.priority ? priorityColors[item.priority] : priorityColors.low;
+        return (
+          <div
+            key={i}
+            className="rounded-xl border border-[var(--border-7)] bg-[var(--surface-2)] px-5 py-4"
+          >
+            <div className="mb-2 flex items-center gap-2">
+              <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${p.dot}`} />
+              <span className={`font-mono text-[10px] tracking-[0.15em] uppercase ${p.label}`}>
+                {item.priority ?? "roadmap"}
+              </span>
+            </div>
+            <div className="text-[13px] font-semibold tracking-[-0.01em] text-[var(--fg-65)]">
+              {item.title}
+            </div>
+            <div className="mt-2 text-[13px] leading-relaxed text-[var(--fg-38)]">{item.description}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function ImplementationContent({ steps }: { steps: { title: string; body: string }[] }) {
+  return (
+    <div className="flex flex-col gap-3">
+      {steps.map((step, i) => (
+        <div key={i} className="flex gap-4">
+          <div className="flex shrink-0 flex-col items-center gap-1">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--border-10)] bg-[var(--surface-2)] font-mono text-[10px] text-[var(--fg-35)]">
+              {i + 1}
+            </span>
+            {i < steps.length - 1 && (
+              <div className="w-px flex-1 bg-gradient-to-b from-[var(--border-10)] to-transparent" />
+            )}
+          </div>
+          <div className="pb-4">
+            <div className="text-[13px] font-semibold tracking-[-0.01em] text-[var(--fg-65)]">
+              {step.title}
+            </div>
+            <div className="mt-1.5 text-[13px] leading-relaxed text-[var(--fg-38)]">{step.body}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function renderContent(content: SectionContent) {
   switch (content.type) {
     case "prose":
@@ -178,6 +307,12 @@ function renderContent(content: SectionContent) {
       return <ResultsContent items={content.items} />;
     case "lessons":
       return <LessonsContent items={content.items} />;
+    case "dwh-modeling":
+      return <DwhModelingContent description={content.description} layers={content.layers} />;
+    case "future":
+      return <FutureContent items={content.items} />;
+    case "implementation":
+      return <ImplementationContent steps={content.steps} />;
   }
 }
 

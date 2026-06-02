@@ -3,7 +3,8 @@
     "home": "Inicio",
     "about": "Acerca de",
     "projects": "Proyectos",
-    "lab": "Laboratorio",
+    "labs": "Labs",
+    "expertise": "Expertise",
     "blog": "Blog"
   },
   "hero": {
@@ -236,9 +237,13 @@
         "problem": "Problema y Contexto",
         "architecture": "Arquitectura",
         "dataFlow": "Flujo de Datos",
+        "dwhModeling": "Modelado DWH",
+        "reportingLayer": "Capa de Reporting",
         "technologies": "Tecnologías",
+        "implementation": "Implementación",
         "results": "Resultados",
-        "lessons": "Lecciones Aprendidas"
+        "lessons": "Lecciones Aprendidas",
+        "futureImprovements": "Mejoras Futuras"
       },
       "gamingClubDataPlatform": {
         "overview": [
@@ -299,6 +304,158 @@
             "title": "La entrega temprana de marts acelera el feedback",
             "body": "Entregar las tablas de capa mart temprano dio a los stakeholders algo concreto sobre lo que dar feedback, mejorando considerablemente la calidad de los requisitos en iteraciones posteriores."
           }
+        ],
+        "dwhModeling": {
+          "description": "El almacén sigue una arquitectura medallón de tres capas aplicada a través de la estructura del proyecto dbt. Cada capa tiene un contrato distinto: los datos raw nunca se modifican, staging es donde ocurre la limpieza, los marts son donde vive la lógica de negocio.",
+          "layers": [
+            {
+              "name": "Raw Layer",
+              "tag": "raw",
+              "description": "Copias exactas de los datos del sistema fuente. Solo inserción, sin transformaciones, historial completo preservado. Sirve como registro de auditoría y base de reprocesamiento.",
+              "models": [
+                { "name": "raw_pos_transactions", "description": "Copia directa de registros de transacciones POS con nombres y tipos de campo originales" },
+                { "name": "raw_bookings", "description": "Eventos de reserva de sesiones exactamente como se reciben de la API del sistema de reservas" },
+                { "name": "raw_subscriptions", "description": "Eventos del ciclo de vida de suscripciones: activaciones, renovaciones, cancelaciones, expiraciones" },
+                { "name": "raw_crm_profiles", "description": "Snapshots de perfiles de clientes del CRM con historial completo de campos" }
+              ]
+            },
+            {
+              "name": "Staging Layer",
+              "tag": "stg",
+              "description": "Datos de fuentes limpios, tipados y deduplicados. Un modelo de staging por tabla fuente. La lógica de negocio está explícitamente prohibida en esta capa.",
+              "models": [
+                { "name": "stg_payments", "description": "Registros de pago tipados con nulos manejados, moneda normalizada, duplicados eliminados" },
+                { "name": "stg_sessions", "description": "Eventos de sesión normalizados con duración calculada, IDs de equipos estandarizados" },
+                { "name": "stg_subscriptions", "description": "Eventos de suscripción unificados con códigos de estado consistentes y tipos de fecha" },
+                { "name": "stg_customers", "description": "Perfiles de clientes fusionados con etiquetas de segmento y atribución del canal de adquisición" }
+              ]
+            },
+            {
+              "name": "Mart Layer",
+              "tag": "mart",
+              "description": "Tablas orientadas al negocio optimizadas para consultas de reporting. KPIs agregados, lógica de atribución de ingresos y métricas de cohorte viven aquí.",
+              "models": [
+                { "name": "mart_revenue", "description": "Ingresos diarios y mensuales desglosados por categoría, método de pago y sistema fuente" },
+                { "name": "mart_sessions", "description": "Métricas de utilización horaria, tasas de asignación de equipos, indicadores de períodos pico" },
+                { "name": "mart_subscriptions", "description": "Conteos de suscriptores activos, tasas de churn, pipeline de renovaciones y seguimiento de MRR" },
+                { "name": "mart_customers", "description": "Segmentos de clientes, estimaciones de LTV, cohortes de adquisición y puntuaciones de engagement" }
+              ]
+            }
+          ]
+        },
+        "reportingLayer": {
+          "streams": [
+            { "name": "Resumen Ejecutivo Diario", "desc": "Dashboard de gestión en una página con ingresos de ayer, sesiones activas y recuento de suscriptores frente a períodos anteriores. Entregado como email programado de Metabase a las 8am." },
+            { "name": "Analytics de Ingresos", "desc": "Mezcla de métodos de pago, desglose de ingresos por categoría (sesiones vs. suscripciones vs. merchandising), líneas de tendencia y desviación diaria de medias semanales." },
+            { "name": "Utilización de Sesiones", "desc": "Asignación de equipos por hora del día, mapa de calor de utilización de asientos, identificación de períodos pico y análisis de capacidad disponible para planificación operativa." },
+            { "name": "Salud de Suscripciones", "desc": "Conteos de suscriptores activos, pipeline de renovaciones para los próximos 30 días, señales de churn de engagement decreciente y tendencia de MRR con desglose por cohorte." }
+          ]
+        },
+        "futureImprovements": [
+          {
+            "title": "Migración a ClickHouse",
+            "description": "Mover cargas de trabajo de consultas analíticas de PostgreSQL a ClickHouse. Las agregaciones en milisegundos sobre grandes series temporales desbloquearán dashboards operativos en tiempo real que PostgreSQL no puede servir a escala.",
+            "priority": "high"
+          },
+          {
+            "title": "Pipeline de Streaming en Tiempo Real",
+            "description": "Agregar una capa de streaming basada en Kafka junto al pipeline batch nocturno. Flujos de datos prioritarios: eventos de pago y eventos de apertura/cierre de sesiones. Habilita monitoreo de utilización en vivo y visibilidad de ingresos instantánea.",
+            "priority": "high"
+          },
+          {
+            "title": "Capa de Analytics con IA",
+            "description": "Exponer la capa semántica dbt mediante una interfaz en lenguaje natural potenciada por Claude. Consultas de autoservicio para dirección — '¿qué impulsó el crecimiento de ingresos la semana pasada?' — sin SQL ni informes predefinidos.",
+            "priority": "medium"
+          },
+          {
+            "title": "Semantic Layer API",
+            "description": "Formalizar las definiciones de métricas como API programática usando dbt metrics o Cube.dev. Permite el consumo consistente de métricas en Metabase, futuros agentes IA y cualquier aplicación downstream.",
+            "priority": "medium"
+          }
+        ]
+      }
+    }
+  },
+  "labsPage": {
+    "label": "Analytics Labs",
+    "heading": "Los Labs",
+    "description": "Un espacio de investigación creciente para experimentos en ingeniería de datos, analytics con IA y sistemas autónomos.",
+    "comingSoon": "Próximamente",
+    "comingSoonSub": "Los experimentos e investigaciones en esta categoría están siendo planificados.",
+    "categories": {
+      "dataEngineering": {
+        "label": "Data Engineering",
+        "description": "Arquitectura de pipelines, experimentos con lakehouse e investigación de formatos de almacenamiento."
+      },
+      "aiAnalytics": {
+        "label": "AI Analytics",
+        "description": "Razonamiento LLM sobre datos estructurados, agentes de reporting autónomos y experimentos con capas semánticas."
+      },
+      "sportsAnalytics": {
+        "label": "Sports Analytics",
+        "description": "Modelado de rendimiento, análisis de streams de eventos y sistemas predictivos para deportes competitivos."
+      },
+      "research": {
+        "label": "Investigación",
+        "description": "Análisis profundo de patrones emergentes en infraestructura de datos y trade-offs arquitectónicos."
+      },
+      "experiments": {
+        "label": "Experimentos",
+        "description": "Prototipos de ciclo corto e implementaciones de prueba de concepto."
+      }
+    }
+  },
+  "expertisePage": {
+    "label": "Capacidades de Ingeniería",
+    "heading": "Expertise",
+    "description": "Una vista estructurada de las capacidades de ingeniería detrás de los sistemas que construyo.",
+    "domains": {
+      "dataEngineering": {
+        "label": "Data Engineering",
+        "description": "Construyendo pipelines confiables y escalables que mueven y transforman datos con calidad de producción.",
+        "capabilities": [
+          "Diseño de pipelines batch y orquestación con Apache Airflow",
+          "Arquitectura de streaming en tiempo real con Apache Kafka",
+          "Extracción, transformación y carga con Python",
+          "Diseño de data lake y lakehouse con Apache Iceberg y Delta Lake",
+          "Implementación de patrones ELT y programación",
+          "Estrategias de evolución de esquemas y confiabilidad de pipelines"
+        ]
+      },
+      "analyticsEngineering": {
+        "label": "Analytics Engineering",
+        "description": "Convirtiendo el output de pipelines en activos analíticos confiables y gobernados.",
+        "capabilities": [
+          "Modelado dbt en capas raw, staging y mart",
+          "Definiciones de métricas como código con contratos de datos",
+          "Gobernanza de lógica de negocio y estrategias de testing",
+          "Diseño de capa semántica para acceso gobernado a métricas",
+          "Implementación de framework de calidad de datos",
+          "Desarrollo documentation-driven con dbt docs"
+        ]
+      },
+      "dataPlatforms": {
+        "label": "Data Platforms",
+        "description": "Diseñando y operando la capa de infraestructura de la que todo lo demás depende.",
+        "capabilities": [
+          "Arquitectura y optimización de data warehouse PostgreSQL",
+          "Diseño OLAP en ClickHouse para consultas analíticas en milisegundos",
+          "Diseño de esquemas multicapa y estrategias de indexación",
+          "Confiabilidad de plataforma, monitoreo y alertas",
+          "Selección de formatos de almacenamiento y análisis de trade-offs",
+          "Optimización de costos y rendimiento para cargas de trabajo analíticas"
+        ]
+      },
+      "aiSystems": {
+        "label": "AI Systems",
+        "description": "Construyendo flujos de trabajo IA que razonan sobre datos gobernados y cierran el ciclo de retroalimentación autónomamente.",
+        "capabilities": [
+          "Razonamiento LLM sobre datos estructurados mediante capas semánticas",
+          "Retrieval-Augmented Generation para contexto analítico",
+          "Agentes de analytics autónomos con LangChain",
+          "Integración de Claude API para interfaces de datos en lenguaje natural",
+          "Automatización de detección de anomalías y monitoreo de KPIs",
+          "Sistemas de decision intelligence que eliminan el reporting manual"
         ]
       }
     }
