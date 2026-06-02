@@ -5,30 +5,38 @@ import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { FadeIn } from "@/components/motion/FadeIn";
 
-interface TechItem {
-  name: string;
-  category: "data" | "ai" | "orchestration";
+interface TechGroup {
+  key: "dataEng" | "lakehouse" | "ai" | "analytics";
+  items: string[];
+  color: string;
+  dot: string;
 }
 
-const techStack: TechItem[] = [
-  { name: "PostgreSQL",     category: "data" },
-  { name: "ClickHouse",     category: "data" },
-  { name: "DuckDB",         category: "data" },
-  { name: "Apache Iceberg", category: "data" },
-  { name: "S3",             category: "data" },
-  { name: "Airflow",        category: "orchestration" },
-  { name: "dbt",            category: "orchestration" },
-  { name: "Kafka",          category: "orchestration" },
-  { name: "OpenAI",         category: "ai" },
-  { name: "Claude",         category: "ai" },
-  { name: "LangChain",      category: "ai" },
-  { name: "RAG",            category: "ai" },
-];
-
-const groups: { key: "data" | "ai" | "orchestration"; color: string; dot: string }[] = [
-  { key: "data",          color: "text-[var(--fg-50)] border-[var(--border)] bg-[var(--surface-2)]",     dot: "bg-[var(--fg-30)]" },
-  { key: "orchestration", color: "text-amber-400/70 border-amber-400/[0.15] bg-amber-400/[0.04]",         dot: "bg-amber-400/70" },
-  { key: "ai",            color: "text-indigo-400/80 border-indigo-400/[0.2] bg-indigo-400/[0.05]",       dot: "bg-indigo-400" },
+const techGroups: TechGroup[] = [
+  {
+    key: "dataEng",
+    items: ["PostgreSQL", "ClickHouse", "Airflow", "dbt", "Kafka"],
+    color: "text-[var(--fg-50)] border-[var(--border)] bg-[var(--surface-2)]",
+    dot: "bg-[var(--fg-30)]",
+  },
+  {
+    key: "lakehouse",
+    items: ["S3", "Apache Iceberg", "DuckDB", "Parquet"],
+    color: "text-cyan-400/70 border-cyan-400/[0.15] bg-cyan-400/[0.04]",
+    dot: "bg-cyan-400/70",
+  },
+  {
+    key: "ai",
+    items: ["OpenAI", "Claude", "LangChain", "RAG"],
+    color: "text-indigo-400/80 border-indigo-400/[0.2] bg-indigo-400/[0.05]",
+    dot: "bg-indigo-400",
+  },
+  {
+    key: "analytics",
+    items: ["Metabase", "Power BI"],
+    color: "text-amber-400/70 border-amber-400/[0.15] bg-amber-400/[0.04]",
+    dot: "bg-amber-400/70",
+  },
 ];
 
 interface TechStackProps {
@@ -36,7 +44,12 @@ interface TechStackProps {
     label: string;
     heading: string;
     description: string;
-    categories: { data: string; ai: string; orchestration: string };
+    categories: {
+      dataEng: string;
+      lakehouse: string;
+      ai: string;
+      analytics: string;
+    };
   };
 }
 
@@ -60,41 +73,39 @@ export function TechStack({ t }: TechStackProps) {
               <p className="text-[15px] leading-relaxed text-[var(--fg-40)]">{t.description}</p>
             </div>
 
-            {/* Grouped rows */}
+            {/* Groups */}
             <div className="flex flex-col gap-8">
-              {groups.map(({ key, color, dot }, gi) => {
-                const items = techStack.filter((t) => t.category === key);
-                return (
-                  <div key={key} className="flex flex-col gap-3">
-                    {/* Category label */}
-                    <div className="flex items-center gap-2">
-                      <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
-                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[var(--fg-25)]">
-                        {t.categories[key]}
-                      </span>
-                    </div>
-                    {/* Items */}
-                    <div className="flex flex-wrap gap-2">
-                      {items.map((tech, i) => (
-                        <motion.span
-                          key={tech.name}
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true, margin: "-40px" }}
-                          transition={{
-                            duration: 0.4,
-                            ease: [0.22, 1, 0.36, 1],
-                            delay: gi * 0.04 + i * 0.04,
-                          }}
-                          className={`inline-flex rounded-lg border px-3.5 py-1.5 font-mono text-[13px] font-medium transition-colors duration-200 hover:brightness-125 ${color}`}
-                        >
-                          {tech.name}
-                        </motion.span>
-                      ))}
-                    </div>
+              {techGroups.map(({ key, items, color, dot }, gi) => (
+                <div key={key} className="flex flex-col gap-3">
+                  {/* Category label */}
+                  <div className="flex items-center gap-2">
+                    <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
+                    <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[var(--fg-25)]">
+                      {t.categories[key]}
+                    </span>
                   </div>
-                );
-              })}
+
+                  {/* Tech pills */}
+                  <div className="flex flex-wrap gap-2">
+                    {items.map((name, i) => (
+                      <motion.span
+                        key={name}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true, margin: "-40px" }}
+                        transition={{
+                          duration: 0.4,
+                          ease: [0.22, 1, 0.36, 1],
+                          delay: gi * 0.04 + i * 0.04,
+                        }}
+                        className={`inline-flex rounded-lg border px-3.5 py-1.5 font-mono text-[13px] font-medium transition-colors duration-200 hover:brightness-125 ${color}`}
+                      >
+                        {name}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </FadeIn>
