@@ -5,25 +5,24 @@ import { ArrowLeft, ExternalLink, GitBranch, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { type ProjectCardData } from "@/data/projects";
 import { Container } from "@/components/layout/Container";
+import { ArchitectureDiagram, type DiagramNode } from "@/components/projects/ArchitectureDiagram";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const statusStyle: Record<string, { dot: string; label: string }> = {
-  live: {
-    dot: "bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.7)]",
-    label: "text-emerald-400/80",
-  },
-  "in-progress": {
-    dot: "bg-amber-400 shadow-[0_0_6px_rgba(251,191,36,0.6)]",
-    label: "text-amber-400/80",
-  },
+  live: { dot: "bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.7)]", label: "text-emerald-400/80" },
+  production: { dot: "bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.7)]", label: "text-emerald-400/80" },
+  "in-progress": { dot: "bg-amber-400 shadow-[0_0_6px_rgba(251,191,36,0.6)]", label: "text-amber-400/80" },
+  "active-development": { dot: "bg-amber-400 shadow-[0_0_6px_rgba(251,191,36,0.6)]", label: "text-amber-400/80" },
+  research: { dot: "bg-violet-400 shadow-[0_0_6px_rgba(167,139,250,0.55)]", label: "text-violet-400/80" },
   planned: { dot: "bg-[var(--fg-20)]", label: "text-[var(--fg-35)]" },
+  concept: { dot: "bg-[var(--fg-20)]", label: "text-[var(--fg-35)]" },
 };
 
 export type SectionContent =
   | { type: "prose"; paragraphs: string[] }
   | { type: "challenges"; context?: string; items: string[] }
-  | { type: "architecture"; description?: string; layers: { label: string; detail: string }[] }
+  | { type: "architecture"; description?: string; layers: { label: string; detail: string }[]; diagram?: DiagramNode[] }
   | { type: "dataflows"; streams: { name: string; desc: string }[] }
   | { type: "results"; items: string[] }
   | { type: "lessons"; items: { title: string; body: string }[] };
@@ -78,34 +77,40 @@ function ChallengesContent({ context, items }: { context?: string; items: string
 function ArchitectureContent({
   description,
   layers,
+  diagram,
 }: {
   description?: string;
   layers: { label: string; detail: string }[];
+  diagram?: DiagramNode[];
 }) {
   return (
     <div className="flex flex-col gap-5">
       {description && (
-        <p className="text-[14px] leading-relaxed text-[var(--fg-45)]">{description}</p>
+        <p className="text-[14px] leading-relaxed text-[var(--fg-40)]">{description}</p>
       )}
-      <div className="flex flex-col">
-        {layers.map((layer, i) => (
-          <div key={i} className="flex flex-col items-stretch">
-            <div className="rounded-xl border border-[var(--border-7)] bg-[var(--surface-2)] px-5 py-4">
-              <div className="text-[14px] font-semibold tracking-[-0.01em] text-[var(--fg-70)]">
-                {layer.label}
+      {diagram ? (
+        <ArchitectureDiagram nodes={diagram} />
+      ) : (
+        <div className="flex flex-col">
+          {layers.map((layer, i) => (
+            <div key={i} className="flex flex-col items-stretch">
+              <div className="rounded-xl border border-[var(--border-7)] bg-[var(--surface-2)] px-5 py-4">
+                <div className="text-[14px] font-semibold tracking-[-0.01em] text-[var(--fg-70)]">
+                  {layer.label}
+                </div>
+                <div className="mt-1 font-mono text-[11px] tracking-wide text-[var(--fg-25)]">
+                  {layer.detail}
+                </div>
               </div>
-              <div className="mt-1 font-mono text-[11px] tracking-wide text-[var(--fg-25)]">
-                {layer.detail}
-              </div>
+              {i < layers.length - 1 && (
+                <div className="flex justify-center py-1">
+                  <ChevronDown size={14} className="text-[var(--fg-20)]" />
+                </div>
+              )}
             </div>
-            {i < layers.length - 1 && (
-              <div className="flex justify-center py-1">
-                <ChevronDown size={14} className="text-[var(--fg-20)]" />
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -166,7 +171,7 @@ function renderContent(content: SectionContent) {
     case "challenges":
       return <ChallengesContent context={content.context} items={content.items} />;
     case "architecture":
-      return <ArchitectureContent description={content.description} layers={content.layers} />;
+      return <ArchitectureContent description={content.description} layers={content.layers} diagram={content.diagram} />;
     case "dataflows":
       return <DataflowsContent streams={content.streams} />;
     case "results":

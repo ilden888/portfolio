@@ -47,13 +47,14 @@ const categoryStyle: Record<
   },
 };
 
-const statusStyle: Record<
-  string,
-  { dot: string; label: string }
-> = {
+const statusStyle: Record<string, { dot: string; label: string }> = {
   live: { dot: "bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.7)]", label: "text-emerald-400/80" },
+  production: { dot: "bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.7)]", label: "text-emerald-400/80" },
   "in-progress": { dot: "bg-amber-400 shadow-[0_0_6px_rgba(251,191,36,0.6)]", label: "text-amber-400/80" },
+  "active-development": { dot: "bg-amber-400 shadow-[0_0_6px_rgba(251,191,36,0.6)]", label: "text-amber-400/80" },
+  research: { dot: "bg-violet-400 shadow-[0_0_6px_rgba(167,139,250,0.55)]", label: "text-violet-400/80" },
   planned: { dot: "bg-[var(--fg-20)]", label: "text-[var(--fg-35)]" },
+  concept: { dot: "bg-[var(--fg-20)]", label: "text-[var(--fg-35)]" },
 };
 
 interface ProjectCardProps {

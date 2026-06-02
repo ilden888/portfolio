@@ -34,6 +34,7 @@ export default async function AboutPage({ params }: PageProps) {
     role: t("background.role"),
     focusLabel: t("background.focusLabel"),
     focus: [0, 1, 2, 3].map((i) => t(`background.focus.${i}`)),
+    story: t("background.story"),
   };
 
   const evolution = {

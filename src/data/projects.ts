@@ -1,4 +1,11 @@
-export type ProjectStatus = "live" | "in-progress" | "planned";
+export type ProjectStatus =
+  | "live"
+  | "in-progress"
+  | "planned"
+  | "production"
+  | "active-development"
+  | "research"
+  | "concept";
 export type ProjectCategory =
   | "ai-agent"
   | "data-platform"
@@ -35,7 +42,7 @@ export const projects: ProjectDefinition[] = [
   {
     slug: "gaming-club-data-platform",
     category: "data-platform",
-    status: "in-progress",
+    status: "active-development",
     tags: ["PostgreSQL", "ClickHouse", "Airflow", "dbt", "Metabase", "Python"],
     featured: true,
     copyKey: "gamingClubDataPlatform",
@@ -43,7 +50,7 @@ export const projects: ProjectDefinition[] = [
   {
     slug: "ai-analytics-assistant",
     category: "ai-agent",
-    status: "in-progress",
+    status: "active-development",
     tags: ["RAG", "LangChain", "Claude", "ClickHouse"],
     featured: true,
     copyKey: "aiAnalyticsAssistant",
@@ -51,7 +58,7 @@ export const projects: ProjectDefinition[] = [
   {
     slug: "tournament-intelligence",
     category: "realtime",
-    status: "planned",
+    status: "concept",
     tags: ["Kafka", "PostgreSQL", "OpenAI"],
     featured: true,
     copyKey: "tournamentIntelligence",
@@ -59,7 +66,7 @@ export const projects: ProjectDefinition[] = [
   {
     slug: "sports-analytics",
     category: "analytics",
-    status: "planned",
+    status: "concept",
     tags: ["DuckDB", "Parquet", "Claude"],
     featured: true,
     copyKey: "sportsAnalytics",
@@ -67,7 +74,7 @@ export const projects: ProjectDefinition[] = [
   {
     slug: "iss-analytics",
     category: "telemetry",
-    status: "planned",
+    status: "research",
     tags: ["Iceberg", "S3", "Kafka"],
     featured: true,
     copyKey: "issAnalytics",

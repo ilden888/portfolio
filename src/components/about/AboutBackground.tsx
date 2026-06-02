@@ -42,6 +42,7 @@ interface AboutBackgroundProps {
     role: string;
     focusLabel: string;
     focus: string[];
+    story?: string;
   };
 }
 
@@ -53,6 +54,18 @@ export function AboutBackground({ t }: AboutBackgroundProps) {
           <span className="mb-14 block font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--fg-25)]">
             {t.label}
           </span>
+
+          {t.story && (
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.65, ease }}
+              className="mb-12 max-w-[700px] border-l-2 border-indigo-500/25 pl-5 text-[15px] leading-relaxed text-[var(--fg-40)]"
+            >
+              {t.story}
+            </motion.p>
+          )}
 
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
             {/* Current Role Card */}

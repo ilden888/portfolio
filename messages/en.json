@@ -131,7 +131,8 @@
       "company": "True Gamers",
       "role": "Data Analyst",
       "focusLabel": "Focus Areas",
-      "focus": ["Analytics", "Data Engineering", "Automation", "Business Intelligence"]
+      "focus": ["Analytics", "Data Engineering", "Automation", "Business Intelligence"],
+      "story": "Started as a data analyst — learning what real business questions look like when they arrive as a Slack message at 9am. One thing became obvious quickly: analysis is rarely the bottleneck. The data infrastructure underneath almost always is. I began rebuilding it — writing the pipelines, modeling the logic, automating the reports. The shift from analyst to platform engineer wasn't planned. It was the natural answer to a problem that kept repeating."
     },
     "evolution": {
       "label": "Career Evolution",
@@ -189,8 +190,12 @@
     "filterResearch": "Research",
     "statuses": {
       "live": "Live",
-      "in-progress": "In progress",
-      "planned": "Planned"
+      "in-progress": "In Progress",
+      "planned": "Planned",
+      "production": "Production",
+      "active-development": "Active Dev",
+      "research": "Research",
+      "concept": "Concept"
     },
     "categories": {
       "ai-agent": "AI Workflow",
