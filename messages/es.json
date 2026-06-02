@@ -1,0 +1,177 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "projects": "Proyectos",
+    "lab": "Laboratorio",
+    "blog": "Blog"
+  },
+  "hero": {
+    "label": "Ingeniero de Plataformas de Datos AI-Native",
+    "title": "Denis IL",
+    "subtitle": "Construyo sistemas analíticos AI-native —\ndesde plataformas de datos escalables\nhasta agentes IA autónomos.",
+    "cta": "Ver Trabajo",
+    "ctaSecondary": "Sobre Mí"
+  },
+  "about": {
+    "label": "Acerca de",
+    "statement": "Diseño sistemas de datos donde la IA toma decisiones, no solo las muestra.",
+    "description": "Con foco en AI-native BI, construyo infraestructura analítica completa — desde ingesta de datos hasta capas semánticas que los LLMs razonan.",
+    "expertise": ["AI-native BI", "Arquitectura DWH", "Ingeniería Analítica", "Workflows LLM", "Agentes Autónomos"]
+  },
+  "aboutPage": {
+    "title": "Denis IL",
+    "role": "Ingeniero de Plataformas de Datos AI-Native",
+    "bio": "Soy un ingeniero de datos y arquitecto de sistemas IA especializado en infraestructura analítica AI-native. Mi trabajo está en la intersección de la ingeniería de datos, el modelado semántico y los sistemas LLM — construyendo plataformas donde la IA razona sobre los datos.",
+    "whatIDo": {
+      "label": "Qué Construyo",
+      "items": [
+        { "title": "Sistemas Analíticos AI-Native", "description": "Pipelines end-to-end desde ingesta hasta capas de razonamiento LLM y agentes de informes autónomos." },
+        { "title": "Arquitectura de Data Warehouse", "description": "Diseño DWH escalable con ClickHouse, PostgreSQL, Apache Iceberg — para cargas BI y IA." },
+        { "title": "Capas Semánticas de Datos", "description": "Modelos semánticos estructurados que permiten a los LLMs consultar datos de negocio sin alucinaciones." },
+        { "title": "Ingeniería Analítica", "description": "Pipelines de transformación dbt, marcos de calidad de datos y capas de métricas gobernadas." },
+        { "title": "Workflows IA Autónomos", "description": "Agentes LangChain y Claude que monitorean KPIs, detectan anomalías y generan insights autónomamente." }
+      ]
+    },
+    "approach": {
+      "label": "Enfoque",
+      "heading": "Cómo pienso sobre los datos",
+      "text": "La mayoría de las herramientas BI responden preguntas que los humanos ya saben hacer. Yo construyo sistemas que encuentran las preguntas — y las responden — antes de que alguien piense en hacerlas.",
+      "principles": [
+        { "title": "AI-first, no AI-added", "description": "Las decisiones de arquitectura se toman pensando en razonamiento LLM desde el primer día." },
+        { "title": "Semántico sobre ad-hoc", "description": "Una capa semántica bien definida supera a mil consultas SQL ad-hoc." },
+        { "title": "Autonomía sobre automatización", "description": "El objetivo no es automatizar dashboards, sino eliminar al humano del ciclo de retroalimentación." }
+      ]
+    },
+    "availability": {
+      "label": "Disponibilidad",
+      "status": "Abierto a proyectos",
+      "description": "Disponible para proyectos de datos AI-native, consultoría y revisiones de arquitectura."
+    }
+  },
+  "philosophy": {
+    "label": "Filosofía",
+    "heading": "Más Allá del Dashboard",
+    "description": "El BI tradicional le da al humano un gráfico. El analytics AI-native cierra el ciclo — de datos crudos a decisiones autónomas.",
+    "traditional": {
+      "label": "BI Tradicional",
+      "flow": ["Datos", "Dashboard", "Decisión Humana"]
+    },
+    "ainative": {
+      "label": "BI AI-Native",
+      "flow": ["Datos", "DWH", "Capa Semántica", "Agente IA", "Decisión"]
+    }
+  },
+  "projects": {
+    "label": "Trabajo Seleccionado",
+    "heading": "Proyectos",
+    "description": "Casos de estudio en analytics AI-native, arquitectura de plataformas de datos y sistemas autónomos.",
+    "comingSoon": "Próximamente",
+    "viewAll": "Ver Todos",
+    "filterAll": "Todos",
+    "filterAiAgent": "Agente IA",
+    "filterDataPlatform": "Data Platform",
+    "filterRealtime": "Real-time",
+    "filterAnalytics": "Analytics",
+    "filterTelemetry": "Telemetría",
+    "items": [
+      {
+        "slug": "ai-analytics-assistant",
+        "title": "AI Analytics Assistant",
+        "description": "Interfaz de lenguaje natural sobre ClickHouse con contexto RAG y capa de razonamiento LLM.",
+        "tags": ["ClickHouse", "LangChain", "RAG"],
+        "category": "Agente IA"
+      },
+      {
+        "slug": "gaming-club-dwh",
+        "title": "DWH Gaming Club",
+        "description": "Data warehouse multi-fuente para red de gaming — pipelines Airflow, modelos dbt, almacenamiento ClickHouse.",
+        "tags": ["Airflow", "dbt", "ClickHouse"],
+        "category": "Data Platform"
+      },
+      {
+        "slug": "tournament-intelligence",
+        "title": "Tournament Intelligence",
+        "description": "Plataforma analytics real-time para torneos esports. Kafka, agregación en vivo, comentarios IA.",
+        "tags": ["Kafka", "PostgreSQL", "OpenAI"],
+        "category": "Analytics Real-time"
+      },
+      {
+        "slug": "sports-analytics-lab",
+        "title": "Sports Analytics Lab",
+        "description": "Modelado de rendimiento y analytics predictivo con datos históricos de partidos.",
+        "tags": ["DuckDB", "dbt", "Claude"],
+        "category": "Analytics"
+      },
+      {
+        "slug": "iss-telemetry-analytics",
+        "title": "ISS Telemetry Analytics",
+        "description": "Pipeline de telemetría y detección de anomalías para sensores de la estación orbital.",
+        "tags": ["Kafka", "Iceberg", "S3"],
+        "category": "Telemetría"
+      }
+    ]
+  },
+  "stack": {
+    "label": "Tecnología",
+    "heading": "El Stack",
+    "description": "Infraestructura de datos completa — desde pipelines hasta capas de inferencia IA.",
+    "categories": {
+      "data": "Infraestructura de Datos",
+      "ai": "IA / LLM",
+      "orchestration": "Orquestación"
+    }
+  },
+  "labs": {
+    "label": "Analytics Labs",
+    "heading": "El Lab",
+    "description": "Experimentos en analytics autónomo, modelos semánticos e informes AI-native.",
+    "items": [
+      {
+        "slug": "semantic-sql-layer",
+        "title": "Capa SQL Semántica",
+        "description": "Enseñar a los LLMs a consultar DWHs mediante capa semántica estructurada en lugar de SQL crudo.",
+        "longDescription": "Los LLMs razonan muy bien sobre datos estructurados con la abstracción correcta. Este experimento construye una capa semántica que mapea conceptos de negocio a SQL, permitiendo a Claude generar consultas confiables sin alucinaciones.",
+        "tag": "Investigación",
+        "tags": ["LLM", "SQL", "DWH", "Semántica"]
+      },
+      {
+        "slug": "autonomous-report-agent",
+        "title": "Agente de Informes Autónomo",
+        "description": "Agente que monitorea desviaciones KPI y genera resúmenes ejecutivos sin intervención humana.",
+        "longDescription": "Agente LangChain que se ejecuta según horario, consulta el DWH para detectar desviaciones KPI, evalúa su importancia y escribe un resumen ejecutivo con hipótesis de causas raíz.",
+        "tag": "Prototipo",
+        "tags": ["Claude", "LangChain", "KPI", "Alertas"]
+      },
+      {
+        "slug": "vector-dwh-index",
+        "title": "Índice Vectorial DWH",
+        "description": "Embeber métricas de negocio en espacio vectorial para búsqueda semántica y clustering de anomalías.",
+        "longDescription": "¿Qué pasaría si pudieras encontrar situaciones de negocio similares del pasado sin escribir una consulta? Este experimento embebe métricas agregadas como vectores en ClickHouse.",
+        "tag": "Experimento",
+        "tags": ["Embeddings", "ClickHouse", "Anomalías"]
+      }
+    ]
+  },
+  "focus": {
+    "label": "Ahora",
+    "heading": "Enfoque Actual",
+    "items": [
+      "Construyendo agentes analytics autónomos con Claude + LangChain",
+      "Diseñando capas semánticas para BI nativo en LLM",
+      "Explorando Apache Iceberg para arquitecturas Lakehouse"
+    ]
+  },
+  "contact": {
+    "label": "Contacto",
+    "heading": "Construyamos algo juntos.",
+    "description": "Abierto a proyectos de datos AI-native, consultoría y conversaciones de ingeniería.",
+    "email": "Escribir",
+    "linkedin": "LinkedIn"
+  },
+  "footer": {
+    "tagline": "Construyendo sistemas analíticos AI-native.",
+    "rights": "Todos los derechos reservados.",
+    "name": "Denis IL"
+  }
+}

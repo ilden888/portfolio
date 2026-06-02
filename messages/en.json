@@ -1,0 +1,177 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "lab": "Lab",
+    "blog": "Blog"
+  },
+  "hero": {
+    "label": "AI-Native Data Platform Engineer",
+    "title": "Denis IL",
+    "subtitle": "I build AI-native analytics systems —\nfrom scalable data platforms\nto autonomous AI agents.",
+    "cta": "View Work",
+    "ctaSecondary": "About Me"
+  },
+  "about": {
+    "label": "About",
+    "statement": "I engineer data systems where AI drives decisions, not just displays them.",
+    "description": "With a focus on AI-native BI, I design end-to-end analytics infrastructure — from raw data ingestion to semantic layers that LLMs reason over.",
+    "expertise": ["AI-native BI", "DWH Architecture", "Analytics Engineering", "LLM Workflows", "Autonomous Agents"]
+  },
+  "aboutPage": {
+    "title": "Denis IL",
+    "role": "AI-Native Data Platform Engineer",
+    "bio": "I'm a data engineer and AI systems architect specialising in AI-native analytics infrastructure. My work sits at the intersection of data engineering, semantic modelling, and LLM systems — building platforms where AI reasons over data, not just visualises it.",
+    "whatIDo": {
+      "label": "What I Build",
+      "items": [
+        { "title": "AI-Native Analytics Systems", "description": "End-to-end pipelines from raw ingestion to LLM reasoning layers and autonomous reporting agents." },
+        { "title": "Data Warehouse Architecture", "description": "Scalable DWH design with ClickHouse, PostgreSQL, Apache Iceberg — built for both BI and AI workloads." },
+        { "title": "Semantic Data Layers", "description": "Structured semantic models that enable LLMs to query business data reliably without hallucinating SQL." },
+        { "title": "Analytics Engineering", "description": "dbt-based transformation pipelines, data quality frameworks, and governed metric layers." },
+        { "title": "Autonomous AI Workflows", "description": "LangChain and Claude-powered agents that monitor KPIs, detect anomalies, and generate insights autonomously." }
+      ]
+    },
+    "approach": {
+      "label": "Approach",
+      "heading": "How I think about data",
+      "text": "Most BI tools are built to answer questions humans already know to ask. I build systems that find the questions — and answer them — before anyone thinks to look.",
+      "principles": [
+        { "title": "AI-first, not AI-added", "description": "Architecture decisions are made with LLM reasoning in mind from day one, not retrofitted later." },
+        { "title": "Semantic over ad-hoc", "description": "A well-defined semantic layer beats a thousand ad-hoc SQL queries every time." },
+        { "title": "Autonomy over automation", "description": "The goal isn't to automate dashboards. It's to remove the human from the feedback loop entirely." }
+      ]
+    },
+    "availability": {
+      "label": "Availability",
+      "status": "Open to projects",
+      "description": "Available for AI-native data projects, consulting, and architecture reviews."
+    }
+  },
+  "philosophy": {
+    "label": "Philosophy",
+    "heading": "Beyond the Dashboard",
+    "description": "Traditional BI gives humans a chart. AI-native analytics closes the loop — from raw data to autonomous decisions.",
+    "traditional": {
+      "label": "Traditional BI",
+      "flow": ["Data", "Dashboard", "Human Decision"]
+    },
+    "ainative": {
+      "label": "AI-Native BI",
+      "flow": ["Data", "DWH", "Semantic Layer", "AI Agent", "Decision"]
+    }
+  },
+  "projects": {
+    "label": "Selected Work",
+    "heading": "Projects",
+    "description": "Case studies in AI-native analytics, data platform architecture, and autonomous systems.",
+    "comingSoon": "Coming soon",
+    "viewAll": "View All Projects",
+    "filterAll": "All",
+    "filterAiAgent": "AI Agent",
+    "filterDataPlatform": "Data Platform",
+    "filterRealtime": "Real-time",
+    "filterAnalytics": "Analytics",
+    "filterTelemetry": "Telemetry",
+    "items": [
+      {
+        "slug": "ai-analytics-assistant",
+        "title": "AI Analytics Assistant",
+        "description": "Natural language interface over ClickHouse with RAG-based context and LLM reasoning layer. Users ask questions in plain English; the system queries petabytes of data and returns insights.",
+        "tags": ["ClickHouse", "LangChain", "RAG"],
+        "category": "AI Agent"
+      },
+      {
+        "slug": "gaming-club-dwh",
+        "title": "Gaming Club DWH",
+        "description": "Multi-source data warehouse for a gaming network — Airflow ingestion pipelines, dbt transformation models, ClickHouse analytical storage, and a Metabase reporting layer.",
+        "tags": ["Airflow", "dbt", "ClickHouse"],
+        "category": "Data Platform"
+      },
+      {
+        "slug": "tournament-intelligence",
+        "title": "Tournament Intelligence",
+        "description": "Real-time analytics platform for esports tournaments. Kafka-powered event stream, live stat aggregation, AI commentary generation, and per-match performance reports.",
+        "tags": ["Kafka", "PostgreSQL", "OpenAI"],
+        "category": "Real-time Analytics"
+      },
+      {
+        "slug": "sports-analytics-lab",
+        "title": "Sports Analytics Lab",
+        "description": "Player performance modelling and predictive analytics using historical match data. DuckDB for fast local exploration, Claude for narrative generation.",
+        "tags": ["DuckDB", "dbt", "Claude"],
+        "category": "Analytics"
+      },
+      {
+        "slug": "iss-telemetry-analytics",
+        "title": "ISS Telemetry Analytics",
+        "description": "Telemetry data pipeline and anomaly detection system for orbital station sensor streams. Apache Iceberg lakehouse with S3 storage and Kafka streaming ingestion.",
+        "tags": ["Kafka", "Iceberg", "S3"],
+        "category": "Telemetry"
+      }
+    ]
+  },
+  "stack": {
+    "label": "Tech Stack",
+    "heading": "The Stack",
+    "description": "End-to-end data infrastructure — from ingestion pipelines to AI inference layers.",
+    "categories": {
+      "data": "Data Infrastructure",
+      "ai": "AI / LLM Layer",
+      "orchestration": "Orchestration"
+    }
+  },
+  "labs": {
+    "label": "Analytics Labs",
+    "heading": "The Lab",
+    "description": "Experiments in autonomous analytics, semantic data models, and AI-native reporting.",
+    "items": [
+      {
+        "slug": "semantic-sql-layer",
+        "title": "Semantic SQL Layer",
+        "description": "Teaching LLMs to query DWHs through a structured semantic layer instead of raw SQL.",
+        "longDescription": "LLMs are remarkably good at reasoning over structured data — when given the right abstraction. This experiment builds a semantic layer that maps business concepts to SQL constructs, allowing Claude to generate reliable, governed queries without hallucinating column names or joining the wrong tables.",
+        "tag": "Research",
+        "tags": ["LLM", "SQL", "DWH", "Semantic Layer"]
+      },
+      {
+        "slug": "autonomous-report-agent",
+        "title": "Autonomous Report Agent",
+        "description": "Agent that monitors KPI deviations and generates executive summaries without human prompting.",
+        "longDescription": "A LangChain agent that runs on a schedule, queries the DWH for KPI deviations, decides if they're significant, and writes an executive summary with root-cause hypotheses. No human in the loop — the agent decides what to report and when.",
+        "tag": "Prototype",
+        "tags": ["Claude", "LangChain", "KPI", "Alerting"]
+      },
+      {
+        "slug": "vector-dwh-index",
+        "title": "Vector DWH Index",
+        "description": "Embedding business metrics into vector space for similarity search and anomaly clustering.",
+        "longDescription": "What if you could find similar business situations from history without writing a query? This experiment embeds aggregated metrics as vectors in ClickHouse, enabling semantic similarity search across time periods, cohorts, and segments.",
+        "tag": "Experiment",
+        "tags": ["Embeddings", "ClickHouse", "Anomaly Detection"]
+      }
+    ]
+  },
+  "focus": {
+    "label": "Now",
+    "heading": "Current Focus",
+    "items": [
+      "Building autonomous analytics agents with Claude + LangChain",
+      "Designing semantic layers for LLM-native BI",
+      "Exploring Apache Iceberg for lakehouse architectures"
+    ]
+  },
+  "contact": {
+    "label": "Contact",
+    "heading": "Let's build something.",
+    "description": "Open to AI-native data projects, consulting, and engineering conversations.",
+    "email": "Get in Touch",
+    "linkedin": "LinkedIn"
+  },
+  "footer": {
+    "tagline": "Building AI-native analytics systems.",
+    "rights": "All rights reserved.",
+    "name": "Denis IL"
+  }
+}
