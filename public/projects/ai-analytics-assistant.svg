@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="bg" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d0818"/>
+      <stop offset="100%" stop-color="#0a0a14"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="40%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(139,92,246,0.14)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <rect width="800" height="400" fill="url(#grid)"/>
+  <rect width="800" height="400" fill="url(#glow)"/>
+
+  <!-- Chat interface panel -->
+  <rect x="40" y="56" width="380" height="300" rx="8" fill="rgba(255,255,255,0.018)" stroke="rgba(139,92,246,0.16)" stroke-width="1"/>
+
+  <!-- Chat header -->
+  <rect x="40" y="56" width="380" height="38" rx="8" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.16)" stroke-width="1"/>
+  <circle cx="64" cy="75" r="9" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="64" y="79" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(196,181,253,0.9)">AI</text>
+  <text x="82" y="73" font-family="monospace" font-size="10" fill="rgba(196,181,253,0.8)">Analytics Assistant</text>
+  <text x="82" y="85" font-family="monospace" font-size="8" fill="rgba(139,92,246,0.5)">RAG · Claude · ClickHouse</text>
+  <circle cx="395" cy="75" r="4" fill="rgba(52,211,153,0.7)" filter=""/>
+
+  <!-- User message bubble -->
+  <rect x="200" y="108" width="204" height="44" rx="7" fill="rgba(139,92,246,0.12)" stroke="rgba(139,92,246,0.25)" stroke-width="1"/>
+  <text x="302" y="126" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.7)">Show top 5 venues by</text>
+  <text x="302" y="139" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.7)">revenue this month</text>
+
+  <!-- AI response bubble -->
+  <rect x="56" y="166" width="248" height="72" rx="7" fill="rgba(30,20,50,0.6)" stroke="rgba(139,92,246,0.18)" stroke-width="1"/>
+  <text x="70" y="182" font-family="monospace" font-size="8.5" fill="rgba(196,181,253,0.8)">Here are the top venues:</text>
+  <!-- mini result list -->
+  <text x="70" y="197" font-family="monospace" font-size="8" fill="rgba(139,92,246,0.7)">1.</text>
+  <text x="82" y="197" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.55)">Arena Prime  ·  ₽ 284,200</text>
+  <text x="70" y="210" font-family="monospace" font-size="8" fill="rgba(139,92,246,0.7)">2.</text>
+  <text x="82" y="210" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.55)">Pixel Hub    ·  ₽ 197,540</text>
+  <text x="70" y="223" font-family="monospace" font-size="8" fill="rgba(139,92,246,0.7)">3.</text>
+  <text x="82" y="223" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.5)">GameZone     ·  ₽ 163,880</text>
+
+  <!-- User follow-up -->
+  <rect x="200" y="252" width="204" height="32" rx="7" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.22)" stroke-width="1"/>
+  <text x="302" y="272" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.65)">Why did Arena Prime grow?</text>
+
+  <!-- AI thinking indicator -->
+  <rect x="56" y="298" width="80" height="28" rx="14" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <circle cx="76" cy="312" r="3" fill="rgba(139,92,246,0.6)"/>
+  <circle cx="90" cy="312" r="3" fill="rgba(139,92,246,0.4)"/>
+  <circle cx="104" cy="312" r="3" fill="rgba(139,92,246,0.25)"/>
+
+  <!-- Right panel: RAG architecture -->
+  <rect x="460" y="56" width="300" height="300" rx="8" fill="rgba(255,255,255,0.015)" stroke="rgba(139,92,246,0.12)" stroke-width="1"/>
+
+  <text x="476" y="84" font-family="monospace" font-size="9" fill="rgba(139,92,246,0.5)" letter-spacing="1.5">RETRIEVAL PIPELINE</text>
+
+  <!-- Query vectorization -->
+  <rect x="476" y="96" width="126" height="36" rx="5" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.25)" stroke-width="1"/>
+  <text x="539" y="113" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(196,181,253,0.8)">Query Embed</text>
+  <text x="539" y="124" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(139,92,246,0.5)">vectorize intent</text>
+
+  <line x1="539" y1="132" x2="539" y2="148" stroke="rgba(139,92,246,0.35)" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Vector search -->
+  <rect x="476" y="148" width="126" height="36" rx="5" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+  <text x="539" y="165" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(196,181,253,0.82)">Vector Search</text>
+  <text x="539" y="176" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(139,92,246,0.5)">ClickHouse · cosine</text>
+
+  <line x1="539" y1="184" x2="539" y2="200" stroke="rgba(139,92,246,0.35)" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Context assembly -->
+  <rect x="476" y="200" width="126" height="36" rx="5" fill="rgba(139,92,246,0.12)" stroke="rgba(139,92,246,0.35)" stroke-width="1"/>
+  <text x="539" y="217" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(196,181,253,0.85)">Context Build</text>
+  <text x="539" y="228" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(139,92,246,0.5)">LangChain · chunks</text>
+
+  <line x1="539" y1="236" x2="539" y2="252" stroke="rgba(139,92,246,0.35)" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Claude generation -->
+  <rect x="476" y="252" width="126" height="38" rx="5" fill="rgba(139,92,246,0.16)" stroke="rgba(139,92,246,0.48)" stroke-width="1.5"/>
+  <text x="539" y="269" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(196,181,253,0.92)">Claude</text>
+  <text x="539" y="281" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(167,139,250,0.65)">answer generation</text>
+
+  <!-- Stat chips right column -->
+  <rect x="618" y="96" width="120" height="34" rx="5" fill="rgba(139,92,246,0.07)" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <text x="678" y="110" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(196,181,253,0.7)">RAG pipeline</text>
+  <text x="678" y="122" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(139,92,246,0.45)">context-aware answers</text>
+
+  <rect x="618" y="148" width="120" height="34" rx="5" fill="rgba(139,92,246,0.07)" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <text x="678" y="162" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(196,181,253,0.7)">ClickHouse</text>
+  <text x="678" y="174" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(139,92,246,0.45)">vector + analytics</text>
+
+  <rect x="618" y="200" width="120" height="34" rx="5" fill="rgba(139,92,246,0.07)" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <text x="678" y="214" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(196,181,253,0.7)">LangChain</text>
+  <text x="678" y="226" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(139,92,246,0.45)">orchestration</text>
+
+  <rect x="618" y="252" width="120" height="38" rx="5" fill="rgba(139,92,246,0.07)" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <text x="678" y="267" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(196,181,253,0.7)">sub-second</text>
+  <text x="678" y="279" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(139,92,246,0.45)">response latency</text>
+
+  <!-- Bottom label -->
+  <text x="40" y="378" font-family="monospace" font-size="9" fill="rgba(139,92,246,0.35)" letter-spacing="2">AI ANALYTICS ASSISTANT · RAG · LANGCHAIN · CLAUDE</text>
+</svg>

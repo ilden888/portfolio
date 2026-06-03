@@ -93,7 +93,7 @@
     "label": "Trayectoria Profesional",
     "current": "Actualmente",
     "company": "True Gamers",
-    "role": "Data Analyst",
+    "role": "Data Platform Engineer",
     "responsibilities": [
       "Recopilación de datos y pipelines",
       "Analytics e informes",
@@ -132,7 +132,7 @@
       "label": "Experiencia Profesional",
       "current": "Actualmente",
       "company": "True Gamers",
-      "role": "Data Analyst",
+      "role": "Data Platform Engineer",
       "focusLabel": "Áreas de Enfoque",
       "focus": ["Analytics", "Data Engineering", "Automatización", "Business Intelligence"],
       "story": "Empecé como analista de datos — aprendiendo cómo se ven las preguntas de negocio reales cuando llegan como un mensaje de Slack a las 9am. Una cosa quedó clara rápidamente: el análisis raramente es el cuello de botella. La infraestructura de datos por debajo casi siempre lo es. Empecé a reconstruirla — escribiendo los pipelines, modelando la lógica, automatizando los informes. El cambio de analista a ingeniero de plataforma no fue planeado. Fue la respuesta natural a un problema que seguía repitiéndose."

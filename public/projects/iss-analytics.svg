@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030e0a"/>
+      <stop offset="100%" stop-color="#06080e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="60%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="rgba(16,185,129,0.12)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+    <radialGradient id="orbitGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(16,185,129,0.06)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <rect width="800" height="400" fill="url(#grid)"/>
+  <rect width="800" height="400" fill="url(#glow)"/>
+
+  <!-- Stars -->
+  <circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="180" cy="25" r="1.2" fill="rgba(255,255,255,0.35)"/>
+  <circle cx="350" cy="15" r="0.8" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="500" cy="32" r="1" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="650" cy="18" r="1.2" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="720" cy="38" r="0.8" fill="rgba(255,255,255,0.35)"/>
+  <circle cx="760" cy="12" r="1" fill="rgba(255,255,255,0.45)"/>
+  <circle cx="420" cy="42" r="0.8" fill="rgba(255,255,255,0.3)"/>
+
+  <!-- Orbital path (ellipse) -->
+  <ellipse cx="380" cy="210" rx="200" ry="90" fill="none" stroke="rgba(16,185,129,0.12)" stroke-width="1" stroke-dasharray="6,5"/>
+
+  <!-- Earth circle -->
+  <circle cx="380" cy="210" r="42" fill="rgba(6,182,212,0.07)" stroke="rgba(6,182,212,0.2)" stroke-width="1"/>
+  <text x="380" y="215" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(6,182,212,0.5)">Earth</text>
+
+  <!-- ISS node on orbit -->
+  <circle cx="560" cy="165" r="8" fill="rgba(16,185,129,0.18)" stroke="rgba(52,211,153,0.55)" stroke-width="1.5"/>
+  <text x="560" y="168" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(52,211,153,0.9)">ISS</text>
+
+  <!-- Telemetry lines from ISS -->
+  <line x1="568" y1="165" x2="618" y2="148" stroke="rgba(16,185,129,0.45)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="568" y1="170" x2="618" y2="192" stroke="rgba(16,185,129,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Telemetry stream panel (right) -->
+  <rect x="618" y="80" width="148" height="260" rx="7" fill="rgba(16,185,129,0.04)" stroke="rgba(16,185,129,0.16)" stroke-width="1"/>
+  <text x="692" y="100" text-anchor="middle" font-family="monospace" font-size="8.5" fill="rgba(52,211,153,0.55)" letter-spacing="1">TELEMETRY</text>
+
+  <!-- telemetry rows -->
+  <text x="630" y="118" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.45)">temp_ext</text>
+  <text x="726" y="118" text-anchor="end" font-family="monospace" font-size="7.5" fill="rgba(52,211,153,0.7)">-92.4°C</text>
+  <line x1="630" y1="122" x2="754" y2="122" stroke="rgba(16,185,129,0.08)" stroke-width="1"/>
+
+  <text x="630" y="136" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.42)">solar_power</text>
+  <text x="726" y="136" text-anchor="end" font-family="monospace" font-size="7.5" fill="rgba(52,211,153,0.65)">84.2 kW</text>
+  <line x1="630" y1="140" x2="754" y2="140" stroke="rgba(16,185,129,0.08)" stroke-width="1"/>
+
+  <text x="630" y="154" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.42)">o2_pressure</text>
+  <text x="726" y="154" text-anchor="end" font-family="monospace" font-size="7.5" fill="rgba(52,211,153,0.65)">14.7 psi</text>
+  <line x1="630" y1="158" x2="754" y2="158" stroke="rgba(16,185,129,0.08)" stroke-width="1"/>
+
+  <text x="630" y="172" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.4)">gyro_x</text>
+  <text x="726" y="172" text-anchor="end" font-family="monospace" font-size="7.5" fill="rgba(52,211,153,0.6)">0.0012 °/s</text>
+  <line x1="630" y1="176" x2="754" y2="176" stroke="rgba(16,185,129,0.08)" stroke-width="1"/>
+
+  <text x="630" y="190" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.38)">co2_ppm</text>
+  <text x="726" y="190" text-anchor="end" font-family="monospace" font-size="7.5" fill="rgba(52,211,153,0.55)">5,200</text>
+  <line x1="630" y1="194" x2="754" y2="194" stroke="rgba(16,185,129,0.08)" stroke-width="1"/>
+
+  <text x="630" y="208" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.35)">altitude</text>
+  <text x="726" y="208" text-anchor="end" font-family="monospace" font-size="7.5" fill="rgba(52,211,153,0.5)">408 km</text>
+  <line x1="630" y1="212" x2="754" y2="212" stroke="rgba(16,185,129,0.08)" stroke-width="1"/>
+
+  <text x="630" y="226" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.33)">velocity</text>
+  <text x="726" y="226" text-anchor="end" font-family="monospace" font-size="7.5" fill="rgba(52,211,153,0.48)">7.66 km/s</text>
+
+  <!-- Sparklines for key metrics -->
+  <text x="630" y="252" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.4)">temp trend</text>
+  <polyline points="630,272 648,268 666,274 684,265 702,270 720,262 738,258 754,254" fill="none" stroke="rgba(52,211,153,0.55)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="630" y="296" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.35)">power trend</text>
+  <polyline points="630,316 648,310 666,318 684,308 702,312 720,304 738,308 754,302" fill="none" stroke="rgba(16,185,129,0.45)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Left: pipeline labels -->
+  <text x="40" y="86" font-family="monospace" font-size="9" fill="rgba(16,185,129,0.45)" letter-spacing="1.5">TELEMETRY PIPELINE</text>
+
+  <rect x="40" y="100" width="130" height="34" rx="5" fill="rgba(16,185,129,0.07)" stroke="rgba(16,185,129,0.22)" stroke-width="1"/>
+  <text x="105" y="117" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(52,211,153,0.7)">Kafka Topics</text>
+  <text x="105" y="128" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.45)">event stream</text>
+
+  <line x1="105" y1="134" x2="105" y2="150" stroke="rgba(16,185,129,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <rect x="40" y="150" width="130" height="34" rx="5" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.25)" stroke-width="1"/>
+  <text x="105" y="167" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(52,211,153,0.72)">S3 · Iceberg</text>
+  <text x="105" y="178" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.45)">time-series store</text>
+
+  <line x1="105" y1="184" x2="105" y2="200" stroke="rgba(16,185,129,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <rect x="40" y="200" width="130" height="34" rx="5" fill="rgba(16,185,129,0.09)" stroke="rgba(16,185,129,0.28)" stroke-width="1"/>
+  <text x="105" y="217" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(52,211,153,0.75)">Anomaly Detect</text>
+  <text x="105" y="228" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.45)">alerts · thresholds</text>
+
+  <line x1="105" y1="234" x2="105" y2="250" stroke="rgba(16,185,129,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <rect x="40" y="250" width="130" height="34" rx="5" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+  <text x="105" y="267" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(52,211,153,0.78)">Analytics API</text>
+  <text x="105" y="278" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(16,185,129,0.45)">query interface</text>
+
+  <!-- Bottom label -->
+  <text x="40" y="378" font-family="monospace" font-size="9" fill="rgba(16,185,129,0.32)" letter-spacing="2">ISS ANALYTICS · ICEBERG · S3 · KAFKA · REALTIME</text>
+</svg>

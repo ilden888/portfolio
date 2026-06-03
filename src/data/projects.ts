@@ -62,6 +62,7 @@ export const projects: ProjectDefinition[] = [
     tags: ["Apache Iceberg", "dbt", "Semantic Layer", "Claude", "S3"],
     featured: true,
     featuredPriority: 1,
+    coverImage: "/projects/ai-native-analytics-platform.svg",
     copyKey: "aiNativeAnalyticsPlatform",
   },
   {
@@ -73,6 +74,7 @@ export const projects: ProjectDefinition[] = [
     tags: ["PostgreSQL", "ClickHouse", "Airflow", "dbt", "Metabase", "Python"],
     featured: true,
     featuredPriority: 2,
+    coverImage: "/projects/gaming-club-data-platform.svg",
     copyKey: "gamingClubDataPlatform",
   },
   {
@@ -83,6 +85,7 @@ export const projects: ProjectDefinition[] = [
     tags: ["RAG", "LangChain", "Claude", "ClickHouse"],
     featured: true,
     featuredPriority: 3,
+    coverImage: "/projects/ai-analytics-assistant.svg",
     copyKey: "aiAnalyticsAssistant",
   },
   {
@@ -93,6 +96,7 @@ export const projects: ProjectDefinition[] = [
     tags: ["Kafka", "PostgreSQL", "OpenAI"],
     featured: true,
     featuredPriority: 4,
+    coverImage: "/projects/tournament-intelligence.svg",
     copyKey: "tournamentIntelligence",
   },
   {
@@ -103,6 +107,7 @@ export const projects: ProjectDefinition[] = [
     tags: ["DuckDB", "Parquet", "Claude"],
     featured: true,
     featuredPriority: 5,
+    coverImage: "/projects/sports-analytics.svg",
     copyKey: "sportsAnalytics",
   },
   {
@@ -113,6 +118,7 @@ export const projects: ProjectDefinition[] = [
     tags: ["Iceberg", "S3", "Kafka"],
     featured: true,
     featuredPriority: 6,
+    coverImage: "/projects/iss-analytics.svg",
     copyKey: "issAnalytics",
   },
 ];
