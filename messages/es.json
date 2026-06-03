@@ -10,9 +10,11 @@
     "insights": "Insights"
   },
   "hero": {
-    "label": "Ingeniero de Plataformas de Datos AI-Native",
-    "title": "Denis IL",
-    "subtitle": "Construyo sistemas analíticos AI-native —\ndesde plataformas de datos escalables\nhasta agentes IA autónomos.",
+    "label": "Abierto a proyectos",
+    "greeting": "Hola, soy Denis IL,",
+    "typed": "Data Platform Engineer",
+    "rest": "que construye infraestructura\nde datos AI-native.",
+    "subtitle": "Desde lakehouses escalables hasta agentes IA autónomos.",
     "cta": "Ver Trabajo",
     "ctaSecondary": "Sobre Mí"
   },

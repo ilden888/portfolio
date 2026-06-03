@@ -10,9 +10,11 @@
     "insights": "Инсайты"
   },
   "hero": {
-    "label": "AI-Native Инженер Данных",
-    "title": "Denis IL",
-    "subtitle": "Строю AI-native аналитические системы —\nот масштабируемых data platform\nдо автономных AI агентов.",
+    "label": "Открыт к проектам",
+    "greeting": "Привет, я Денис IL,",
+    "typed": "Data Platform Engineer",
+    "rest": "строю AI-native\nинфраструктуру данных.",
+    "subtitle": "От масштабируемых лейкхаусов до автономных AI агентов.",
     "cta": "Смотреть работы",
     "ctaSecondary": "Обо мне"
   },

@@ -45,7 +45,9 @@ export default async function HomePage({ params }: PageProps) {
       <Hero
         t={{
           label: tHero("label"),
-          title: tHero("title"),
+          greeting: tHero("greeting"),
+          typed: tHero("typed"),
+          rest: tHero("rest"),
           subtitle: tHero("subtitle"),
           cta: tHero("cta"),
           ctaSecondary: tHero("ctaSecondary"),
