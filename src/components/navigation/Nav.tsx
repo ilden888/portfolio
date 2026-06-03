@@ -8,7 +8,8 @@ interface NavProps {
     projects: string;
     labs: string;
     expertise: string;
-    blog: string;
+    architectures: string;
+    roadmap: string;
   };
   locale: Locale;
   onLinkClick?: () => void;
@@ -21,11 +22,12 @@ export function Nav({ t, locale, onLinkClick }: NavProps) {
     { href: `/${locale}/projects`, label: t.projects },
     { href: `/${locale}/labs`, label: t.labs },
     { href: `/${locale}/expertise`, label: t.expertise },
-    { href: `/${locale}/blog`, label: t.blog },
+    { href: `/${locale}/architectures`, label: t.architectures },
+    { href: `/${locale}/roadmap`, label: t.roadmap },
   ];
 
   return (
-    <nav className="flex items-center gap-8">
+    <nav className="flex items-center gap-6">
       {links.map(({ href, label }) => (
         <NavLink key={href} href={href} onClick={onLinkClick}>
           {label}

@@ -15,7 +15,8 @@ interface MobileNavProps {
     projects: string;
     labs: string;
     expertise: string;
-    blog: string;
+    architectures: string;
+    roadmap: string;
   };
   locale: Locale;
 }
@@ -33,7 +34,8 @@ export function MobileNav({ t, locale }: MobileNavProps) {
     { href: `/${locale}/projects`, label: t.projects },
     { href: `/${locale}/labs`, label: t.labs },
     { href: `/${locale}/expertise`, label: t.expertise },
-    { href: `/${locale}/blog`, label: t.blog },
+    { href: `/${locale}/architectures`, label: t.architectures },
+    { href: `/${locale}/roadmap`, label: t.roadmap },
   ];
 
   return (

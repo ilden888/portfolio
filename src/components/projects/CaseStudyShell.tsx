@@ -28,7 +28,9 @@ export type SectionContent =
   | { type: "lessons"; items: { title: string; body: string }[] }
   | { type: "dwh-modeling"; description?: string; layers: { name: string; tag: string; description: string; models: { name: string; description: string }[] }[] }
   | { type: "future"; items: { title: string; description: string; priority?: "high" | "medium" | "low" }[] }
-  | { type: "implementation"; steps: { title: string; body: string }[] };
+  | { type: "implementation"; steps: { title: string; body: string }[] }
+  | { type: "kpi-streams"; description?: string; items: { name: string; desc: string }[] }
+  | { type: "comparison"; scenarioA: { label: string; description: string; problems: string[] }; scenarioB: { label: string; description: string; benefits: string[] } };
 
 export interface CaseStudySection {
   key: string;
@@ -42,6 +44,7 @@ interface CaseStudyShellProps {
   backLabel: string;
   inProgressLabel: string;
   inProgressSub: string;
+  flagshipLabel?: string;
   sections: CaseStudySection[];
 }
 
@@ -268,6 +271,76 @@ function FutureContent({ items }: { items: { title: string; description: string;
   );
 }
 
+function KpiStreamsContent({ description, items }: { description?: string; items: { name: string; desc: string }[] }) {
+  return (
+    <div className="flex flex-col gap-5">
+      {description && (
+        <p className="text-[14px] leading-relaxed text-[var(--fg-40)]">{description}</p>
+      )}
+      <div className="flex flex-col gap-3">
+        {items.map((item, i) => (
+          <div key={i} className="rounded-xl border border-[var(--border-7)] bg-[var(--surface-2)] px-5 py-4">
+            <div className="font-mono text-[12px] font-semibold tracking-wide text-[var(--fg-60)]">{item.name}</div>
+            <div className="mt-2 text-[13px] leading-relaxed text-[var(--fg-40)]">{item.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ComparisonContent({
+  scenarioA,
+  scenarioB,
+}: {
+  scenarioA: { label: string; description: string; problems: string[] };
+  scenarioB: { label: string; description: string; benefits: string[] };
+}) {
+  return (
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {/* Scenario A */}
+      <div className="flex flex-col gap-4 rounded-xl border border-rose-500/20 bg-rose-500/[0.03] px-5 py-5">
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400/60" />
+            <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-rose-400/55">Without DWH</span>
+          </div>
+          <div className="text-[13px] font-semibold tracking-[-0.01em] text-rose-300/80">{scenarioA.label}</div>
+          <div className="text-[12px] leading-relaxed text-[var(--fg-35)]">{scenarioA.description}</div>
+        </div>
+        <ul className="flex flex-col gap-2.5">
+          {scenarioA.problems.map((p, i) => (
+            <li key={i} className="flex items-start gap-2.5">
+              <span className="mt-[6px] h-1 w-1 shrink-0 rounded-full bg-rose-400/40" />
+              <span className="text-[12px] leading-relaxed text-[var(--fg-38)]">{p}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Scenario B */}
+      <div className="flex flex-col gap-4 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.03] px-5 py-5">
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400/60" />
+            <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-emerald-400/55">With DWH</span>
+          </div>
+          <div className="text-[13px] font-semibold tracking-[-0.01em] text-emerald-300/80">{scenarioB.label}</div>
+          <div className="text-[12px] leading-relaxed text-[var(--fg-35)]">{scenarioB.description}</div>
+        </div>
+        <ul className="flex flex-col gap-2.5">
+          {scenarioB.benefits.map((b, i) => (
+            <li key={i} className="flex items-start gap-2.5">
+              <span className="mt-[6px] h-1 w-1 shrink-0 rounded-full bg-emerald-400/50" />
+              <span className="text-[12px] leading-relaxed text-[var(--fg-38)]">{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 function ImplementationContent({ steps }: { steps: { title: string; body: string }[] }) {
   return (
     <div className="flex flex-col gap-3">
@@ -313,6 +386,10 @@ function renderContent(content: SectionContent) {
       return <FutureContent items={content.items} />;
     case "implementation":
       return <ImplementationContent steps={content.steps} />;
+    case "kpi-streams":
+      return <KpiStreamsContent description={content.description} items={content.items} />;
+    case "comparison":
+      return <ComparisonContent scenarioA={content.scenarioA} scenarioB={content.scenarioB} />;
   }
 }
 
@@ -405,6 +482,7 @@ export function CaseStudyShell({
   backLabel,
   inProgressLabel,
   inProgressSub,
+  flagshipLabel,
   sections,
 }: CaseStudyShellProps) {
   const status = statusStyle[project.status] ?? statusStyle.planned;
@@ -447,8 +525,13 @@ export function CaseStudyShell({
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, ease, delay: 0.05 }}
-              className="flex items-center gap-4"
+              className="flex items-center gap-4 flex-wrap"
             >
+              {flagshipLabel && (
+                <span className="rounded-full border border-indigo-500/30 bg-indigo-500/[0.08] px-3 py-1 font-mono text-[10px] tracking-[0.15em] uppercase text-indigo-400/80">
+                  {flagshipLabel}
+                </span>
+              )}
               <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg-30)]">
                 {project.categoryLabel}
               </span>

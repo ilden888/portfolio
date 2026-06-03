@@ -155,7 +155,7 @@ export function Hero({ t }: HeroProps) {
           {...item(0.5)}
           className="mt-20 flex flex-wrap items-center justify-center gap-x-6 gap-y-3"
         >
-          {["ClickHouse", "dbt", "Airflow", "Kafka", "OpenAI", "Claude", "LangChain", "RAG"].map(
+          {["ClickHouse", "dbt", "Airflow", "Iceberg", "Kafka", "Claude", "LangChain", "RAG"].map(
             (tech) => (
               <span
                 key={tech}

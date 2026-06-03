@@ -18,7 +18,8 @@ interface HeaderProps {
     projects: string;
     labs: string;
     expertise: string;
-    blog: string;
+    architectures: string;
+    roadmap: string;
   };
 }
 

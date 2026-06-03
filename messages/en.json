@@ -5,7 +5,8 @@
     "projects": "Projects",
     "labs": "Labs",
     "expertise": "Expertise",
-    "blog": "Blog"
+    "architectures": "Architectures",
+    "roadmap": "Roadmap"
   },
   "hero": {
     "label": "AI-Native Data Platform Engineer",
@@ -176,7 +177,7 @@
   "projects": {
     "label": "Selected Work",
     "heading": "Projects",
-    "description": "A growing catalog of data platforms, AI workflows, and analytics systems. Detailed engineering case studies will follow.",
+    "description": "A growing catalog of data platforms, AI workflows, and analytics systems. Detailed engineering case studies for each project.",
     "previewLabel": "Featured Projects",
     "previewHeading": "Platforms built for real decisions",
     "previewDescription": "A selected preview of the engineering systems taking shape.",
@@ -206,10 +207,21 @@
       "telemetry": "Telemetry",
       "research": "Research"
     },
+    "domains": {
+      "data-engineering": "Data Engineering",
+      "analytics-engineering": "Analytics Engineering",
+      "ai-systems": "AI Systems",
+      "sports-analytics": "Sports Analytics",
+      "research": "Research"
+    },
     "items": {
+      "aiNativeAnalyticsPlatform": {
+        "title": "AI-Native Analytics Platform",
+        "description": "A governed data platform designed for AI reasoning — Apache Iceberg lakehouse, dbt semantic layer, and a Claude-powered analyst that answers business questions with explainable, trusted metrics."
+      },
       "gamingClubDataPlatform": {
         "title": "Gaming Club Data Platform",
-        "description": "End-to-end data infrastructure for gaming venues — ingestion pipelines, dbt transformations, and decision-ready ClickHouse analytics."
+        "description": "End-to-end data infrastructure for gaming venue operations — automated ingestion pipelines, dbt transformations, and decision-ready analytics over a centralised PostgreSQL warehouse."
       },
       "aiAnalyticsAssistant": {
         "title": "AI Analytics Assistant",
@@ -232,43 +244,62 @@
       "back": "All Projects",
       "inProgress": "Case study in progress",
       "inProgressSub": "Engineering documentation and architecture diagrams are being prepared for this project.",
+      "flagship": "Flagship Project",
       "sections": {
         "overview": "Overview",
-        "problem": "Problem & Context",
+        "businessContext": "Business Context",
+        "problem": "Problem & Challenges",
+        "dataChallenges": "Data Challenges",
         "architecture": "Architecture",
         "dataFlow": "Data Flow",
         "dwhModeling": "DWH Modeling",
+        "analyticsLayer": "Analytics Layer",
+        "automationLayer": "Automation Layer",
         "reportingLayer": "Reporting Layer",
+        "aiLayer": "AI Layer",
+        "comparison": "Without DWH vs With DWH",
         "technologies": "Technologies",
         "implementation": "Implementation",
         "results": "Results",
         "lessons": "Lessons Learned",
-        "futureImprovements": "Future Improvements"
+        "futureImprovements": "Future Improvements",
+        "futureVision": "Future Vision"
       },
       "gamingClubDataPlatform": {
         "overview": [
-          "Gaming clubs generate significant operational data — session bookings, equipment usage, payment transactions, and subscription lifecycle events. The challenge: all of this lived in disconnected systems, with no unified view for management or any agreed-upon metric definitions.",
-          "This project built an end-to-end analytics platform: automated nightly ingestion from operational sources into a central PostgreSQL data warehouse, dbt transformation layers with consistent metric definitions enforced as code, and a Metabase reporting layer that delivers trustworthy business metrics daily."
+          "Gaming clubs are complex operational businesses. Revenue comes from multiple streams: gaming sessions (seat rentals by the hour), monthly subscriptions, food & beverage sales, and merchandise. Each stream has its own pricing logic, customer lifecycle, and reporting requirements.",
+          "This project built an end-to-end analytics platform for a live gaming club operation — automated nightly ingestion from four operational systems into a central PostgreSQL data warehouse, dbt transformation layers with consistent metric definitions enforced as code, and a Metabase reporting layer delivering trusted business metrics daily."
         ],
-        "problem": {
-          "context": "Three operational systems produced conflicting revenue figures. Weekly reports were assembled manually from CSV exports. There was no agreed definition of core metrics, making strategic decisions harder and slower than necessary.",
-          "challenges": [
-            "Operational data distributed across three disconnected systems with no shared identifiers",
-            "Revenue figures differed between systems due to inconsistent calculation logic",
-            "Weekly reporting assembled manually from CSV exports — slow and error-prone",
-            "No single authoritative definition of core business metrics",
-            "No visibility into cross-system patterns, such as subscription vs. session revenue mix"
+        "businessContext": {
+          "description": "Understanding what a gaming club actually operates helps frame what the data platform needed to solve.",
+          "items": [
+            "Gaming sessions are the core revenue unit — customers book seats by the hour using gaming PCs, consoles, or VR stations. Session data captures equipment, duration, and seat utilisation.",
+            "Subscriptions provide recurring revenue — monthly plans grant members priority access and discounted hourly rates. Tracking activations, renewals, and churn is critical for MRR forecasting.",
+            "Food & beverage sales happen concurrently with sessions — POS transactions link to active sessions and customer profiles, enabling per-visit spend analysis.",
+            "CRM interactions record every customer touchpoint — registration, tier changes, loyalty points, and support interactions feed into customer lifetime value and segmentation models.",
+            "Revenue operations require cross-stream reconciliation — a single customer visit generates events in the booking system, POS, CRM, and subscription service simultaneously."
+          ]
+        },
+        "dataChallenges": {
+          "context": "Before the platform existed, operational data lived in four disconnected systems with no shared data model, no agreed metric definitions, and no automated reporting.",
+          "items": [
+            "Fragmented operational systems — POS, booking, CRM, and subscription service had separate databases with no shared customer identifiers or event schema.",
+            "Inconsistent metrics — revenue figures differed between systems because each calculated totals differently: gross vs. net, session vs. payment date, subscription period vs. collection date.",
+            "Manual reporting — weekly management reports were assembled by hand from CSV exports across all four systems, taking several hours and introducing copy-paste errors.",
+            "Duplicated business logic — discount calculations, subscription status rules, and revenue attribution logic were reimplemented independently in each reporting tool.",
+            "Reporting delays — by the time weekly reports reached management, the data was 5–7 days old, making fast operational decisions impossible."
           ]
         },
         "architecture": {
-          "description": "A layered data platform built around a central PostgreSQL data warehouse, with Airflow orchestrating nightly ingestion and dbt owning all transformation logic.",
+          "description": "A layered data platform built around a central PostgreSQL data warehouse, with Airflow orchestrating nightly ingestion and dbt owning all transformation and metric definition logic.",
           "layers": [
             { "label": "Operational Systems", "detail": "POS · Booking System · CRM · Subscription Service" },
-            { "label": "Data Ingestion", "detail": "Airflow DAGs · Python extractors · nightly schedule" },
-            { "label": "PostgreSQL DWH", "detail": "Raw → Staging → Mart layer separation" },
-            { "label": "dbt Models", "detail": "Business logic · metric definitions · data contracts" },
-            { "label": "Analytics Layer", "detail": "Aggregated KPIs · revenue attribution · cohort metrics" },
-            { "label": "Metabase Dashboards", "detail": "Operational reporting · management views" }
+            { "label": "Ingestion Layer", "detail": "Airflow DAGs · Python extractors · nightly schedule" },
+            { "label": "Raw Data", "detail": "Insert-only tables · full history · no transformations" },
+            { "label": "Warehouse", "detail": "PostgreSQL · Raw → Staging → Mart separation" },
+            { "label": "DBT Models", "detail": "Business logic · metric definitions · data contracts" },
+            { "label": "Business Metrics", "detail": "Aggregated KPIs · revenue attribution · cohort metrics" },
+            { "label": "Dashboards", "detail": "Metabase · operational reporting · management views" }
           ]
         },
         "dataFlow": {
@@ -280,31 +311,25 @@
             { "name": "Operational Metrics", "desc": "Hourly capacity utilization, peak period detection, and equipment availability signals." }
           ]
         },
-        "results": [
-          "Automated nightly pipeline replaced manual weekly CSV reporting cycle",
-          "Consistent metric definitions enforced across all dbt models and downstream dashboards",
-          "Single management dashboard covering revenue, sessions, and subscriptions",
-          "Data discrepancies between systems identified and resolved through reconciliation logic",
-          "Reporting cycle shortened from several days to overnight"
-        ],
-        "lessons": [
-          {
-            "title": "Data quality precedes modeling",
-            "body": "Source system inconsistencies required more attention than the pipeline itself. Invest in profiling and reconciliation before writing transformation logic — bad source data doesn't get fixed by good SQL."
-          },
-          {
-            "title": "Metrics are a business conversation",
-            "body": "Defining what 'revenue' or 'active session' means requires stakeholder alignment, not just technical decisions. Contested definitions produce contested dashboards and eroded trust."
-          },
-          {
-            "title": "Automation compounds in value",
-            "body": "Each additional data source added disproportionate value once the ingestion pattern was established. Pipeline infrastructure is a multiplier — the second source costs a fraction of the first."
-          },
-          {
-            "title": "Early mart delivery accelerates feedback",
-            "body": "Delivering mart-layer tables early gave stakeholders something concrete to react to, which improved requirements quality for subsequent iterations considerably."
-          }
-        ],
+        "analyticsLayer": {
+          "description": "The analytics layer standardises all business metrics into a single governed definition layer, ensuring every dashboard and every stakeholder works from the same numbers.",
+          "items": [
+            { "name": "KPI Standardisation", "desc": "Every metric — revenue, active sessions, churn rate, subscription MRR — has one canonical definition enforced as dbt code. No more contested numbers from different spreadsheets." },
+            { "name": "Centralised Metrics Store", "desc": "All KPIs are computed once in the mart layer and consumed by downstream dashboards. Changing a metric definition in one place updates all reports automatically." },
+            { "name": "Reusable Business Logic", "desc": "Revenue attribution rules, session categorisation logic, and subscription status calculations are written once as dbt models and referenced everywhere — eliminating the duplication that caused inconsistencies." },
+            { "name": "Cross-Stream Reconciliation", "desc": "The analytics layer joins events across POS, booking, CRM, and subscriptions on a unified customer key, making per-visit and per-customer economics visible for the first time." }
+          ]
+        },
+        "automationLayer": {
+          "description": "Apache Airflow orchestrates the entire data lifecycle — from extraction to transformation to reporting delivery — on a fully automated nightly schedule.",
+          "steps": [
+            { "title": "Extraction DAGs", "body": "Separate Airflow DAGs for each operational system run extraction jobs that pull incremental data via Python scripts and load it into raw tables. DAGs run sequentially to respect system dependencies." },
+            { "title": "Transformation Pipeline", "body": "After extraction, a dbt run DAG executes the full transformation stack: raw → staging → mart. Failed model runs trigger alerts before any downstream reports are refreshed." },
+            { "title": "Data Quality Checks", "body": "dbt tests run after each transformation layer — not null constraints, referential integrity, row count validations, and business rule assertions. Any failure halts the pipeline." },
+            { "title": "Scheduled Reporting", "body": "Metabase sends the executive daily summary automatically at 8am. If the nightly pipeline fails, the report is withheld and an alert is sent — stale data never reaches management silently." },
+            { "title": "Pipeline Monitoring", "body": "Airflow provides full DAG execution history, retry logic for transient failures, and alerting on task-level timeouts — giving full operational visibility into the data pipeline." }
+          ]
+        },
         "dwhModeling": {
           "description": "The warehouse follows a three-layer medallion architecture enforced through dbt project structure. Each layer has a distinct contract: raw data is never modified, staging is where cleaning happens, marts are where business logic lives.",
           "layers": [
@@ -351,6 +376,40 @@
             { "name": "Subscription Health", "desc": "Active subscriber counts, renewal pipeline for the next 30 days, churn signals from declining engagement, and MRR trend with cohort breakdown." }
           ]
         },
+        "results": [
+          "Automated nightly pipeline replaced manual weekly CSV reporting cycle",
+          "Consistent metric definitions enforced across all dbt models and downstream dashboards",
+          "Single management dashboard covering revenue, sessions, and subscriptions",
+          "Data discrepancies between systems identified and resolved through reconciliation logic",
+          "Reporting cycle shortened from several days to overnight",
+          "Duplicated business logic eliminated — one definition, used everywhere"
+        ],
+        "lessons": [
+          {
+            "title": "Data quality precedes modeling",
+            "body": "Source system inconsistencies required more attention than the pipeline itself. Invest in profiling and reconciliation before writing transformation logic — bad source data doesn't get fixed by good SQL."
+          },
+          {
+            "title": "Metrics are a business conversation",
+            "body": "Defining what 'revenue' or 'active session' means requires stakeholder alignment, not just technical decisions. Contested definitions produce contested dashboards and eroded trust."
+          },
+          {
+            "title": "Metric governance scales the platform",
+            "body": "Centralising metric definitions in dbt eliminated the duplication that caused inconsistencies. When the revenue calculation changed, updating one model fixed every downstream report simultaneously."
+          },
+          {
+            "title": "Automation compounds in value",
+            "body": "Each additional data source added disproportionate value once the ingestion pattern was established. Pipeline infrastructure is a multiplier — the second source costs a fraction of the first."
+          },
+          {
+            "title": "Scalability is a design choice made early",
+            "body": "Choosing a medallion architecture from day one meant the platform could absorb new data sources without restructuring. Short-term overhead paid back within the first quarter."
+          },
+          {
+            "title": "Early mart delivery accelerates feedback",
+            "body": "Delivering mart-layer tables early gave stakeholders something concrete to react to, which improved requirements quality for subsequent iterations considerably."
+          }
+        ],
         "futureImprovements": [
           {
             "title": "ClickHouse Migration",
@@ -372,6 +431,107 @@
             "description": "Formalise metric definitions as a programmatic API using dbt metrics or Cube.dev. Enables consistent metric consumption across Metabase, future AI agents, and any downstream application.",
             "priority": "medium"
           }
+        ]
+      },
+      "aiNativeAnalyticsPlatform": {
+        "overview": [
+          "AI analysts that read raw CSV files are not AI analysts. They are sophisticated pattern-matchers operating on inconsistent, ungoverned, untrustworthy data. The results they produce reflect that — hallucinated metrics, contradictory answers, business context the model cannot possibly have.",
+          "This project demonstrates the alternative: an AI-native analytics platform built on a governed data foundation. Apache Iceberg for the lakehouse layer, dbt for transformation and metric governance, a semantic layer as the contract between data and AI, and Claude as the reasoning engine. The result is an AI analyst that gives explainable, consistent, trustworthy answers — because the data beneath it deserves that trust."
+        ],
+        "problem": {
+          "context": "The core problem is not AI capability. Modern LLMs can reason over data fluently. The problem is data quality, consistency, and context. Without a governed data foundation, AI analytics produces confident-sounding answers that are wrong in ways that are hard to detect.",
+          "challenges": [
+            "AI reading CSV files directly has no business context — it does not know that 'revenue' means net collected, not gross billed, or that sessions shorter than 5 minutes are test records",
+            "Inconsistent source data produces inconsistent answers — the same question asked twice returns different numbers because the underlying data has no single source of truth",
+            "Metric definitions live in analyst heads, not in code — making it impossible for an AI to apply them consistently",
+            "Without a semantic layer, AI must guess at column meanings, table relationships, and business logic — and guesses compound into hallucinations",
+            "Trust collapses quickly — one wrong AI-generated number that reaches a business decision destroys confidence in the entire system"
+          ]
+        },
+        "architecture": {
+          "description": "A modern AI-native analytics stack built in layers, each layer adding governance, trust, and context that makes AI reasoning reliable.",
+          "layers": [
+            { "label": "Raw Data", "detail": "Operational systems · event streams · third-party APIs" },
+            { "label": "S3 / Object Store", "detail": "Scalable, durable storage · decoupled from compute" },
+            { "label": "Apache Iceberg", "detail": "Open table format · ACID transactions · schema evolution · time travel" },
+            { "label": "DBT", "detail": "Raw → Staging → Mart · metric definitions · data contracts · tests" },
+            { "label": "Semantic Layer", "detail": "Business concepts · governed metrics · natural language mappings" },
+            { "label": "AI Analyst", "detail": "Claude · governed context · explainable reasoning · trusted answers" },
+            { "label": "Business User", "detail": "Natural language questions · explainable answers · actionable decisions" }
+          ]
+        },
+        "dataFlow": {
+          "streams": [
+            { "name": "Ingestion", "desc": "Raw operational data lands in S3 via streaming or batch pipelines. Apache Iceberg provides ACID semantics, schema evolution, and time-travel queries over the raw layer." },
+            { "name": "Transformation", "desc": "dbt models transform raw Iceberg tables through staging (cleaning, typing) to mart (business logic, aggregations). Every transformation is version-controlled and testable." },
+            { "name": "Metric Governance", "desc": "dbt metric definitions codify business rules as data contracts. 'Revenue' has exactly one definition, tested on every run, consumed by every downstream system identically." },
+            { "name": "Semantic Mapping", "desc": "The semantic layer maps business vocabulary to governed data assets. 'Last month's active customers' resolves to a specific mart table, specific columns, specific filter logic — not a best guess." },
+            { "name": "AI Reasoning", "desc": "Claude queries the semantic layer, not raw tables. Every answer is grounded in a governed metric definition. Reasoning steps are visible — the AI explains what data it used and why." }
+          ]
+        },
+        "aiLayer": {
+          "description": "The AI layer is the interface between business questions and governed data. It does not replace analysts — it makes their work accessible to anyone in the organisation.",
+          "items": [
+            { "name": "Semantic Context Injection", "desc": "Before answering any question, Claude receives the semantic layer definition for relevant metrics — business rules, column meanings, known caveats. This context eliminates the most common source of hallucinations." },
+            { "name": "Governed Query Generation", "desc": "SQL is generated against the semantic layer, not raw tables. Metric definitions are enforced automatically. No analyst intervention required to ensure consistency." },
+            { "name": "Explainable Answers", "desc": "Every AI-generated answer includes the metric definition used, the data range queried, and any caveats. Business users understand not just the answer but how it was produced." },
+            { "name": "Anomaly Detection", "desc": "The AI layer monitors KPIs on a schedule — detecting deviations, generating hypotheses for root causes, and escalating to humans only when confidence is low." }
+          ]
+        },
+        "comparison": {
+          "scenarioA": {
+            "label": "Without DWH — AI Guesses",
+            "description": "AI reads raw files directly. No context, no governance, no trust.",
+            "problems": [
+              "Inconsistent answers — the same metric returns different values on different days",
+              "Duplicated logic — revenue calculation differs between CSV files with no reconciliation",
+              "Hallucinations — AI infers column meanings that don't match business definitions",
+              "Missing business context — test records, cancelled transactions, and edge cases are not filtered",
+              "No explainability — the AI cannot show its working because the working is guesswork"
+            ]
+          },
+          "scenarioB": {
+            "label": "With DWH — AI Reasons",
+            "description": "AI operates on a governed semantic layer. Every answer is grounded, explainable, and consistent.",
+            "benefits": [
+              "Trusted metrics — every number comes from a single canonical definition enforced as code",
+              "Reusable definitions — business logic is written once, tested continuously, used everywhere",
+              "Explainable answers — the AI shows which metric definition it used and why",
+              "Scalable analytics — adding a new data source extends the platform without rebuilding the AI layer",
+              "Consistent reasoning — the same question always produces the same answer from the same governed data"
+            ]
+          }
+        },
+        "results": [
+          "AI analyst answers business questions with consistent, explainable, governed metrics",
+          "Zero hallucinated metric definitions — business logic enforced by dbt contracts",
+          "Natural language interface reduces time-to-insight from hours to seconds",
+          "Semantic layer serves as a single source of truth for both AI and human analysts",
+          "Platform architecture is extensible — new data sources add to the semantic layer without disrupting existing AI queries"
+        ],
+        "lessons": [
+          {
+            "title": "The AI is only as good as the data",
+            "body": "The most impactful improvements to AI answer quality came from improving data governance, not from prompt engineering. Clean, governed data with clear business context produces better AI reasoning than any prompt trick."
+          },
+          {
+            "title": "The semantic layer is the AI's operating manual",
+            "body": "Without a semantic layer, AI analytics is a probabilistic exercise. With one, it becomes a deterministic lookup of governed business logic. The investment in semantic layer design pays back on every query."
+          },
+          {
+            "title": "Explainability is not optional",
+            "body": "Business users will not trust AI answers they cannot verify. Designing explainability into the AI layer from the start — showing sources, metric definitions, and reasoning steps — was the difference between adoption and rejection."
+          },
+          {
+            "title": "Governance scales the platform",
+            "body": "Every metric definition added to the semantic layer is immediately available to the AI analyst. The governance investment compounds — the platform becomes smarter as the semantic layer grows, with no additional AI work required."
+          }
+        ],
+        "futureVision": [
+          "Autonomous analytics agents that proactively surface insights without being asked — monitoring KPIs, detecting anomalies, and generating executive summaries on a schedule",
+          "Multi-agent architectures where specialised AI analysts handle different business domains — revenue, operations, customer — and collaborate to answer cross-domain questions",
+          "Real-time AI analytics over streaming data — extending the governed semantic layer to Kafka event streams for sub-second AI-powered operational intelligence",
+          "Self-updating semantic layers where the AI proposes new metric definitions based on observed query patterns, subject to human review and governance approval"
         ]
       }
     }
@@ -456,6 +616,93 @@
           "Claude API integration for natural language data interfaces",
           "Anomaly detection and KPI monitoring automation",
           "Decision intelligence systems that eliminate manual reporting"
+        ]
+      }
+    }
+  },
+  "architecturesPage": {
+    "label": "Engineering Architectures",
+    "heading": "Architecture Library",
+    "description": "Reusable data architecture patterns — from traditional analytics stacks to AI-native platforms. Each diagram shows a distinct engineering approach and its trade-offs.",
+    "diagramLabel": "Diagram",
+    "diagrams": [
+      {
+        "slug": "traditional-analytics-stack",
+        "title": "Traditional Analytics Stack",
+        "description": "The foundational pattern: structured ETL pipelines move data from operational sources into a centralised DWH, where BI tools deliver reports. Reliable, well-understood, but batch-oriented and not AI-ready.",
+        "tags": ["ETL", "DWH", "SQL", "BI Tools"],
+        "steps": [
+          { "type": "source", "label": "Operational Sources", "sublabel": "Databases · APIs · Files", "connectorLabel": "extract" },
+          { "type": "pipeline", "label": "ETL Pipeline", "sublabel": "Extract · Transform · Load", "connectorLabel": "load" },
+          { "type": "warehouse", "label": "Data Warehouse", "sublabel": "Structured · Governed · Centralised", "connectorLabel": "query" },
+          { "type": "dashboard", "label": "BI & Reporting", "sublabel": "Dashboards · Reports · Exports" }
+        ]
+      },
+      {
+        "slug": "modern-data-platform",
+        "title": "Modern Data Platform",
+        "description": "The lakehouse pattern decouples storage from compute, enabling open formats like Apache Iceberg to serve both BI queries and AI workloads. A semantic layer adds governed metric access on top.",
+        "tags": ["Lakehouse", "Apache Iceberg", "dbt", "Semantic Layer"],
+        "steps": [
+          { "type": "source", "label": "Data Sources", "sublabel": "Streaming · Batch · APIs", "connectorLabel": "ingest" },
+          { "type": "warehouse", "label": "Lakehouse", "sublabel": "Apache Iceberg · S3 · Open Formats", "connectorLabel": "transform" },
+          { "type": "dbt", "label": "dbt Transformations", "sublabel": "Medallion Architecture · Metric Definitions", "connectorLabel": "expose" },
+          { "type": "semantic", "label": "Semantic Layer", "sublabel": "Governed Metrics · Business Vocabulary", "connectorLabel": "consume" },
+          { "type": "dashboard", "label": "Analytics & BI", "sublabel": "Dashboards · Self-service · AI Queries" }
+        ]
+      },
+      {
+        "slug": "ai-native-analytics-platform",
+        "title": "AI-Native Analytics Platform",
+        "description": "The next evolution: a governed data platform designed specifically for AI reasoning. The semantic layer becomes the contract between data and AI, enabling explainable, consistent, trustworthy answers.",
+        "tags": ["Apache Iceberg", "dbt", "Semantic Layer", "Claude", "AI Analyst"],
+        "steps": [
+          { "type": "source", "label": "Raw Data", "sublabel": "Operational Systems · Event Streams", "connectorLabel": "land" },
+          { "type": "warehouse", "label": "Apache Iceberg Lakehouse", "sublabel": "S3 · ACID · Time Travel · Schema Evolution", "connectorLabel": "transform" },
+          { "type": "dbt", "label": "DBT", "sublabel": "Medallion Layers · Metric Contracts · Tests", "connectorLabel": "govern" },
+          { "type": "semantic", "label": "Semantic Layer", "sublabel": "Business Context · Metric Definitions · NL Mappings", "connectorLabel": "reason" },
+          { "type": "ai-agent", "label": "AI Analyst", "sublabel": "Claude · Governed Queries · Explainable Answers", "connectorLabel": "deliver" },
+          { "type": "dashboard", "label": "Business User", "sublabel": "Natural Language · Trusted Metrics · Decisions" }
+        ]
+      }
+    ]
+  },
+  "roadmapPage": {
+    "label": "Engineering Roadmap",
+    "heading": "Roadmap",
+    "description": "The learning and engineering trajectory — from today's production stack toward AI-native data platforms.",
+    "philosophy": "Every layer of this stack exists to make the next layer more trustworthy. Data engineering enables analytics engineering. Analytics engineering enables AI systems. AI systems enable autonomous decision intelligence.",
+    "stages": {
+      "current": {
+        "label": "Current Stack",
+        "sublabel": "Production",
+        "description": "Technologies in active production use — battle-tested, well-understood, forming the foundation of every project.",
+        "items": [
+          { "name": "PostgreSQL", "note": "Primary data warehouse — structured storage, DWH architecture, query optimisation" },
+          { "name": "Apache Airflow", "note": "Pipeline orchestration — DAG design, scheduling, retry logic, monitoring" },
+          { "name": "dbt", "note": "Transformation layer — medallion architecture, metric definitions, data contracts" },
+          { "name": "Metabase", "note": "Reporting layer — dashboards, scheduled reports, management views" },
+          { "name": "Python", "note": "Extraction, transformation, and automation — the glue between all systems" }
+        ]
+      },
+      "learning": {
+        "label": "Currently Learning",
+        "sublabel": "Active",
+        "description": "Technologies under active study and experimentation — the next layer of the platform stack.",
+        "items": [
+          { "name": "Apache Iceberg", "note": "Open table format for the lakehouse layer — ACID semantics, time travel, schema evolution at scale" },
+          { "name": "Lakehouse Architecture", "note": "Decoupling storage from compute — S3 + Iceberg as the foundation for both BI and AI workloads" },
+          { "name": "Semantic Layers", "note": "dbt Semantic Layer, Cube.dev — governing metric definitions as a programmatic API" }
+        ]
+      },
+      "future": {
+        "label": "Future Direction",
+        "sublabel": "Research",
+        "description": "The destination: AI-native data platforms where autonomous agents reason over governed data and close the feedback loop without human intervention.",
+        "items": [
+          { "name": "Autonomous Analytics", "note": "AI systems that proactively surface insights, detect anomalies, and generate reports — no human in the loop" },
+          { "name": "AI Agents over DWH", "note": "LLM-powered agents that query governed semantic layers and answer business questions in natural language" },
+          { "name": "AI-Native Data Platforms", "note": "The full stack: lakehouse + semantic layer + AI analyst — designed from the ground up for AI reasoning" }
         ]
       }
     }

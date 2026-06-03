@@ -4,7 +4,7 @@ import { projects } from "@/data/projects";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://denisil.dev";
 
-const staticPaths = ["", "/about", "/projects", "/lab", "/blog"];
+const staticPaths = ["", "/about", "/projects", "/labs", "/expertise", "/architectures", "/roadmap"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = locales.flatMap((locale) =>

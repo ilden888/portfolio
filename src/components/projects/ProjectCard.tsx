@@ -123,6 +123,11 @@ function ProjectCardBody({
           <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--fg-30)]">
             {project.categoryLabel}
           </span>
+          {project.projectType === "flagship" && (
+            <span className="rounded-full border border-indigo-500/25 bg-indigo-500/[0.06] px-2 py-0.5 font-mono text-[9px] tracking-[0.12em] uppercase text-indigo-400/70">
+              Flagship
+            </span>
+          )}
         </div>
         <div className="flex items-center gap-1.5">
           <span className={cn("h-1.5 w-1.5 rounded-full shrink-0", status.dot)} />

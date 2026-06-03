@@ -5,7 +5,8 @@
     "projects": "Proyectos",
     "labs": "Labs",
     "expertise": "Expertise",
-    "blog": "Blog"
+    "architectures": "Arquitecturas",
+    "roadmap": "Roadmap"
   },
   "hero": {
     "label": "Ingeniero de Plataformas de Datos AI-Native",
@@ -71,19 +72,19 @@
     "pillars": [
       {
         "title": "Datos antes que IA",
-        "body": "La IA moderna es tan confiable como los datos sobre los que razona. Primero los cimientos."
+        "body": "La IA moderna es tan confiable como los datos sobre los que razona. Los cimientos primero."
       },
       {
         "title": "De Dashboards a Decisiones",
-        "body": "El objetivo no es un reporte. Es una decisión tomada más rápido, con más confianza."
+        "body": "El objetivo no es un informe. Es una decisión tomada más rápido, con más confianza."
       },
       {
-        "title": "Analítica AI-Native",
-        "body": "La IA debe operar sobre plataformas gobernadas, estructuradas y confiables — no sobre caos crudo."
+        "title": "Analytics AI-Native",
+        "body": "La IA debe operar sobre plataformas gobernadas, estructuradas y confiables — no sobre caos sin procesar."
       },
       {
         "title": "Pensamiento de Plataforma",
-        "body": "Construir una vez. Reutilizar a escala. Automatizar el ciclo de retroalimentación."
+        "body": "Construir una vez. Reusar a escala. Automatizar el ciclo de retroalimentación."
       }
     ]
   },
@@ -93,16 +94,16 @@
     "company": "True Gamers",
     "role": "Data Analyst",
     "responsibilities": [
-      "Recolección y pipelines de datos",
-      "Analítica y reportes",
-      "Reportes automatizados",
+      "Recopilación de datos y pipelines",
+      "Analytics e informes",
+      "Informes automatizados",
       "Desarrollo de dashboards",
       "Data pipelines",
       "Business intelligence"
     ],
-    "evolutionLabel": "Evolución de Carrera",
+    "evolutionLabel": "Evolución Profesional",
     "steps": [
-      { "title": "Data Analyst", "note": "El punto de partida — SQL, métricas, dashboards, contexto de negocio" },
+      { "title": "Data Analyst", "note": "Donde empezó — SQL, métricas, dashboards, contexto de negocio" },
       { "title": "Analytics Engineering", "note": "dbt · capas semánticas · modelado de datos · governance" },
       { "title": "Data Platforms", "note": "Arquitectura DWH · ClickHouse · Iceberg · Airflow" },
       { "title": "AI-Native Systems", "note": "Razonamiento LLM sobre datos · agentes autónomos · decision intelligence" }
@@ -110,9 +111,9 @@
   },
   "contact": {
     "label": "Contacto",
-    "heading": "Construyamos algo juntos.",
+    "heading": "Construyamos algo.",
     "description": "Abierto a proyectos de datos AI-native, consultoría y conversaciones de ingeniería.",
-    "email": "Escribir",
+    "email": "Contactar",
     "linkedin": "LinkedIn"
   },
   "footer": {
@@ -123,7 +124,7 @@
   "aboutPage": {
     "hero": {
       "eyebrow": "Ingeniero de Plataformas de Datos AI-Native",
-      "tagline": "Diseño y construyo fundamentos de datos que convierten analytics confiable en sistemas inteligentes y autónomos.",
+      "tagline": "Diseño y construyo bases de datos que convierten analytics confiable en sistemas inteligentes y autónomos.",
       "availability": "Abierto a proyectos"
     },
     "background": {
@@ -133,10 +134,10 @@
       "role": "Data Analyst",
       "focusLabel": "Áreas de Enfoque",
       "focus": ["Analytics", "Data Engineering", "Automatización", "Business Intelligence"],
-      "story": "Empecé como analista de datos — aprendiendo cómo se ven las preguntas de negocio cuando llegan como un mensaje de Slack a las 9am. Una cosa quedó clara rápidamente: el análisis rara vez es el cuello de botella. La infraestructura de datos que hay debajo casi siempre lo es. Empecé a reconstruirla — escribiendo pipelines, modelando la lógica, automatizando los reportes. El salto de analista a ingeniero de plataformas no estaba planeado. Fue la respuesta natural a un problema que seguía repitiendo."
+      "story": "Empecé como analista de datos — aprendiendo cómo se ven las preguntas de negocio reales cuando llegan como un mensaje de Slack a las 9am. Una cosa quedó clara rápidamente: el análisis raramente es el cuello de botella. La infraestructura de datos por debajo casi siempre lo es. Empecé a reconstruirla — escribiendo los pipelines, modelando la lógica, automatizando los informes. El cambio de analista a ingeniero de plataforma no fue planeado. Fue la respuesta natural a un problema que seguía repitiéndose."
     },
     "evolution": {
-      "label": "Evolución de Carrera",
+      "label": "Evolución Profesional",
       "steps": [
         { "title": "Data Analyst", "note": "SQL · métricas · dashboards · contexto de negocio" },
         { "title": "Analytics Engineering", "note": "dbt · capas semánticas · modelado de datos" },
@@ -148,50 +149,50 @@
       "label": "Filosofía de Ingeniería",
       "principles": [
         {
-          "statement": "El analytics confiable empieza con datos confiables.",
-          "sub": "Todo sistema de IA es tan confiable como los fundamentos de datos que lo sostienen."
+          "statement": "El analytics confiable comienza con datos confiables.",
+          "sub": "Cada sistema de IA es tan confiable como los cimientos de datos que tiene debajo."
         },
         {
           "statement": "La automatización escala la toma de decisiones.",
-          "sub": "El objetivo no es reportar. Es eliminar al humano del ciclo de retroalimentación."
+          "sub": "El objetivo no es informar. Es eliminar al humano del ciclo de retroalimentación por completo."
         },
         {
-          "statement": "La IA requiere fundamentos de datos confiables.",
-          "sub": "Los LLMs no arreglan datos malos. Los amplifican. Construye el fundamento primero."
+          "statement": "La IA requiere cimientos de datos confiables.",
+          "sub": "Los LLMs no arreglan datos malos. Los amplifican. Construir el fundamento primero."
         }
       ]
     },
     "learning": {
-      "label": "Aprendiendo Ahora",
-      "intro": "Profundizando expertise en la siguiente capa del stack:",
+      "label": "Aprendiendo Actualmente",
+      "intro": "Profundizando experiencia en la siguiente capa del stack:",
       "topics": ["Apache Iceberg", "Lakehouse Architecture", "Capas Semánticas", "Analytics Autónomo", "Agentes IA"]
     },
     "vision": {
       "label": "Visión",
       "heading": "Construyendo el stack de datos\npara inteligencia AI-native.",
-      "text": "La próxima generación de sistemas analíticos no solo visualizará datos — razonará sobre ellos, actuará y cerrará el ciclo de retroalimentación de forma autónoma. Estoy construyendo hacia ese futuro: sistemas AI-native que combinan plataformas de datos gobernadas, capas semánticas y agentes IA autónomos en un stack único y coherente.",
-      "cta": "Escribir"
+      "text": "La próxima generación de sistemas analíticos no solo visualizará datos — razonará sobre ellos, actuará sobre ellos y cerrará el ciclo de retroalimentación autónomamente. Estoy construyendo hacia ese futuro: sistemas AI-native que combinan plataformas de datos gobernadas, capas semánticas y agentes IA autónomos en un stack coherente.",
+      "cta": "Contactar"
     }
   },
   "projects": {
-    "label": "Trabajo Seleccionado",
+    "label": "Trabajo Selecto",
     "heading": "Proyectos",
-    "description": "Un catálogo creciente de plataformas de datos, flujos de IA y sistemas analíticos. Los casos de estudio detallados llegarán después.",
+    "description": "Un catálogo creciente de plataformas de datos, flujos IA y sistemas analíticos. Casos de estudio detallados para cada proyecto.",
     "previewLabel": "Proyectos Destacados",
-    "previewHeading": "Plataformas para decisiones reales",
-    "previewDescription": "Una selección de los sistemas de ingeniería que están tomando forma.",
+    "previewHeading": "Plataformas construidas para decisiones reales",
+    "previewDescription": "Una vista previa de los sistemas de ingeniería que están tomando forma.",
     "comingSoon": "Próximamente",
-    "viewAll": "Ver Todos",
+    "viewAll": "Ver Todos los Proyectos",
     "filterAll": "Todos",
     "filterAiAgent": "Agente IA",
     "filterDataPlatform": "Data Platform",
-    "filterRealtime": "Real-time",
+    "filterRealtime": "Tiempo Real",
     "filterAnalytics": "Analytics",
     "filterTelemetry": "Telemetría",
     "filterResearch": "Investigación",
     "statuses": {
-      "live": "Activo",
-      "in-progress": "En desarrollo",
+      "live": "En Vivo",
+      "in-progress": "En Progreso",
       "planned": "Planificado",
       "production": "Producción",
       "active-development": "Desarrollo Activo",
@@ -199,145 +200,169 @@
       "concept": "Concepto"
     },
     "categories": {
-      "ai-agent": "AI Workflow",
+      "ai-agent": "Flujo IA",
       "data-platform": "Data Platform",
-      "realtime": "Real-time",
+      "realtime": "Tiempo Real",
       "analytics": "Analytics",
       "telemetry": "Telemetría",
       "research": "Investigación"
     },
+    "domains": {
+      "data-engineering": "Data Engineering",
+      "analytics-engineering": "Analytics Engineering",
+      "ai-systems": "Sistemas IA",
+      "sports-analytics": "Sports Analytics",
+      "research": "Investigación"
+    },
     "items": {
+      "aiNativeAnalyticsPlatform": {
+        "title": "AI-Native Analytics Platform",
+        "description": "Una plataforma de datos gobernada para razonamiento IA — lakehouse Apache Iceberg, capa semántica dbt y un analista Claude que responde preguntas de negocio con métricas explicables y confiables."
+      },
       "gamingClubDataPlatform": {
         "title": "Gaming Club Data Platform",
-        "description": "Infraestructura de datos end-to-end para clubes gaming — pipelines, transformaciones dbt y analytics ClickHouse listo para decisiones."
+        "description": "Infraestructura de datos end-to-end para operaciones de gaming — pipelines automatizados, transformaciones dbt y analytics listo para decisiones sobre un warehouse PostgreSQL centralizado."
       },
       "aiAnalyticsAssistant": {
         "title": "AI Analytics Assistant",
-        "description": "Interfaz conversacional gobernada sobre ClickHouse. Capa de contexto RAG con razonamiento LLM para explorar datos en lenguaje natural."
+        "description": "Una interfaz conversacional gobernada sobre ClickHouse. Capa de contexto RAG con razonamiento LLM para exploración de datos en lenguaje natural."
       },
       "tournamentIntelligence": {
         "title": "Tournament Intelligence",
-        "description": "Plataforma analytics real-time para esports. Kafka event stream, agregación de estadísticas en vivo y comentarios de rendimiento con IA."
+        "description": "Plataforma de analytics esports en tiempo real. Stream de eventos Kafka, agregación de estadísticas en vivo y comentarios de rendimiento generados por IA."
       },
       "sportsAnalytics": {
         "title": "Sports Analytics",
-        "description": "Modelado de rendimiento de jugadores y exploración ad-hoc rápida. DuckDB sobre Parquet con generación de insights mediante Claude."
+        "description": "Modelado de rendimiento de jugadores y exploración ad-hoc rápida. DuckDB sobre archivos Parquet con generación de insights asistida por Claude."
       },
       "issAnalytics": {
         "title": "ISS Analytics",
-        "description": "Experimento lakehouse para telemetría orbital. Apache Iceberg en S3, ingesta Kafka, detección de anomalías en datos de sensores."
+        "description": "Experimento lakehouse para telemetría orbital. Apache Iceberg en S3, ingesta Kafka, detección de anomalías en datos de sensores de series temporales."
       }
     },
     "caseStudy": {
-      "back": "Todos los proyectos",
+      "back": "Todos los Proyectos",
       "inProgress": "Caso de estudio en progreso",
-      "inProgressSub": "La documentación de ingeniería y los diagramas de arquitectura están siendo preparados para este proyecto.",
+      "inProgressSub": "La documentación de ingeniería y los diagramas de arquitectura se están preparando para este proyecto.",
+      "flagship": "Proyecto Insignia",
       "sections": {
-        "overview": "Descripción General",
-        "problem": "Problema y Contexto",
+        "overview": "Resumen",
+        "businessContext": "Contexto de Negocio",
+        "problem": "Problema y Desafíos",
+        "dataChallenges": "Desafíos de Datos",
         "architecture": "Arquitectura",
         "dataFlow": "Flujo de Datos",
         "dwhModeling": "Modelado DWH",
-        "reportingLayer": "Capa de Reporting",
+        "analyticsLayer": "Capa Analytics",
+        "automationLayer": "Capa de Automatización",
+        "reportingLayer": "Capa de Reportes",
+        "aiLayer": "Capa IA",
+        "comparison": "Sin DWH vs Con DWH",
         "technologies": "Tecnologías",
         "implementation": "Implementación",
         "results": "Resultados",
         "lessons": "Lecciones Aprendidas",
-        "futureImprovements": "Mejoras Futuras"
+        "futureImprovements": "Mejoras Futuras",
+        "futureVision": "Visión Futura"
       },
       "gamingClubDataPlatform": {
         "overview": [
-          "Los clubs de gaming generan datos operativos significativos — reservas de sesiones, uso de equipos, transacciones de pago y eventos del ciclo de vida de suscripciones. El problema: todo esto vivía en sistemas desconectados, sin una vista unificada para la dirección ni definiciones de métricas acordadas.",
-          "Este proyecto construyó una plataforma analítica de extremo a extremo: ingesta nocturna automatizada desde fuentes operativas hacia un almacén de datos central en PostgreSQL, capas de transformación dbt con definiciones de métricas consistentes codificadas, y una capa de reporting en Metabase que entrega métricas de negocio fiables diariamente."
+          "Los gaming clubs son negocios operativos complejos. Los ingresos provienen de múltiples fuentes: sesiones de juego (alquiler de asientos por hora), suscripciones mensuales, ventas de comida y bebida, y merchandising. Cada fuente tiene su propia lógica de precios, ciclo de vida del cliente y requisitos de reporte.",
+          "Este proyecto construyó una plataforma analítica end-to-end para un gaming club en operación — ingesta nocturna automatizada desde cuatro sistemas operativos hacia un data warehouse PostgreSQL centralizado, capas de transformación dbt con definiciones de métricas consistentes y una capa de reportes Metabase con métricas de negocio confiables."
         ],
-        "problem": {
-          "context": "Tres sistemas operativos producían cifras de ingresos contradictorias. Los reportes semanales se elaboraban manualmente desde exportaciones CSV. No existía una definición acordada de las métricas clave, lo que hacía las decisiones estratégicas más difíciles y lentas de lo necesario.",
-          "challenges": [
-            "Datos operativos distribuidos en tres sistemas desconectados sin identificadores compartidos",
-            "Las cifras de ingresos diferían entre sistemas por lógica de cálculo inconsistente",
-            "Reportes semanales elaborados manualmente desde exportaciones CSV — lentos y propensos a errores",
-            "Sin una definición única y autoritativa de las métricas de negocio clave",
-            "Sin visibilidad sobre patrones entre sistemas, como la mezcla de ingresos por suscripción vs. por sesión"
+        "businessContext": {
+          "description": "Entender cómo opera un gaming club ayuda a enmarcar lo que la plataforma de datos necesitaba resolver.",
+          "items": [
+            "Las sesiones de juego son la unidad de ingresos principal — los clientes reservan asientos por hora en PCs, consolas o estaciones VR. Los datos de sesión capturan equipo, duración y utilización de asientos.",
+            "Las suscripciones proporcionan ingresos recurrentes — los planes mensuales dan a los miembros acceso prioritario y tarifas por hora con descuento. El seguimiento de activaciones, renovaciones y churn es crítico para el pronóstico de MRR.",
+            "Las ventas de comida y bebida ocurren simultáneamente con las sesiones — las transacciones POS se vinculan a sesiones activas y perfiles de clientes.",
+            "Las interacciones CRM registran cada punto de contacto con el cliente — registro, cambios de nivel, puntos de fidelidad e interacciones de soporte.",
+            "Las operaciones de ingresos requieren reconciliación entre sistemas — una sola visita de cliente genera eventos en el sistema de reservas, POS, CRM y servicio de suscripciones simultáneamente."
+          ]
+        },
+        "dataChallenges": {
+          "context": "Antes de la plataforma, los datos operativos vivían en cuatro sistemas desconectados sin modelo de datos compartido, sin definiciones de métricas acordadas y sin reportes automatizados.",
+          "items": [
+            "Sistemas operativos fragmentados — POS, reservas, CRM y servicio de suscripciones tenían bases de datos separadas sin identificadores de clientes compartidos.",
+            "Métricas inconsistentes — las cifras de ingresos diferían entre sistemas porque cada uno calculaba los totales de manera diferente.",
+            "Reportes manuales — los informes de gestión semanales se ensamblaban manualmente desde exportaciones CSV de los cuatro sistemas.",
+            "Lógica de negocio duplicada — los cálculos de descuentos, reglas de estado de suscripción y lógica de atribución de ingresos se reimplementaban de forma independiente en cada herramienta.",
+            "Retrasos en reportes — cuando los informes semanales llegaban a la dirección, los datos tenían 5-7 días de antigüedad."
           ]
         },
         "architecture": {
-          "description": "Una plataforma de datos por capas construida alrededor de un almacén de datos PostgreSQL central, con Airflow orquestando la ingesta nocturna y dbt gestionando toda la lógica de transformación.",
+          "description": "Una plataforma de datos en capas construida alrededor de un data warehouse PostgreSQL central, con Airflow orquestando la ingesta nocturna y dbt gestionando toda la lógica de transformación.",
           "layers": [
             { "label": "Sistemas Operativos", "detail": "POS · Sistema de Reservas · CRM · Servicio de Suscripciones" },
-            { "label": "Ingesta de Datos", "detail": "DAGs de Airflow · extractores Python · programación nocturna" },
-            { "label": "PostgreSQL DWH", "detail": "Separación de capas Raw → Staging → Mart" },
-            { "label": "Modelos dbt", "detail": "Lógica de negocio · definiciones de métricas · contratos de datos" },
-            { "label": "Capa Analítica", "detail": "KPIs agregados · atribución de ingresos · métricas de cohorte" },
-            { "label": "Dashboards Metabase", "detail": "Reporting operativo · vistas de dirección" }
+            { "label": "Capa de Ingesta", "detail": "DAGs Airflow · extractores Python · horario nocturno" },
+            { "label": "Datos Crudos", "detail": "Tablas insert-only · historial completo · sin transformaciones" },
+            { "label": "Warehouse", "detail": "PostgreSQL · separación Raw → Staging → Mart" },
+            { "label": "Modelos DBT", "detail": "Lógica de negocio · definiciones de métricas · contratos de datos" },
+            { "label": "Métricas de Negocio", "detail": "KPIs agregados · atribución de ingresos · métricas de cohortes" },
+            { "label": "Dashboards", "detail": "Metabase · reportes operativos · vistas de gestión" }
           ]
         },
         "dataFlow": {
           "streams": [
-            { "name": "Pagos", "desc": "Registros de transacciones extraídos nocturnamente, conciliados contra datos de sesión y clasificados por método y tipo de pago." },
-            { "name": "Sesiones de Gaming", "desc": "Eventos de inicio/fin de sesión con asignación de equipos, seguimiento de duración y métricas de utilización horaria." },
+            { "name": "Pagos", "desc": "Registros de transacciones extraídos nocturnamente, reconciliados contra datos de sesión y clasificados por método y tipo de pago." },
+            { "name": "Sesiones de Juego", "desc": "Eventos de inicio/fin de sesión con asignación de equipos, seguimiento de duración y métricas de utilización por hora." },
             { "name": "Suscripciones", "desc": "Eventos de activación, renovación y expiración con atribución de ingresos y seguimiento de señales de churn." },
-            { "name": "Datos CRM", "desc": "Actualizaciones de perfil de cliente, clasificación de segmentos y atribución del canal de adquisición." },
-            { "name": "Métricas Operativas", "desc": "Utilización horaria de capacidad, detección de períodos pico y señales de disponibilidad de equipos." }
+            { "name": "Datos CRM", "desc": "Actualizaciones de perfiles de clientes, clasificación de segmentos y atribución de canal de adquisición." },
+            { "name": "Métricas Operativas", "desc": "Utilización de capacidad por hora, detección de períodos pico y señales de disponibilidad de equipos." }
           ]
         },
-        "results": [
-          "Pipeline nocturno automatizado reemplazó el ciclo de reporting manual semanal de CSV",
-          "Definiciones de métricas consistentes implementadas en todos los modelos dbt y dashboards derivados",
-          "Dashboard único de dirección que cubre ingresos, sesiones y suscripciones",
-          "Discrepancias de datos entre sistemas identificadas y resueltas mediante lógica de conciliación",
-          "Ciclo de reporting reducido de varios días a una noche"
-        ],
-        "lessons": [
-          {
-            "title": "La calidad de datos precede al modelado",
-            "body": "Las inconsistencias en los sistemas fuente requirieron más atención que el pipeline en sí. Invertir en profiling y conciliación antes de escribir lógica de transformación — los datos fuente deficientes no se arreglan con buen SQL."
-          },
-          {
-            "title": "Las métricas son una conversación de negocio",
-            "body": "Definir qué significa 'ingresos' o 'sesión activa' requiere alineación con stakeholders, no solo decisiones técnicas. Las definiciones en disputa producen dashboards en disputa y erosionan la confianza."
-          },
-          {
-            "title": "La automatización multiplica el valor",
-            "body": "Cada fuente de datos adicional añadió valor desproporcionado una vez establecido el patrón de ingesta. La infraestructura de pipeline es un multiplicador — la segunda fuente cuesta una fracción de la primera."
-          },
-          {
-            "title": "La entrega temprana de marts acelera el feedback",
-            "body": "Entregar las tablas de capa mart temprano dio a los stakeholders algo concreto sobre lo que dar feedback, mejorando considerablemente la calidad de los requisitos en iteraciones posteriores."
-          }
-        ],
+        "analyticsLayer": {
+          "description": "La capa analítica estandariza todas las métricas de negocio en una única capa de definición gobernada, asegurando que cada dashboard y cada stakeholder trabaje con los mismos números.",
+          "items": [
+            { "name": "Estandarización de KPIs", "desc": "Cada métrica tiene una definición canónica única aplicada como código dbt. No más números disputados de diferentes hojas de cálculo." },
+            { "name": "Almacén de Métricas Centralizado", "desc": "Todos los KPIs se calculan una vez en la capa mart y son consumidos por los dashboards downstream. Cambiar una definición de métrica actualiza automáticamente todos los reportes." },
+            { "name": "Lógica de Negocio Reutilizable", "desc": "Las reglas de atribución de ingresos, la lógica de categorización de sesiones y los cálculos de estado de suscripciones se escriben una vez como modelos dbt y se referencian en todos lados." },
+            { "name": "Reconciliación Entre Sistemas", "desc": "La capa analítica une eventos de POS, reservas, CRM y suscripciones en una clave de cliente unificada, haciendo visibles por primera vez las economías por visita y por cliente." }
+          ]
+        },
+        "automationLayer": {
+          "description": "Apache Airflow orquesta todo el ciclo de vida de datos — desde extracción hasta transformación y entrega de reportes — en un horario nocturno completamente automatizado.",
+          "steps": [
+            { "title": "DAGs de Extracción", "body": "DAGs Airflow separados para cada sistema operativo ejecutan trabajos de extracción que extraen datos incrementales vía scripts Python y los cargan en tablas raw." },
+            { "title": "Pipeline de Transformación", "body": "Después de la extracción, un DAG dbt ejecuta el stack completo de transformación: raw → staging → mart. Los fallos de modelos generan alertas antes de que se actualicen los reportes downstream." },
+            { "title": "Verificaciones de Calidad de Datos", "body": "Las pruebas dbt se ejecutan después de cada capa de transformación — restricciones not null, integridad referencial, validaciones de recuento de filas y aserciones de reglas de negocio." },
+            { "title": "Reportes Programados", "body": "Metabase envía automáticamente el resumen ejecutivo diario a las 8am. Si el pipeline nocturno falla, el reporte se retiene y se envía una alerta." },
+            { "title": "Monitoreo del Pipeline", "body": "Airflow proporciona historial completo de ejecución de DAG, lógica de reintento para fallos transitorios y alertas sobre tiempos de espera de tareas." }
+          ]
+        },
         "dwhModeling": {
-          "description": "El almacén sigue una arquitectura medallón de tres capas aplicada a través de la estructura del proyecto dbt. Cada capa tiene un contrato distinto: los datos raw nunca se modifican, staging es donde ocurre la limpieza, los marts son donde vive la lógica de negocio.",
+          "description": "El warehouse sigue una arquitectura medallón de tres capas aplicada a través de la estructura del proyecto dbt.",
           "layers": [
             {
               "name": "Raw Layer",
               "tag": "raw",
-              "description": "Copias exactas de los datos del sistema fuente. Solo inserción, sin transformaciones, historial completo preservado. Sirve como registro de auditoría y base de reprocesamiento.",
+              "description": "Copias exactas de datos de sistemas fuente. Insert-only, sin transformaciones, historial completo preservado.",
               "models": [
-                { "name": "raw_pos_transactions", "description": "Copia directa de registros de transacciones POS con nombres y tipos de campo originales" },
-                { "name": "raw_bookings", "description": "Eventos de reserva de sesiones exactamente como se reciben de la API del sistema de reservas" },
+                { "name": "raw_pos_transactions", "description": "Copia directa de registros de transacciones POS con nombres y tipos de campos originales" },
+                { "name": "raw_bookings", "description": "Eventos de reserva de sesiones exactamente como se recibieron del API del sistema de reservas" },
                 { "name": "raw_subscriptions", "description": "Eventos del ciclo de vida de suscripciones: activaciones, renovaciones, cancelaciones, expiraciones" },
-                { "name": "raw_crm_profiles", "description": "Snapshots de perfiles de clientes del CRM con historial completo de campos" }
+                { "name": "raw_crm_profiles", "description": "Instantáneas de perfiles de clientes del CRM con historial completo de campos" }
               ]
             },
             {
               "name": "Staging Layer",
               "tag": "stg",
-              "description": "Datos de fuentes limpios, tipados y deduplicados. Un modelo de staging por tabla fuente. La lógica de negocio está explícitamente prohibida en esta capa.",
+              "description": "Datos de fuente limpios, tipados y deduplicados. Un modelo de staging por tabla fuente.",
               "models": [
                 { "name": "stg_payments", "description": "Registros de pago tipados con nulos manejados, moneda normalizada, duplicados eliminados" },
                 { "name": "stg_sessions", "description": "Eventos de sesión normalizados con duración calculada, IDs de equipos estandarizados" },
                 { "name": "stg_subscriptions", "description": "Eventos de suscripción unificados con códigos de estado consistentes y tipos de fecha" },
-                { "name": "stg_customers", "description": "Perfiles de clientes fusionados con etiquetas de segmento y atribución del canal de adquisición" }
+                { "name": "stg_customers", "description": "Perfiles de clientes fusionados con etiquetas de segmento y atribución de canal de adquisición" }
               ]
             },
             {
               "name": "Mart Layer",
               "tag": "mart",
-              "description": "Tablas orientadas al negocio optimizadas para consultas de reporting. KPIs agregados, lógica de atribución de ingresos y métricas de cohorte viven aquí.",
+              "description": "Tablas orientadas al negocio optimizadas para consultas de reporte. KPIs agregados, lógica de atribución de ingresos y métricas de cohortes.",
               "models": [
                 { "name": "mart_revenue", "description": "Ingresos diarios y mensuales desglosados por categoría, método de pago y sistema fuente" },
-                { "name": "mart_sessions", "description": "Métricas de utilización horaria, tasas de asignación de equipos, indicadores de períodos pico" },
-                { "name": "mart_subscriptions", "description": "Conteos de suscriptores activos, tasas de churn, pipeline de renovaciones y seguimiento de MRR" },
+                { "name": "mart_sessions", "description": "Métricas de utilización por hora, tasas de asignación de equipos, flags de período pico" },
+                { "name": "mart_subscriptions", "description": "Recuentos de suscriptores activos, tasas de churn, pipeline de renovación y seguimiento de MRR" },
                 { "name": "mart_customers", "description": "Segmentos de clientes, estimaciones de LTV, cohortes de adquisición y puntuaciones de engagement" }
               ]
             }
@@ -345,33 +370,168 @@
         },
         "reportingLayer": {
           "streams": [
-            { "name": "Resumen Ejecutivo Diario", "desc": "Dashboard de gestión en una página con ingresos de ayer, sesiones activas y recuento de suscriptores frente a períodos anteriores. Entregado como email programado de Metabase a las 8am." },
-            { "name": "Analytics de Ingresos", "desc": "Mezcla de métodos de pago, desglose de ingresos por categoría (sesiones vs. suscripciones vs. merchandising), líneas de tendencia y desviación diaria de medias semanales." },
-            { "name": "Utilización de Sesiones", "desc": "Asignación de equipos por hora del día, mapa de calor de utilización de asientos, identificación de períodos pico y análisis de capacidad disponible para planificación operativa." },
-            { "name": "Salud de Suscripciones", "desc": "Conteos de suscriptores activos, pipeline de renovaciones para los próximos 30 días, señales de churn de engagement decreciente y tendencia de MRR con desglose por cohorte." }
+            { "name": "Resumen Ejecutivo Diario", "desc": "Dashboard de gestión de una página con los ingresos de ayer, sesiones activas y recuento de suscriptores versus períodos anteriores. Enviado como email Metabase programado a las 8am." },
+            { "name": "Analytics de Ingresos", "desc": "Mix de métodos de pago, desglose de ingresos por categoría, líneas de tendencia y desviación diaria de promedios semanales." },
+            { "name": "Utilización de Sesiones", "desc": "Asignación de equipos por hora del día, mapa de calor de utilización de asientos, identificación de períodos pico." },
+            { "name": "Salud de Suscripciones", "desc": "Recuentos de suscriptores activos, pipeline de renovación para los próximos 30 días, señales de churn y tendencia de MRR." }
           ]
         },
+        "results": [
+          "Pipeline nocturno automatizado reemplazó el ciclo manual de reportes CSV semanales",
+          "Definiciones de métricas consistentes aplicadas en todos los modelos dbt y dashboards downstream",
+          "Dashboard único de gestión que cubre ingresos, sesiones y suscripciones",
+          "Discrepancias de datos entre sistemas identificadas y resueltas a través de lógica de reconciliación",
+          "Ciclo de reportes reducido de varios días a una noche",
+          "Lógica de negocio duplicada eliminada — una definición, usada en todas partes"
+        ],
+        "lessons": [
+          {
+            "title": "La calidad de datos precede al modelado",
+            "body": "Las inconsistencias del sistema fuente requirieron más atención que el pipeline mismo. Invertir en perfilado y reconciliación antes de escribir lógica de transformación."
+          },
+          {
+            "title": "Las métricas son una conversación de negocio",
+            "body": "Definir qué significa 'ingresos' o 'sesión activa' requiere alineación con stakeholders. Las definiciones disputadas producen dashboards disputados y erosionan la confianza."
+          },
+          {
+            "title": "El governance de métricas escala la plataforma",
+            "body": "Centralizar las definiciones de métricas en dbt eliminó la duplicación que causaba inconsistencias. Cambiar el cálculo de ingresos en un modelo actualizó todos los reportes downstream simultáneamente."
+          },
+          {
+            "title": "La automatización compone valor",
+            "body": "Cada fuente de datos adicional añadió valor desproporcionado una vez establecido el patrón de ingesta. La infraestructura de pipeline es un multiplicador."
+          },
+          {
+            "title": "La escalabilidad es una decisión de diseño temprana",
+            "body": "Elegir una arquitectura medallón desde el primer día significó que la plataforma podía absorber nuevas fuentes de datos sin reestructurar."
+          },
+          {
+            "title": "La entrega temprana de mart acelera el feedback",
+            "body": "Entregar tablas de la capa mart temprano dio a los stakeholders algo concreto a lo que reaccionar, mejorando considerablemente la calidad de los requisitos."
+          }
+        ],
         "futureImprovements": [
           {
             "title": "Migración a ClickHouse",
-            "description": "Mover cargas de trabajo de consultas analíticas de PostgreSQL a ClickHouse. Las agregaciones en milisegundos sobre grandes series temporales desbloquearán dashboards operativos en tiempo real que PostgreSQL no puede servir a escala.",
+            "description": "Mover cargas de trabajo analíticas de PostgreSQL a ClickHouse para dashboards operativos en tiempo real.",
             "priority": "high"
           },
           {
             "title": "Pipeline de Streaming en Tiempo Real",
-            "description": "Agregar una capa de streaming basada en Kafka junto al pipeline batch nocturno. Flujos de datos prioritarios: eventos de pago y eventos de apertura/cierre de sesiones. Habilita monitoreo de utilización en vivo y visibilidad de ingresos instantánea.",
+            "description": "Agregar una capa de streaming Kafka junto al pipeline batch nocturno para visibilidad de ingresos instantánea.",
             "priority": "high"
           },
           {
-            "title": "Capa de Analytics con IA",
-            "description": "Exponer la capa semántica dbt mediante una interfaz en lenguaje natural potenciada por Claude. Consultas de autoservicio para dirección — '¿qué impulsó el crecimiento de ingresos la semana pasada?' — sin SQL ni informes predefinidos.",
+            "title": "Capa de Analytics IA",
+            "description": "Exponer la capa semántica dbt a través de una interfaz de lenguaje natural impulsada por Claude.",
             "priority": "medium"
           },
           {
-            "title": "Semantic Layer API",
-            "description": "Formalizar las definiciones de métricas como API programática usando dbt metrics o Cube.dev. Permite el consumo consistente de métricas en Metabase, futuros agentes IA y cualquier aplicación downstream.",
+            "title": "API de Capa Semántica",
+            "description": "Formalizar las definiciones de métricas como una API programática usando dbt metrics o Cube.dev.",
             "priority": "medium"
           }
+        ]
+      },
+      "aiNativeAnalyticsPlatform": {
+        "overview": [
+          "Los analistas de IA que leen archivos CSV crudos no son analistas de IA. Son sofisticados comparadores de patrones que operan sobre datos inconsistentes, no gobernados y no confiables. Los resultados que producen reflejan eso — métricas alucinadas, respuestas contradictorias, contexto de negocio que el modelo no puede tener.",
+          "Este proyecto demuestra la alternativa: una plataforma analítica AI-native construida sobre una base de datos gobernada. Apache Iceberg para la capa lakehouse, dbt para transformación y governance de métricas, una capa semántica como contrato entre datos e IA, y Claude como motor de razonamiento."
+        ],
+        "problem": {
+          "context": "El problema central no son las capacidades de IA. Los LLMs modernos pueden razonar sobre datos fluidamente. El problema es la calidad, consistencia y contexto de los datos.",
+          "challenges": [
+            "La IA que lee archivos CSV directamente no tiene contexto de negocio — no sabe que 'ingresos' significa neto recaudado, no bruto facturado",
+            "Los datos fuente inconsistentes producen respuestas inconsistentes — la misma pregunta hecha dos veces devuelve números diferentes",
+            "Las definiciones de métricas viven en las cabezas de los analistas, no en el código — haciendo imposible que una IA las aplique consistentemente",
+            "Sin una capa semántica, la IA debe adivinar los significados de columnas y la lógica de negocio — y las suposiciones se acumulan en alucinaciones",
+            "La confianza colapsa rápidamente — un número incorrecto generado por IA que llega a una decisión de negocio destruye la confianza en todo el sistema"
+          ]
+        },
+        "architecture": {
+          "description": "Un stack analítico AI-native moderno construido en capas, cada capa añadiendo governance, confianza y contexto que hace confiable el razonamiento de IA.",
+          "layers": [
+            { "label": "Datos Crudos", "detail": "Sistemas operativos · streams de eventos · APIs de terceros" },
+            { "label": "S3 / Almacén de Objetos", "detail": "Almacenamiento escalable y duradero · desacoplado del cómputo" },
+            { "label": "Apache Iceberg", "detail": "Formato de tabla abierto · transacciones ACID · evolución de esquemas · viaje en el tiempo" },
+            { "label": "DBT", "detail": "Raw → Staging → Mart · definiciones de métricas · contratos de datos · pruebas" },
+            { "label": "Capa Semántica", "detail": "Conceptos de negocio · métricas gobernadas · mapeos de lenguaje natural" },
+            { "label": "Analista IA", "detail": "Claude · consultas gobernadas · respuestas explicables" },
+            { "label": "Usuario de Negocio", "detail": "Lenguaje natural · métricas confiables · decisiones" }
+          ]
+        },
+        "dataFlow": {
+          "streams": [
+            { "name": "Ingesta", "desc": "Los datos operativos crudos llegan a S3 vía streaming o pipelines batch. Apache Iceberg proporciona semántica ACID, evolución de esquemas y consultas de viaje en el tiempo." },
+            { "name": "Transformación", "desc": "Los modelos dbt transforman tablas Iceberg crudas a través de staging (limpieza, tipado) hacia mart (lógica de negocio, agregaciones)." },
+            { "name": "Governance de Métricas", "desc": "Las definiciones de métricas dbt codifican reglas de negocio como contratos de datos. 'Ingresos' tiene exactamente una definición, probada en cada ejecución." },
+            { "name": "Mapeo Semántico", "desc": "La capa semántica mapea vocabulario de negocio a activos de datos gobernados. 'Clientes activos el mes pasado' se resuelve a una tabla mart específica con columnas y lógica de filtro específicas." },
+            { "name": "Razonamiento IA", "desc": "Claude consulta la capa semántica, no tablas crudas. Cada respuesta está fundamentada en una definición de métrica gobernada. Los pasos de razonamiento son visibles." }
+          ]
+        },
+        "aiLayer": {
+          "description": "La capa IA es la interfaz entre preguntas de negocio y datos gobernados. No reemplaza a los analistas — hace su trabajo accesible a toda la organización.",
+          "items": [
+            { "name": "Inyección de Contexto Semántico", "desc": "Antes de responder cualquier pregunta, Claude recibe la definición de capa semántica para métricas relevantes — reglas de negocio, significados de columnas, advertencias conocidas." },
+            { "name": "Generación de Consultas Gobernadas", "desc": "El SQL se genera contra la capa semántica, no tablas crudas. Las definiciones de métricas se aplican automáticamente sin intervención del analista." },
+            { "name": "Respuestas Explicables", "desc": "Cada respuesta generada por IA incluye la definición de métrica usada, el rango de datos consultado y cualquier advertencia. Los usuarios de negocio entienden no solo la respuesta sino cómo se produjo." },
+            { "name": "Detección de Anomalías", "desc": "La capa IA monitorea KPIs en un horario — detectando desviaciones, generando hipótesis de causas raíz y escalando a humanos solo cuando la confianza es baja." }
+          ]
+        },
+        "comparison": {
+          "scenarioA": {
+            "label": "Sin DWH — IA Adivina",
+            "description": "La IA lee archivos crudos directamente. Sin contexto, sin governance, sin confianza.",
+            "problems": [
+              "Respuestas inconsistentes — la misma métrica devuelve valores diferentes en días diferentes",
+              "Lógica duplicada — el cálculo de ingresos difiere entre archivos CSV sin reconciliación",
+              "Alucinaciones — la IA infiere significados de columnas que no coinciden con definiciones de negocio",
+              "Contexto de negocio faltante — registros de prueba, transacciones canceladas y casos límite no se filtran",
+              "Sin explicabilidad — la IA no puede mostrar su trabajo porque el trabajo es especulativo"
+            ]
+          },
+          "scenarioB": {
+            "label": "Con DWH — IA Razona",
+            "description": "La IA opera sobre una capa semántica gobernada. Cada respuesta está fundamentada, es explicable y consistente.",
+            "benefits": [
+              "Métricas confiables — cada número proviene de una única definición canónica aplicada como código",
+              "Definiciones reutilizables — la lógica de negocio se escribe una vez, se prueba continuamente, se usa en todas partes",
+              "Respuestas explicables — la IA muestra qué definición de métrica usó y por qué",
+              "Analytics escalable — agregar una nueva fuente de datos extiende la plataforma sin reconstruir la capa IA",
+              "Razonamiento consistente — la misma pregunta siempre produce la misma respuesta de los mismos datos gobernados"
+            ]
+          }
+        },
+        "results": [
+          "El analista IA responde preguntas de negocio con métricas consistentes, explicables y gobernadas",
+          "Cero definiciones de métricas alucinadas — lógica de negocio aplicada por contratos dbt",
+          "La interfaz de lenguaje natural reduce el tiempo de insight de horas a segundos",
+          "La capa semántica sirve como única fuente de verdad tanto para IA como para analistas humanos",
+          "La arquitectura de plataforma es extensible — nuevas fuentes de datos se añaden a la capa semántica sin interrumpir consultas IA existentes"
+        ],
+        "lessons": [
+          {
+            "title": "La IA es tan buena como los datos",
+            "body": "Las mejoras más impactantes en la calidad de respuesta de IA vinieron de mejorar el governance de datos, no de la ingeniería de prompts. Datos limpios y gobernados con contexto de negocio claro producen mejor razonamiento de IA."
+          },
+          {
+            "title": "La capa semántica es el manual de operaciones de la IA",
+            "body": "Sin una capa semántica, el analytics de IA es un ejercicio probabilístico. Con una, se convierte en una búsqueda determinística de lógica de negocio gobernada."
+          },
+          {
+            "title": "La explicabilidad no es opcional",
+            "body": "Los usuarios de negocio no confiarán en respuestas de IA que no pueden verificar. Diseñar la explicabilidad desde el principio fue la diferencia entre adopción y rechazo."
+          },
+          {
+            "title": "El governance escala la plataforma",
+            "body": "Cada definición de métrica añadida a la capa semántica está inmediatamente disponible para el analista de IA. La inversión en governance se compone — la plataforma se vuelve más inteligente a medida que crece la capa semántica."
+          }
+        ],
+        "futureVision": [
+          "Agentes de analytics autónomos que proactivamente descubren insights sin ser preguntados — monitoreando KPIs, detectando anomalías y generando resúmenes ejecutivos en un horario",
+          "Arquitecturas multi-agente donde analistas de IA especializados manejan diferentes dominios de negocio y colaboran para responder preguntas entre dominios",
+          "Analytics de IA en tiempo real sobre datos de streaming — extendiendo la capa semántica gobernada a streams de eventos Kafka",
+          "Capas semánticas auto-actualizables donde la IA propone nuevas definiciones de métricas basadas en patrones de consulta observados, sujetas a revisión humana"
         ]
       }
     }
@@ -379,17 +539,17 @@
   "labsPage": {
     "label": "Analytics Labs",
     "heading": "Los Labs",
-    "description": "Un espacio de investigación creciente para experimentos en ingeniería de datos, analytics con IA y sistemas autónomos.",
+    "description": "Un espacio de investigación creciente para experimentos en data engineering, analytics IA y sistemas autónomos.",
     "comingSoon": "Próximamente",
     "comingSoonSub": "Los experimentos e investigaciones en esta categoría están siendo planificados.",
     "categories": {
       "dataEngineering": {
         "label": "Data Engineering",
-        "description": "Arquitectura de pipelines, experimentos con lakehouse e investigación de formatos de almacenamiento."
+        "description": "Arquitectura de pipelines, experimentos lakehouse e investigación de formatos de almacenamiento."
       },
       "aiAnalytics": {
         "label": "AI Analytics",
-        "description": "Razonamiento LLM sobre datos estructurados, agentes de reporting autónomos y experimentos con capas semánticas."
+        "description": "Razonamiento LLM sobre datos estructurados, agentes de reportes autónomos y experimentos de capa semántica."
       },
       "sportsAnalytics": {
         "label": "Sports Analytics",
@@ -397,11 +557,11 @@
       },
       "research": {
         "label": "Investigación",
-        "description": "Análisis profundo de patrones emergentes en infraestructura de datos y trade-offs arquitectónicos."
+        "description": "Análisis profundos de patrones emergentes de infraestructura de datos y trade-offs arquitectónicos."
       },
       "experiments": {
         "label": "Experimentos",
-        "description": "Prototipos de ciclo corto e implementaciones de prueba de concepto."
+        "description": "Prototipos de ciclo corto e implementaciones proof-of-concept."
       }
     }
   },
@@ -416,7 +576,7 @@
         "capabilities": [
           "Diseño de pipelines batch y orquestación con Apache Airflow",
           "Arquitectura de streaming en tiempo real con Apache Kafka",
-          "Extracción, transformación y carga con Python",
+          "Extracción, transformación y carga basada en Python",
           "Diseño de data lake y lakehouse con Apache Iceberg y Delta Lake",
           "Implementación de patrones ELT y programación",
           "Estrategias de evolución de esquemas y confiabilidad de pipelines"
@@ -424,12 +584,12 @@
       },
       "analyticsEngineering": {
         "label": "Analytics Engineering",
-        "description": "Convirtiendo el output de pipelines en activos analíticos confiables y gobernados.",
+        "description": "Convirtiendo la salida de pipelines crudos en activos analíticos confiables y gobernados.",
         "capabilities": [
-          "Modelado dbt en capas raw, staging y mart",
+          "Modelado dbt a través de capas raw, staging y mart",
           "Definiciones de métricas como código con contratos de datos",
-          "Gobernanza de lógica de negocio y estrategias de testing",
-          "Diseño de capa semántica para acceso gobernado a métricas",
+          "Governance de lógica de negocio y estrategias de pruebas",
+          "Diseño de capa semántica para acceso a métricas gobernadas",
           "Implementación de framework de calidad de datos",
           "Desarrollo documentation-driven con dbt docs"
         ]
@@ -439,23 +599,110 @@
         "description": "Diseñando y operando la capa de infraestructura de la que todo lo demás depende.",
         "capabilities": [
           "Arquitectura y optimización de data warehouse PostgreSQL",
-          "Diseño OLAP en ClickHouse para consultas analíticas en milisegundos",
-          "Diseño de esquemas multicapa y estrategias de indexación",
+          "Diseño OLAP ClickHouse para consultas analíticas sub-segundo",
+          "Diseño de esquemas multi-capa y estrategias de indexación",
           "Confiabilidad de plataforma, monitoreo y alertas",
-          "Selección de formatos de almacenamiento y análisis de trade-offs",
-          "Optimización de costos y rendimiento para cargas de trabajo analíticas"
+          "Selección de formato de almacenamiento y análisis de trade-offs",
+          "Optimización de costos y rendimiento para cargas analíticas"
         ]
       },
       "aiSystems": {
         "label": "AI Systems",
-        "description": "Construyendo flujos de trabajo IA que razonan sobre datos gobernados y cierran el ciclo de retroalimentación autónomamente.",
+        "description": "Construyendo flujos IA que razonan sobre datos gobernados y cierran el ciclo de retroalimentación autónomamente.",
         "capabilities": [
-          "Razonamiento LLM sobre datos estructurados mediante capas semánticas",
+          "Razonamiento LLM sobre datos estructurados vía capas semánticas",
           "Retrieval-Augmented Generation para contexto analítico",
           "Agentes de analytics autónomos con LangChain",
-          "Integración de Claude API para interfaces de datos en lenguaje natural",
-          "Automatización de detección de anomalías y monitoreo de KPIs",
-          "Sistemas de decision intelligence que eliminan el reporting manual"
+          "Integración de API Claude para interfaces de datos en lenguaje natural",
+          "Detección de anomalías y automatización de monitoreo de KPIs",
+          "Sistemas de decision intelligence que eliminan los reportes manuales"
+        ]
+      }
+    }
+  },
+  "architecturesPage": {
+    "label": "Arquitecturas de Ingeniería",
+    "heading": "Biblioteca de Arquitecturas",
+    "description": "Patrones de arquitectura de datos reutilizables — desde stacks analíticos tradicionales hasta plataformas AI-native. Cada diagrama muestra un enfoque de ingeniería distinto y sus trade-offs.",
+    "diagramLabel": "Diagrama",
+    "diagrams": [
+      {
+        "slug": "traditional-analytics-stack",
+        "title": "Stack Analítico Tradicional",
+        "description": "El patrón fundamental: pipelines ETL estructurados mueven datos desde fuentes operativas hacia un DWH centralizado, donde las herramientas BI entregan reportes. Confiable, bien entendido, pero orientado a batch y no listo para IA.",
+        "tags": ["ETL", "DWH", "SQL", "BI Tools"],
+        "steps": [
+          { "type": "source", "label": "Fuentes Operativas", "sublabel": "Bases de datos · APIs · Archivos", "connectorLabel": "extract" },
+          { "type": "pipeline", "label": "Pipeline ETL", "sublabel": "Extract · Transform · Load", "connectorLabel": "load" },
+          { "type": "warehouse", "label": "Data Warehouse", "sublabel": "Estructurado · Gobernado · Centralizado", "connectorLabel": "query" },
+          { "type": "dashboard", "label": "BI y Reportes", "sublabel": "Dashboards · Reportes · Exportaciones" }
+        ]
+      },
+      {
+        "slug": "modern-data-platform",
+        "title": "Plataforma de Datos Moderna",
+        "description": "El patrón lakehouse desacopla almacenamiento del cómputo, permitiendo que formatos abiertos como Apache Iceberg sirvan tanto consultas BI como cargas de trabajo IA.",
+        "tags": ["Lakehouse", "Apache Iceberg", "dbt", "Capa Semántica"],
+        "steps": [
+          { "type": "source", "label": "Fuentes de Datos", "sublabel": "Streaming · Batch · APIs", "connectorLabel": "ingest" },
+          { "type": "warehouse", "label": "Lakehouse", "sublabel": "Apache Iceberg · S3 · Formatos Abiertos", "connectorLabel": "transform" },
+          { "type": "dbt", "label": "Transformaciones dbt", "sublabel": "Arquitectura Medallón · Definiciones de Métricas", "connectorLabel": "expose" },
+          { "type": "semantic", "label": "Capa Semántica", "sublabel": "Métricas Gobernadas · Vocabulario de Negocio", "connectorLabel": "consume" },
+          { "type": "dashboard", "label": "Analytics y BI", "sublabel": "Dashboards · Self-service · Consultas IA" }
+        ]
+      },
+      {
+        "slug": "ai-native-analytics-platform",
+        "title": "AI-Native Analytics Platform",
+        "description": "La próxima evolución: una plataforma de datos gobernada diseñada específicamente para razonamiento IA. La capa semántica se convierte en el contrato entre datos e IA.",
+        "tags": ["Apache Iceberg", "dbt", "Capa Semántica", "Claude", "Analista IA"],
+        "steps": [
+          { "type": "source", "label": "Datos Crudos", "sublabel": "Sistemas Operativos · Streams de Eventos", "connectorLabel": "land" },
+          { "type": "warehouse", "label": "Apache Iceberg Lakehouse", "sublabel": "S3 · ACID · Viaje en el Tiempo · Evolución de Esquemas", "connectorLabel": "transform" },
+          { "type": "dbt", "label": "DBT", "sublabel": "Capas Medallón · Contratos de Métricas · Pruebas", "connectorLabel": "govern" },
+          { "type": "semantic", "label": "Capa Semántica", "sublabel": "Contexto de Negocio · Definiciones de Métricas · Mapeos NL", "connectorLabel": "reason" },
+          { "type": "ai-agent", "label": "Analista IA", "sublabel": "Claude · Consultas Gobernadas · Respuestas Explicables", "connectorLabel": "deliver" },
+          { "type": "dashboard", "label": "Usuario de Negocio", "sublabel": "Lenguaje Natural · Métricas Confiables · Decisiones" }
+        ]
+      }
+    ]
+  },
+  "roadmapPage": {
+    "label": "Roadmap de Ingeniería",
+    "heading": "Roadmap",
+    "description": "La trayectoria de aprendizaje e ingeniería — desde el stack de producción de hoy hacia plataformas de datos AI-native.",
+    "philosophy": "Cada capa de este stack existe para hacer la siguiente más confiable. Data engineering habilita analytics engineering. Analytics engineering habilita sistemas IA. Los sistemas IA habilitan decision intelligence autónomo.",
+    "stages": {
+      "current": {
+        "label": "Stack Actual",
+        "sublabel": "Producción",
+        "description": "Tecnologías en uso activo de producción — probadas en batalla, bien entendidas, formando la base de cada proyecto.",
+        "items": [
+          { "name": "PostgreSQL", "note": "Data warehouse principal — almacenamiento estructurado, arquitectura DWH, optimización de consultas" },
+          { "name": "Apache Airflow", "note": "Orquestación de pipelines — diseño DAG, programación, lógica de reintento, monitoreo" },
+          { "name": "dbt", "note": "Capa de transformación — arquitectura medallón, definiciones de métricas, contratos de datos" },
+          { "name": "Metabase", "note": "Capa de reportes — dashboards, reportes programados, vistas de gestión" },
+          { "name": "Python", "note": "Extracción, transformación y automatización — el pegamento entre todos los sistemas" }
+        ]
+      },
+      "learning": {
+        "label": "Aprendiendo Actualmente",
+        "sublabel": "Activo",
+        "description": "Tecnologías bajo estudio activo y experimentación — la siguiente capa del stack de plataforma.",
+        "items": [
+          { "name": "Apache Iceberg", "note": "Formato de tabla abierto para la capa lakehouse — semántica ACID, viaje en el tiempo, evolución de esquemas a escala" },
+          { "name": "Arquitectura Lakehouse", "note": "Desacoplar almacenamiento del cómputo — S3 + Iceberg como base para cargas BI y IA" },
+          { "name": "Capas Semánticas", "note": "dbt Semantic Layer, Cube.dev — gobernando definiciones de métricas como API programática" }
+        ]
+      },
+      "future": {
+        "label": "Dirección Futura",
+        "sublabel": "Investigación",
+        "description": "El destino: plataformas de datos AI-native donde agentes autónomos razonan sobre datos gobernados y cierran el ciclo de retroalimentación sin intervención humana.",
+        "items": [
+          { "name": "Analytics Autónomo", "note": "Sistemas IA que proactivamente descubren insights, detectan anomalías y generan reportes — sin humano en el ciclo" },
+          { "name": "Agentes IA sobre DWH", "note": "Agentes potenciados por LLM que consultan capas semánticas gobernadas y responden preguntas en lenguaje natural" },
+          { "name": "Plataformas de Datos AI-Native", "note": "El stack completo: lakehouse + capa semántica + analista IA — diseñado desde cero para razonamiento IA" }
         ]
       }
     }
@@ -463,31 +710,31 @@
   "labs": {
     "label": "Analytics Labs",
     "heading": "El Lab",
-    "description": "Experimentos en analytics autónomo, modelos semánticos e informes AI-native.",
+    "description": "Experimentos en analytics autónomo, modelos de datos semánticos e informes AI-native.",
     "items": [
       {
         "slug": "semantic-sql-layer",
         "title": "Capa SQL Semántica",
-        "description": "Enseñar a los LLMs a consultar DWHs mediante capa semántica estructurada en lugar de SQL crudo.",
-        "longDescription": "Los LLMs razonan muy bien sobre datos estructurados con la abstracción correcta. Este experimento construye una capa semántica que permite a Claude generar consultas confiables sin alucinaciones.",
+        "description": "Enseñando a LLMs a consultar DWHs a través de una capa semántica estructurada en lugar de SQL crudo.",
+        "longDescription": "Los LLMs son notablemente buenos razonando sobre datos estructurados — cuando se les da la abstracción correcta. Este experimento construye una capa semántica que mapea conceptos de negocio a construcciones SQL.",
         "tag": "Investigación",
-        "tags": ["LLM", "SQL", "DWH", "Semántica"]
+        "tags": ["LLM", "SQL", "DWH", "Capa Semántica"]
       },
       {
         "slug": "autonomous-report-agent",
-        "title": "Agente de Informes Autónomo",
-        "description": "Agente que monitorea desviaciones KPI y genera resúmenes ejecutivos sin intervención humana.",
-        "longDescription": "Agente LangChain que consulta el DWH para detectar desviaciones KPI y escribe un resumen ejecutivo con hipótesis de causas raíz.",
+        "title": "Agente de Reportes Autónomo",
+        "description": "Agente que monitorea desviaciones de KPI y genera resúmenes ejecutivos sin prompting humano.",
+        "longDescription": "Un agente LangChain que corre en un horario, consulta el DWH para desviaciones de KPI, decide si son significativas y escribe un resumen ejecutivo con hipótesis de causa raíz.",
         "tag": "Prototipo",
         "tags": ["Claude", "LangChain", "KPI", "Alertas"]
       },
       {
         "slug": "vector-dwh-index",
-        "title": "Índice Vectorial DWH",
-        "description": "Embeber métricas de negocio en espacio vectorial para búsqueda semántica y clustering de anomalías.",
-        "longDescription": "Este experimento embebe métricas agregadas como vectores en ClickHouse, habilitando búsqueda semántica por períodos, cohortes y segmentos.",
+        "title": "Índice DWH Vectorial",
+        "description": "Incrustando métricas de negocio en espacio vectorial para búsqueda de similitud y clustering de anomalías.",
+        "longDescription": "Este experimento incrusta métricas agregadas como vectores en ClickHouse, habilitando búsqueda de similitud semántica a través de períodos de tiempo, cohortes y segmentos.",
         "tag": "Experimento",
-        "tags": ["Embeddings", "ClickHouse", "Anomalías"]
+        "tags": ["Embeddings", "ClickHouse", "Detección de Anomalías"]
       }
     ]
   }
