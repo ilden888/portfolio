@@ -32,8 +32,8 @@ export function Hero({ t }: HeroProps) {
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[var(--background)]">
 
-      {/* ── Atmosphere ── */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* ── Atmosphere (dark-mode only, hidden via .light .hero-atmosphere) ── */}
+      <div aria-hidden className="hero-atmosphere pointer-events-none absolute inset-0">
         <div
           className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2"
           style={{
