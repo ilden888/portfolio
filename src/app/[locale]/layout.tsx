@@ -102,6 +102,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     home: string;
     about: string;
     projects: string;
+    insights: string;
     labs: string;
     expertise: string;
     architectures: string;

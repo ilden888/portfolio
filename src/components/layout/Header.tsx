@@ -16,6 +16,7 @@ interface HeaderProps {
     home: string;
     about: string;
     projects: string;
+    insights: string;
     labs: string;
     expertise: string;
     architectures: string;

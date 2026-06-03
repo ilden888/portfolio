@@ -7,8 +7,11 @@ import { EngineeringPhilosophy } from "@/components/home/EngineeringPhilosophy";
 import { TechStack } from "@/components/home/TechStack";
 import { CurrentFocus } from "@/components/home/CurrentFocus";
 import { FeaturedWork } from "@/components/home/FeaturedWork";
+import { EngineeringInsights } from "@/components/home/EngineeringInsights";
+import { FeaturedArchitectures } from "@/components/home/FeaturedArchitectures";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { projects, localizeProjects } from "@/data/projects";
+import { insights, localizeInsights } from "@/data/insights";
 import { locales, type Locale } from "@/lib/i18n/config";
 
 export function generateStaticParams() {
@@ -23,7 +26,7 @@ export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const [tHero, tJourney, tAbout, tBuild, tPhilosophy, tStack, tFocus, tProjects, tContact] = await Promise.all([
+  const [tHero, tJourney, tAbout, tBuild, tPhilosophy, tStack, tFocus, tProjects, tInsights, tArchitectures, tContact] = await Promise.all([
     getTranslations("hero"),
     getTranslations("journey"),
     getTranslations("about"),
@@ -32,6 +35,8 @@ export default async function HomePage({ params }: PageProps) {
     getTranslations("stack"),
     getTranslations("focus"),
     getTranslations("projects"),
+    getTranslations("insightsPage"),
+    getTranslations("featuredArchitectures"),
     getTranslations("contact"),
   ]);
 
@@ -129,6 +134,60 @@ export default async function HomePage({ params }: PageProps) {
           heading: tProjects("previewHeading"),
           description: tProjects("previewDescription"),
           viewAll: tProjects("viewAll"),
+        }}
+      />
+
+      <EngineeringInsights
+        locale={locale}
+        articles={localizeInsights(
+          (key) => tInsights(key),
+          (key) => tInsights.raw(key),
+          insights
+        )}
+        t={{
+          label: tInsights("label"),
+          heading: tInsights("heading"),
+          description: tInsights("description"),
+          viewAll: "All Articles",
+          readTime: tInsights("readTime"),
+        }}
+      />
+
+      <FeaturedArchitectures
+        locale={locale}
+        architectures={[
+          {
+            slug: "ai-native-analytics-platform",
+            title: "AI-Native Analytics Platform",
+            description: "A governed data platform designed specifically for AI reasoning — semantic layer as the contract between data and AI.",
+            tags: ["Apache Iceberg", "dbt", "Semantic Layer", "Claude"],
+            steps: [
+              { type: "source", label: "Raw Data", sublabel: "Operational Systems · Event Streams" },
+              { type: "warehouse", label: "Apache Iceberg", sublabel: "ACID · Schema Evolution · Time Travel", connectorLabel: "transform" },
+              { type: "dbt", label: "dbt", sublabel: "Medallion Layers · Metric Contracts", connectorLabel: "govern" },
+              { type: "semantic", label: "Semantic Layer", sublabel: "Business Context · Governed Metrics", connectorLabel: "reason" },
+              { type: "ai-agent", label: "AI Analyst", sublabel: "Claude · Explainable Answers", connectorLabel: "deliver" },
+            ],
+          },
+          {
+            slug: "medallion-architecture",
+            title: "Medallion Architecture",
+            description: "The dbt-enforced three-layer data model that separates raw ingestion from transformation from business logic.",
+            tags: ["dbt", "Raw", "Staging", "Mart"],
+            steps: [
+              { type: "source", label: "Source Systems", sublabel: "Databases · APIs · Event Streams" },
+              { type: "warehouse", label: "Raw Layer", sublabel: "Insert-only · Full history", connectorLabel: "clean" },
+              { type: "dbt", label: "Staging Layer", sublabel: "Typed · Deduplicated", connectorLabel: "model" },
+              { type: "semantic", label: "Mart Layer", sublabel: "Business logic · Governed metrics", connectorLabel: "serve" },
+              { type: "dashboard", label: "Consumers", sublabel: "BI tools · AI agents" },
+            ],
+          },
+        ]}
+        t={{
+          label: tArchitectures("label"),
+          heading: tArchitectures("heading"),
+          description: tArchitectures("description"),
+          viewAll: tArchitectures("viewAll"),
         }}
       />
 

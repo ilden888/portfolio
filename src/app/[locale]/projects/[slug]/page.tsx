@@ -47,11 +47,25 @@ interface AiPlatformContent {
   problem: { context: string; challenges: string[] };
   architecture: { description: string; layers: { label: string; detail: string }[] };
   dataFlow: { streams: { name: string; desc: string }[] };
+  semanticLayer: { description: string; items: { name: string; desc: string }[] };
   aiLayer: { description: string; items: { name: string; desc: string }[] };
   comparison: {
     scenarioA: { label: string; description: string; problems: string[] };
     scenarioB: { label: string; description: string; benefits: string[] };
   };
+  results: string[];
+  lessons: { title: string; body: string }[];
+  futureVision: string[];
+}
+
+interface TournamentContent {
+  overview: string[];
+  eventIngestion: { description: string; streams: { name: string; desc: string }[] };
+  architecture: { description: string; layers: { label: string; detail: string }[] };
+  playerStatistics: { description: string; items: { name: string; desc: string }[] };
+  performanceMetrics: { description: string; items: { name: string; desc: string }[] };
+  rankings: { description: string; items: { name: string; desc: string }[] };
+  aiInsights: { description: string; items: { name: string; desc: string }[] };
   results: string[];
   lessons: { title: string; body: string }[];
   futureVision: string[];
@@ -149,6 +163,7 @@ export default async function ProjectPage({ params }: PageProps) {
         diagram: aiPlatformDiagram,
       },
       dataFlow: { type: "dataflows", streams: cs.dataFlow.streams },
+      semanticLayer: { type: "kpi-streams", description: cs.semanticLayer.description, items: cs.semanticLayer.items },
       aiLayer: { type: "kpi-streams", description: cs.aiLayer.description, items: cs.aiLayer.items },
       comparison: {
         type: "comparison",
@@ -165,8 +180,57 @@ export default async function ProjectPage({ params }: PageProps) {
       { key: "problem", title: t("caseStudy.sections.problem"), content: sectionContents.problem },
       { key: "architecture", title: t("caseStudy.sections.architecture"), content: sectionContents.architecture },
       { key: "dataFlow", title: t("caseStudy.sections.dataFlow"), content: sectionContents.dataFlow },
+      { key: "semanticLayer", title: t("caseStudy.sections.semanticLayer"), content: sectionContents.semanticLayer },
       { key: "aiLayer", title: t("caseStudy.sections.aiLayer"), content: sectionContents.aiLayer },
       { key: "comparison", title: t("caseStudy.sections.comparison"), content: sectionContents.comparison },
+      { key: "technologies", title: t("caseStudy.sections.technologies") },
+      { key: "results", title: t("caseStudy.sections.results"), content: sectionContents.results },
+      { key: "lessons", title: t("caseStudy.sections.lessons"), content: sectionContents.lessons },
+      { key: "futureVision", title: t("caseStudy.sections.futureVision"), content: sectionContents.futureVision },
+    ];
+  }
+
+  // ── Tournament Intelligence ───────────────────────────────────────────────
+
+  else if (slug === "tournament-intelligence") {
+    const cs = t.raw("caseStudy.tournamentIntelligence") as TournamentContent;
+
+    const tournamentDiagram: DiagramNode[] = [
+      { type: "source", label: "Game Clients", sublabel: "Match event producers · real-time game state" },
+      { type: "ingestion", label: "Kafka Event Stream", sublabel: "Partitioned by match ID · sub-second latency" },
+      { type: "orchestration", label: "Stream Processing", sublabel: "Real-time aggregations · rolling windows" },
+      { type: "warehouse", label: "PostgreSQL", sublabel: "Player stats · match records · team rankings" },
+      { type: "transform", label: "Analytics Layer", sublabel: "Performance metrics · ranking models" },
+      { type: "agent", label: "AI Insights", sublabel: "Claude · performance commentary · anomaly narration" },
+      { type: "dashboard", label: "Tournament Dashboard", sublabel: "Live stats · leaderboards · coach analytics" },
+    ];
+
+    sectionContents = {
+      overview: { type: "prose", paragraphs: cs.overview },
+      eventIngestion: { type: "dataflows", streams: cs.eventIngestion.streams },
+      architecture: {
+        type: "architecture",
+        description: cs.architecture.description,
+        layers: cs.architecture.layers,
+        diagram: tournamentDiagram,
+      },
+      playerStatistics: { type: "kpi-streams", description: cs.playerStatistics.description, items: cs.playerStatistics.items },
+      performanceMetrics: { type: "kpi-streams", description: cs.performanceMetrics.description, items: cs.performanceMetrics.items },
+      rankings: { type: "kpi-streams", description: cs.rankings.description, items: cs.rankings.items },
+      aiInsights: { type: "kpi-streams", description: cs.aiInsights.description, items: cs.aiInsights.items },
+      results: { type: "results", items: cs.results },
+      lessons: { type: "lessons", items: cs.lessons },
+      futureVision: { type: "results", items: cs.futureVision },
+    };
+
+    sections = [
+      { key: "overview", title: t("caseStudy.sections.overview"), content: sectionContents.overview },
+      { key: "eventIngestion", title: t("caseStudy.sections.eventIngestion"), content: sectionContents.eventIngestion },
+      { key: "architecture", title: t("caseStudy.sections.architecture"), content: sectionContents.architecture },
+      { key: "playerStatistics", title: t("caseStudy.sections.playerStatistics"), content: sectionContents.playerStatistics },
+      { key: "performanceMetrics", title: t("caseStudy.sections.performanceMetrics"), content: sectionContents.performanceMetrics },
+      { key: "rankings", title: t("caseStudy.sections.rankings"), content: sectionContents.rankings },
+      { key: "aiInsights", title: t("caseStudy.sections.aiInsights"), content: sectionContents.aiInsights },
       { key: "technologies", title: t("caseStudy.sections.technologies") },
       { key: "results", title: t("caseStudy.sections.results"), content: sectionContents.results },
       { key: "lessons", title: t("caseStudy.sections.lessons"), content: sectionContents.lessons },

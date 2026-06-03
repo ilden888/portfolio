@@ -6,7 +6,8 @@
     "labs": "Labs",
     "expertise": "Expertise",
     "architectures": "Architectures",
-    "roadmap": "Roadmap"
+    "roadmap": "Roadmap",
+    "insights": "Insights"
   },
   "hero": {
     "label": "AI-Native Data Platform Engineer",
@@ -263,7 +264,13 @@
         "results": "Results",
         "lessons": "Lessons Learned",
         "futureImprovements": "Future Improvements",
-        "futureVision": "Future Vision"
+        "futureVision": "Future Vision",
+        "semanticLayer": "Semantic Layer",
+        "eventIngestion": "Event Ingestion",
+        "playerStatistics": "Player Statistics",
+        "performanceMetrics": "Performance Metrics",
+        "rankings": "Rankings",
+        "aiInsights": "AI Insights"
       },
       "gamingClubDataPlatform": {
         "overview": [
@@ -527,11 +534,115 @@
             "body": "Every metric definition added to the semantic layer is immediately available to the AI analyst. The governance investment compounds — the platform becomes smarter as the semantic layer grows, with no additional AI work required."
           }
         ],
+        "semanticLayer": {
+          "description": "The semantic layer is the architectural contract between raw data and AI reasoning. It translates physical table structures into business concepts that both humans and AI understand and trust.",
+          "items": [
+            { "name": "Business Concept Mapping", "desc": "Physical columns like 'trx_amt_net_usd' become governed concepts like 'Net Revenue'. The AI queries business concepts, not raw columns — eliminating the most common source of LLM hallucinations in analytics contexts." },
+            { "name": "Metric Governance", "desc": "Every metric has exactly one definition, tested continuously. 'Monthly Active Users' means the same thing to the dashboard, the AI analyst, and the executive report — because it is defined once as code and consumed everywhere identically." },
+            { "name": "Natural Language Grounding", "desc": "The semantic layer maps business vocabulary to governed data assets. When a user asks 'how did revenue perform last quarter?', the AI resolves 'revenue' to a specific, tested dbt metric with known caveats — not a probabilistic column-name guess." },
+            { "name": "Context Injection", "desc": "Before the AI answers any question, it receives the relevant semantic layer definitions: business rules, filter logic, known data quality caveats. This context makes LLM reasoning deterministic and explainable rather than opaque and probabilistic." }
+          ]
+        },
         "futureVision": [
           "Autonomous analytics agents that proactively surface insights without being asked — monitoring KPIs, detecting anomalies, and generating executive summaries on a schedule",
           "Multi-agent architectures where specialised AI analysts handle different business domains — revenue, operations, customer — and collaborate to answer cross-domain questions",
           "Real-time AI analytics over streaming data — extending the governed semantic layer to Kafka event streams for sub-second AI-powered operational intelligence",
           "Self-updating semantic layers where the AI proposes new metric definitions based on observed query patterns, subject to human review and governance approval"
+        ]
+      },
+      "tournamentIntelligence": {
+        "overview": [
+          "Competitive esports generates a volume of structured event data that traditional analytics cannot process at the speed decisions need to be made. Every match produces thousands of discrete events — kills, deaths, objectives, economic state snapshots — each carrying timestamps, player attribution, and game context.",
+          "Tournament Intelligence is a real-time analytics platform designed for competitive gaming environments. It ingests match event streams via Kafka, computes live player statistics and team rankings, generates multi-dimensional performance metrics, and surfaces AI-generated insights that help coaches, analysts, and tournament operators make faster, better-informed decisions."
+        ],
+        "eventIngestion": {
+          "description": "Match events are the atomic unit of competitive analytics. Capturing them reliably, at scale, and in real time is the foundation everything else is built on.",
+          "streams": [
+            { "name": "Match Events", "desc": "Kill/death events, objective captures, spell casts, and economic state changes ingested at sub-second latency via Kafka. Each event carries player ID, timestamp, map coordinates, and game-state context." },
+            { "name": "Player Actions", "desc": "Granular action stream capturing equipment choices, decision sequences, and micro-timing. Used for performance scoring and post-match replay analysis." },
+            { "name": "Team State", "desc": "Aggregate team economic state, objective control, and win-probability signals computed on a rolling window as match events arrive." },
+            { "name": "Tournament Metadata", "desc": "Static context enrichment — player profiles, team rosters, bracket positions, historical head-to-head records — joined to live event streams at query time." }
+          ]
+        },
+        "architecture": {
+          "description": "A streaming-first architecture designed for sub-second event latency, real-time stat aggregation, and AI-powered commentary generation.",
+          "layers": [
+            { "label": "Game Clients", "detail": "Match event producers · real-time game state emission" },
+            { "label": "Kafka Event Stream", "detail": "Partitioned by match ID · sub-second latency · exactly-once semantics" },
+            { "label": "Stream Processing", "detail": "Real-time aggregations · rolling windows · live stat computation" },
+            { "label": "PostgreSQL", "detail": "Player stats · match records · team rankings · historical data" },
+            { "label": "Analytics Layer", "detail": "Performance metrics · ranking models · trend detection" },
+            { "label": "AI Insights", "detail": "OpenAI / Claude · performance commentary · anomaly narration" },
+            { "label": "Tournament Dashboard", "detail": "Live stats · leaderboards · coach analytics · broadcast feed" }
+          ]
+        },
+        "playerStatistics": {
+          "description": "Per-player statistical profiles updated in real time as match events arrive. Every metric is computed from raw events, not self-reported or estimated data.",
+          "items": [
+            { "name": "Kill/Death/Assist Ratios", "desc": "Combat effectiveness metrics computed on a per-match and rolling-tournament basis. Adjusted for opponent strength and map context to produce fair comparative rankings across different bracket stages." },
+            { "name": "Economic Efficiency", "desc": "Resource utilisation metrics — gold per minute, items per stage, economic decision scoring — measuring how efficiently players convert resources into competitive advantage." },
+            { "name": "Objective Contribution", "desc": "Participation rates and individual contribution scores for map objectives, team fights, and strategic decisions. Goes beyond KDA to measure impact on match outcomes." },
+            { "name": "Consistency Index", "desc": "Performance variance metric identifying players who perform reliably across matches versus those with high peak performance but inconsistent execution across a tournament bracket." }
+          ]
+        },
+        "performanceMetrics": {
+          "description": "Advanced performance scoring models that contextualise raw statistics within match difficulty, opponent quality, and strategic situation.",
+          "items": [
+            { "name": "Impact Score", "desc": "Composite metric weighting individual actions by their effect on match win probability. A kill that closes a 10% deficit scores higher than an equalising kill in a dominant performance." },
+            { "name": "Clutch Rating", "desc": "Performance delta between standard situations and high-pressure scenarios. Identifies players who elevate under tournament pressure versus those who regress at critical moments." },
+            { "name": "Adaptation Score", "desc": "Measures how effectively players adjust strategy mid-match. Based on decision divergence between early-game patterns and late-game execution relative to the opponent's counter-adjustments." },
+            { "name": "Team Synergy Index", "desc": "Cross-player correlation analysis identifying which player combinations produce super-additive performance — useful for roster optimisation and opponent scouting." }
+          ]
+        },
+        "rankings": {
+          "description": "Multi-dimensional ranking system balancing recent performance with historical baseline, opponent strength adjustments, and consistency weighting.",
+          "items": [
+            { "name": "Tournament Leaderboard", "desc": "Real-time aggregate ranking updated after each match completes. Weighted by opponent difficulty — wins against top seeds score higher than equivalent wins against lower-seeded opponents." },
+            { "name": "Role-Adjusted Rankings", "desc": "Position-specific rankings comparing players against others in the same role. A support player is evaluated on vision control and team utility, not on damage output." },
+            { "name": "Form Trend", "desc": "Short-window performance trend showing whether a player is improving, declining, or stable across the last 3–5 matches. Useful for broadcast commentary and coaching decisions." },
+            { "name": "Head-to-Head Records", "desc": "Historical performance matrix for specific player and team matchups. Surfaces reliable patterns that raw stats miss — opponents that consistently create problems for particular players." }
+          ]
+        },
+        "aiInsights": {
+          "description": "AI-generated performance commentary and strategic analysis powered by Claude, grounded in the real-time statistical database rather than observation or approximation.",
+          "items": [
+            { "name": "Match Narrative Generation", "desc": "After each match, the AI generates a structured performance narrative: key turning points, standout individual performances, and strategic decisions that shaped the outcome — derived from event data, not human observation." },
+            { "name": "Anomaly Flagging", "desc": "Statistical anomaly detection identifies performances that diverge significantly from a player's established baseline — either exceptional or concerning. Flags surface in real time during matches for analyst review." },
+            { "name": "Coaching Briefs", "desc": "Pre-match preparation summaries for coaching staff: opponent tendencies, exploitable patterns, historical weaknesses, and recommended counter-strategies based on aggregate match data." },
+            { "name": "Broadcast Commentary Assist", "desc": "Real-time stat surfacing for broadcast analysts — triggered by in-match events and formatted for on-air delivery. Reduces research time during live commentary without replacing analyst judgment." }
+          ]
+        },
+        "results": [
+          "Sub-second event ingestion latency from game client to analytics database",
+          "Real-time player rankings updated within seconds of each match completing",
+          "AI-generated match narratives produced within 60 seconds of match end",
+          "Performance metrics covering 12 distinct dimensions per player per match",
+          "Coaching brief generation reduces pre-match preparation time significantly",
+          "Broadcast stat surfacing integrated into live commentary workflow"
+        ],
+        "lessons": [
+          {
+            "title": "Schema design determines streaming performance",
+            "body": "Event schema decisions made before ingestion affect aggregation performance at every downstream stage. Designing for query patterns — not just storage compactness — from the first event model saved significant rework later."
+          },
+          {
+            "title": "AI insights need statistical grounding",
+            "body": "Early AI commentary generated confident-sounding narratives that were statistically accurate but contextually wrong — praising performances that were good in isolation but poor given the game state. Grounding AI generation in contextual statistics, not raw numbers, was the critical improvement."
+          },
+          {
+            "title": "Rankings require explicit fairness constraints",
+            "body": "Naive ranking models rewarded volume over quality. Introducing opponent-strength weighting and situational adjustments made rankings feel fair to participants — which is a prerequisite for adoption in competitive environments."
+          },
+          {
+            "title": "Real-time and batch serve different audiences",
+            "body": "Tournament operators need live data. Coaches need post-match depth. Broadcasting needs narrative. Building a pipeline that serves all three required explicit priority decisions about latency versus depth trade-offs at each layer."
+          }
+        ],
+        "futureVision": [
+          "Predictive win-probability models computed in real time from event streams — giving broadcast analysts and coaching staff a live quantitative read on match momentum",
+          "Computer vision integration for games where event logging is incomplete — extracting structured statistics from game footage using object detection and action recognition models",
+          "Cross-tournament player tracking that builds career-level performance profiles across different teams, opponents, and competitive formats",
+          "Draft advisor that analyses historical pick-ban data and generates opponent-specific counter-strategy recommendations in the pre-match preparation phase"
         ]
       }
     }
@@ -664,6 +775,46 @@
           { "type": "ai-agent", "label": "AI Analyst", "sublabel": "Claude · Governed Queries · Explainable Answers", "connectorLabel": "deliver" },
           { "type": "dashboard", "label": "Business User", "sublabel": "Natural Language · Trusted Metrics · Decisions" }
         ]
+      },
+      {
+        "slug": "medallion-architecture",
+        "title": "Medallion Architecture",
+        "description": "The dbt-enforced three-layer data model that separates raw ingestion from transformation from business logic. Raw preserves history. Staging cleans and types. Marts serve governed metrics.",
+        "tags": ["dbt", "Raw", "Staging", "Mart", "Data Modeling"],
+        "steps": [
+          { "type": "source", "label": "Source Systems", "sublabel": "Operational databases · APIs · Event streams", "connectorLabel": "extract" },
+          { "type": "warehouse", "label": "Raw Layer", "sublabel": "Insert-only · Full history · No transformations", "connectorLabel": "clean" },
+          { "type": "dbt", "label": "Staging Layer", "sublabel": "Typed · Deduplicated · No business logic", "connectorLabel": "model" },
+          { "type": "semantic", "label": "Mart Layer", "sublabel": "Business logic · Governed metrics · KPI aggregations", "connectorLabel": "serve" },
+          { "type": "dashboard", "label": "Consumers", "sublabel": "BI tools · AI agents · Self-service queries" }
+        ]
+      },
+      {
+        "slug": "lakehouse-architecture",
+        "title": "Lakehouse Architecture",
+        "description": "Storage decoupled from compute using Apache Iceberg on object storage. Open table format enables ACID transactions, schema evolution, and time-travel queries — serving both BI and AI workloads from the same data.",
+        "tags": ["Apache Iceberg", "S3", "Lakehouse", "ACID", "Time Travel"],
+        "steps": [
+          { "type": "source", "label": "Data Sources", "sublabel": "Streaming · Batch · CDC · APIs", "connectorLabel": "land" },
+          { "type": "warehouse", "label": "Object Storage (S3)", "sublabel": "Raw files · Parquet · Scalable · Cost-efficient", "connectorLabel": "catalog" },
+          { "type": "warehouse", "label": "Apache Iceberg", "sublabel": "ACID transactions · Schema evolution · Time travel", "connectorLabel": "transform" },
+          { "type": "dbt", "label": "dbt Transformation", "sublabel": "Medallion layers · Metric definitions · Tests", "connectorLabel": "expose" },
+          { "type": "semantic", "label": "Query Engine", "sublabel": "Spark · Trino · Athena · DuckDB", "connectorLabel": "serve" },
+          { "type": "dashboard", "label": "Consumers", "sublabel": "BI dashboards · AI analysts · Ad-hoc queries" }
+        ]
+      },
+      {
+        "slug": "ai-agent-over-dwh",
+        "title": "AI Agent over DWH",
+        "description": "The autonomous analytics pattern: a scheduled AI agent monitors governed metrics, detects anomalies, generates natural language insights, and escalates to human review only when thresholds are crossed.",
+        "tags": ["AI Agent", "Semantic Layer", "Claude", "Autonomous Analytics"],
+        "steps": [
+          { "type": "warehouse", "label": "Data Warehouse", "sublabel": "Governed mart tables · Tested metrics · Full history", "connectorLabel": "query via" },
+          { "type": "semantic", "label": "Semantic Layer", "sublabel": "Metric definitions · Business context · NL mappings", "connectorLabel": "reason" },
+          { "type": "ai-agent", "label": "AI Analyst Agent", "sublabel": "Claude · Anomaly detection · Insight generation", "connectorLabel": "schedule" },
+          { "type": "pipeline", "label": "Orchestration", "sublabel": "Airflow · Scheduled runs · Retry logic", "connectorLabel": "deliver" },
+          { "type": "dashboard", "label": "Decision Maker", "sublabel": "Insights · Alerts · Recommended actions" }
+        ]
       }
     ]
   },
@@ -706,6 +857,242 @@
         ]
       }
     }
+  },
+  "insightsPage": {
+    "label": "Engineering Insights",
+    "heading": "Insights",
+    "description": "Engineering articles on data platforms, AI analytics, and the architecture decisions behind trustworthy systems.",
+    "readTime": "min read",
+    "backLabel": "All Insights",
+    "articles": {
+      "whyAiNeedsSemanticLayer": {
+        "title": "Why AI Needs a Semantic Layer",
+        "description": "LLMs can reason over data fluently. The problem is not capability — it is context. Without a semantic layer, AI analytics is a probabilistic exercise. With one, it becomes deterministic.",
+        "date": "2025-06-01",
+        "readTime": "6",
+        "tags": ["Semantic Layer", "AI Analytics", "dbt", "LLM"],
+        "sections": [
+          {
+            "key": "problem",
+            "title": "The Problem",
+            "type": "prose",
+            "paragraphs": [
+              "Ask an AI to analyze your data without a semantic layer and it will try. It will read column names, infer relationships, guess at business rules, and produce an answer that sounds confident and is often wrong in ways that are impossible to detect from the output alone.",
+              "The issue is not that modern LLMs are incapable of reasoning over data. They are remarkably good at it. The issue is that they are reasoning over the wrong thing — raw table structures, physical column names, and implicit business logic that lives in analyst heads, not in code.",
+              "A column called 'amt' could be gross revenue, net revenue, refund amount, or tax. A table called 'sessions' could mean user sessions, gaming sessions, or therapy sessions. Without explicit context, the AI guesses. And guesses compound."
+            ]
+          },
+          {
+            "key": "what-semantic-layer-provides",
+            "title": "What the Semantic Layer Provides",
+            "type": "key-points",
+            "items": [
+              "Business concept definitions — 'Revenue' is defined once as a specific dbt metric with explicit filters, date logic, and known caveats. The AI queries the concept, not the column.",
+              "Metric governance — every metric has exactly one definition, tested on every pipeline run. The same question always produces the same answer from the same governed data asset.",
+              "Natural language grounding — business vocabulary maps to governed data assets. 'Last month's active customers' resolves to a specific mart table, specific columns, and specific filter logic — not a best guess.",
+              "Context injection — before answering any question, the AI receives the relevant semantic definitions: business rules, filter constraints, known edge cases. This makes AI reasoning explainable, not opaque."
+            ]
+          },
+          {
+            "key": "the-architecture",
+            "title": "The Architecture",
+            "type": "prose",
+            "paragraphs": [
+              "The semantic layer sits between the data warehouse and the AI. In practice, this means dbt metric definitions — or a dedicated semantic layer tool like Cube.dev — that codify business logic as a programmatic API.",
+              "When the AI receives a query, it first resolves business terms against the semantic layer. 'Revenue' becomes a specific SQL expression with known semantics. 'Active customers' resolves to a mart table with an explicit activity definition. Only then does the AI generate the query and retrieve the answer.",
+              "The result is analytics where every AI-generated answer can be traced to a specific, governed metric definition. Not a hallucination. Not a guess. A deterministic lookup of business logic defined by humans and enforced by code."
+            ]
+          },
+          {
+            "key": "takeaway",
+            "title": "The Takeaway",
+            "type": "takeaway",
+            "heading": "The semantic layer is not an AI optimization. It is a prerequisite.",
+            "body": "Every hour spent on prompt engineering to compensate for missing business context is an hour that should have been spent building the semantic layer. The investment compounds — every metric definition added to the semantic layer is immediately available to every AI query, every dashboard, and every downstream system."
+          }
+        ]
+      },
+      "whyDashboardsFail": {
+        "title": "Why Dashboards Fail",
+        "description": "Most analytics investments produce dashboards. Most dashboards are underused within six months. The problem is not the tool. It is what dashboards are designed to answer.",
+        "date": "2025-05-15",
+        "readTime": "5",
+        "tags": ["Analytics", "Dashboards", "Data Strategy", "Decision Intelligence"],
+        "sections": [
+          {
+            "key": "observation",
+            "title": "The Observation",
+            "type": "prose",
+            "paragraphs": [
+              "Dashboards answer pre-defined questions. Organizations have un-defined questions. This mismatch is why most dashboards are looked at once during the launch meeting and gradually forgotten.",
+              "The symptom is familiar: the dashboard gets built, stakeholders are excited, and three months later the same people are back asking for new metrics, new filters, new views — because the questions they actually need answered were not the questions the dashboard was built to show.",
+              "This is not a failure of execution. It is a failure of the underlying model. Dashboards are designed for known questions. Business operates on unknown questions."
+            ]
+          },
+          {
+            "key": "why-dashboards-fail",
+            "title": "Why They Actually Fail",
+            "type": "key-points",
+            "items": [
+              "Static structure, dynamic questions — business questions evolve faster than dashboard update cycles. By the time a new metric is added, the question has moved on.",
+              "Aggregation hides context — dashboards show averages and totals. Decisions need to know which customers, which products, which markets. The detail that drives action is exactly what dashboards are designed to hide.",
+              "Trust erosion compounds — one wrong number on a dashboard destroys trust in the entire dashboard. Stakeholders who cannot verify what they see stop looking at what they cannot trust.",
+              "Metric proliferation — without governance, every team builds their own metrics. Finance's 'revenue' and sales' 'revenue' differ by 8%. The dashboard shows both. Neither is trusted.",
+              "No feedback loop — dashboards deliver information but cannot act on it. The human has to see the insight, interpret it, and initiate a response. Every step in that chain introduces delay and loss."
+            ]
+          },
+          {
+            "key": "what-replaces-them",
+            "title": "What Replaces Them",
+            "type": "prose",
+            "paragraphs": [
+              "Dashboards are not going away. But the model needs to change. The goal should not be more dashboards — it should be a governed data foundation that can answer any question, not just the ones anticipated at build time.",
+              "That means a semantic layer with governed metric definitions that any tool — dashboard, AI analyst, or ad-hoc query — can consume consistently. It means AI that can answer questions without requiring a dashboard to be built first. It means closing the feedback loop so that insight generates action without requiring a human to carry the message.",
+              "The dashboard remains useful for monitoring known KPIs. The AI layer handles everything else."
+            ]
+          },
+          {
+            "key": "takeaway",
+            "title": "The Takeaway",
+            "type": "takeaway",
+            "heading": "Build governed data foundations, not more dashboards.",
+            "body": "A semantic layer with well-defined metrics serves every downstream consumer — dashboards, AI analysts, self-service queries — without requiring a new build for every new question. The investment in governance pays back every time a new question can be answered without a new sprint."
+          }
+        ]
+      },
+      "buildingTrustworthyAnalytics": {
+        "title": "Building Trustworthy Analytics",
+        "description": "The most common analytics problem is not missing data. It is data nobody trusts. Trustworthiness is an architecture decision, not a QA process.",
+        "date": "2025-05-01",
+        "readTime": "7",
+        "tags": ["Data Quality", "dbt", "Metric Governance", "Analytics Engineering"],
+        "sections": [
+          {
+            "key": "the-trust-problem",
+            "title": "The Trust Problem",
+            "type": "prose",
+            "paragraphs": [
+              "Analytics trust erodes quietly. It usually starts with a single number that is wrong — a revenue figure that does not match the finance spreadsheet, a user count that is 15% higher than last week with no explanation. Stakeholders notice. They mention it in a meeting. The analyst investigates, finds the discrepancy, explains it.",
+              "But the damage is already done. The next time a dashboard number looks unusual, the stakeholder no longer assumes the dashboard is right and their intuition is wrong. They assume the opposite. They stop acting on the data. The analytics program stops influencing decisions.",
+              "Rebuilding trust once lost is an order of magnitude harder than building it correctly from the start. The question is not how to repair trust after it breaks — it is how to build analytics systems where trust is a structural property, not an aspiration."
+            ]
+          },
+          {
+            "key": "what-erodes-trust",
+            "title": "What Erodes Trust",
+            "type": "key-points",
+            "items": [
+              "Contested metric definitions — when Finance and Sales calculate 'revenue' differently, every report becomes a negotiation rather than a decision input.",
+              "Silent pipeline failures — data stops updating and nobody knows. Stakeholders discover stale data in a meeting, not in a monitoring alert.",
+              "Missing business context — raw counts without context (test records not filtered, cancelled transactions included, time zones not normalised) produce numbers that are technically correct and practically wrong.",
+              "Undocumented logic — business rules that live in analyst heads cannot be audited, tested, or transferred. When the analyst leaves, the logic disappears.",
+              "No lineage visibility — when a number looks wrong, there is no way to trace it back to its source. Investigation is archaeology."
+            ]
+          },
+          {
+            "key": "the-trust-stack",
+            "title": "The Trust Stack",
+            "type": "prose",
+            "paragraphs": [
+              "Trustworthy analytics is built in layers. Each layer adds a specific type of reliability that the layer above depends on.",
+              "The foundation is raw data integrity — source data captured completely, without transformation, with full history preserved. The next layer is transformation correctness — cleaning, typing, and deduplication done systematically with tests at every step. Above that is metric governance — business logic defined once as code, enforced on every pipeline run, documented automatically.",
+              "At the top is semantic clarity — every metric has a business owner, a definition, and known caveats that are accessible to every consumer. When a stakeholder asks what a number means, the answer is a link to the definition, not an explanation that differs depending on who you ask."
+            ]
+          },
+          {
+            "key": "governance-as-code",
+            "title": "Metric Governance as Code",
+            "type": "key-points",
+            "items": [
+              "Every metric definition lives in version-controlled dbt code — not in a spreadsheet, not in a dashboard formula, not in an analyst's head.",
+              "Tests run automatically on every pipeline execution — not-null constraints, referential integrity, value range assertions, and business rule validations that fail loudly before bad data reaches a dashboard.",
+              "Documentation is generated from the code — column descriptions, metric definitions, and data lineage diagrams that are always current because they are derived from the source of truth.",
+              "Changes to metric definitions go through code review — ensuring that a well-intentioned 'quick fix' to a revenue calculation does not quietly change every dashboard and report that depends on it."
+            ]
+          },
+          {
+            "key": "takeaway",
+            "title": "The Takeaway",
+            "type": "takeaway",
+            "heading": "Trust is an architectural property, not a process.",
+            "body": "You cannot QA your way to trustworthy analytics. Testing catches symptoms. Architecture prevents them. The investment is in building systems where metric definitions are code, transformations are tested, and every number has a traceable lineage back to its source. Once that foundation exists, every downstream consumer — dashboards, AI analysts, ad-hoc queries — inherits the trust automatically."
+          }
+        ]
+      },
+      "fromDwhToAiAgents": {
+        "title": "From DWH to AI Agents",
+        "description": "The data warehouse was built for humans. The semantic layer made it accessible. AI agents are what happens when you close the loop — from data to decision, without human intervention.",
+        "date": "2025-04-15",
+        "readTime": "8",
+        "tags": ["AI Agents", "DWH", "Semantic Layer", "Autonomous Analytics"],
+        "sections": [
+          {
+            "key": "the-evolution",
+            "title": "The Evolution",
+            "type": "prose",
+            "paragraphs": [
+              "The data warehouse solved the problem of fragmented operational data. Before it, every business question required exporting CSVs from five systems and reconciling them in a spreadsheet. The DWH centralised data, standardised definitions, and made consistent reporting possible.",
+              "Analytics engineering extended that foundation. dbt brought software engineering discipline to data transformation — version control, testing, documentation, and modular design. Metric definitions became code. Transformation logic became auditable. The warehouse became a governed asset, not just a database.",
+              "The semantic layer made that governed asset accessible. It translated physical table structures into business concepts that non-engineers could query. Dashboards could be built against governed metrics rather than raw tables. Self-service analytics became possible without sacrificing consistency.",
+              "AI agents are the next evolution. They use the governed semantic layer as their operating context — reading metric definitions, applying business rules, generating queries, and surfacing insights without requiring a human to initiate the request."
+            ]
+          },
+          {
+            "key": "how-agents-use-the-stack",
+            "title": "How Agents Use the Stack",
+            "type": "key-points",
+            "items": [
+              "Context from the semantic layer — before answering any question, the agent reads the relevant metric definitions, business rules, and known caveats from the semantic layer. This grounds every response in governed data.",
+              "Query generation over governed assets — the agent generates SQL against mart tables and semantic layer metrics, not raw tables. Business logic is inherited from the governance layer, not re-implemented in prompts.",
+              "Scheduled monitoring — agents run on a schedule without being asked. They check KPI deviations, compare current values to historical baselines, and surface anomalies before a human would notice them.",
+              "Escalation logic — when a deviation is significant, the agent generates a structured explanation and escalates to human review. When it is within expected variance, it logs the observation and moves on. Humans see signal, not noise.",
+              "Closed feedback loop — from data change to insight to action, no human is required to carry the message. The agent detects, interprets, and initiates."
+            ]
+          },
+          {
+            "key": "what-this-requires",
+            "title": "What This Requires",
+            "type": "prose",
+            "paragraphs": [
+              "AI agents over a DWH are not a shortcut. They require the full data engineering stack beneath them to be built correctly. An agent operating on ungoverneded raw data will produce confident-sounding answers that are wrong in systematic ways.",
+              "The prerequisite stack is: reliable ingestion pipelines that deliver complete, timely data; a transformation layer that enforces data quality with automated tests; a semantic layer that codifies business logic as a programmatic API; and monitoring infrastructure that catches pipeline failures before agents query stale data.",
+              "Every shortcut in that foundation shows up in the quality of agent output. The agent is the proof that the data platform is trustworthy — not a substitute for building the platform correctly."
+            ]
+          },
+          {
+            "key": "where-we-are",
+            "title": "Where We Are Now",
+            "type": "key-points",
+            "items": [
+              "LLMs are capable of sophisticated reasoning over structured data — the capability gap is not the bottleneck.",
+              "Most organisations have the data but lack the governance layer that makes AI reasoning trustworthy.",
+              "The highest-leverage investment is the semantic layer — it directly enables AI agents and simultaneously improves every dashboard and self-service query.",
+              "Autonomous analytics is not a future concept — it is an engineering challenge with a known solution stack: governed DWH + semantic layer + AI agent with escalation logic."
+            ]
+          },
+          {
+            "key": "takeaway",
+            "title": "The Takeaway",
+            "type": "takeaway",
+            "heading": "The agent is only as intelligent as the platform beneath it.",
+            "body": "The path from DWH to AI agents is not a technology swap. It is a maturity progression. Each step — data engineering, analytics engineering, semantic layer design — is a prerequisite for the next. Organisations that invest in the full stack get AI agents that reason correctly. Those that skip the foundation get confident AI that hallucinates in ways nobody can detect."
+          }
+        ]
+      }
+    }
+  },
+  "engineeringInsights": {
+    "label": "Engineering Insights",
+    "heading": "How I Think About Data",
+    "description": "Articles on data platforms, AI analytics, and the architecture decisions behind trustworthy systems.",
+    "viewAll": "All Articles",
+    "readTime": "min read"
+  },
+  "featuredArchitectures": {
+    "label": "Architecture Patterns",
+    "heading": "Systems That Scale",
+    "description": "Reusable architecture patterns — from traditional analytics stacks to AI-native platforms.",
+    "viewAll": "Architecture Library"
   },
   "labs": {
     "label": "Analytics Labs",
