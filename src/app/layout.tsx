@@ -30,6 +30,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
         </noscript>
         <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-S9VLR27BSH"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-S9VLR27BSH');
+            `,
+          }}
+        />
+        <Script
           id="yandex-metrika"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
