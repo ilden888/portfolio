@@ -68,7 +68,7 @@ export function ContactCTA({ t }: ContactCTAProps) {
                 {t.email}
               </a>
               <a
-                href="https://linkedin.com/in/ilden888"
+                href="https://www.linkedin.com/in/denis-iliushchikhin/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-[var(--border-10)] bg-[var(--surface-3)] px-6 py-2.5 text-sm font-medium text-[var(--fg-60)] backdrop-blur-sm transition-all duration-200 hover:border-[var(--border-20)] hover:text-[var(--fg-90)]"

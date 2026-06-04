@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
 
@@ -23,6 +24,35 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-screen antialiased">
         <ThemeProvider>{children}</ThemeProvider>
+        <noscript>
+          <div>
+            <img src="https://mc.yandex.ru/watch/109635535" style={{ position: "absolute", left: -9999 }} alt="" />
+          </div>
+        </noscript>
+        <Script
+          id="yandex-metrika"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(m,e,t,r,i,k,a){
+                m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();
+                for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+              })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109635535','ym');
+              ym(109635535,'init',{
+                ssr: true,
+                webvisor: true,
+                clickmap: true,
+                ecommerce: "dataLayer",
+                referrer: document.referrer,
+                url: location.href,
+                accurateTrackBounce: true,
+                trackLinks: true
+              });
+            `,
+          }}
+        />
       </body>
     </html>
   );
