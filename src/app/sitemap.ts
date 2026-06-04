@@ -3,7 +3,7 @@ import { locales } from "@/lib/i18n/config";
 import { projects } from "@/data/projects";
 import { insights } from "@/data/insights";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://denisil.dev";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dataden.digital";
 
 const staticPaths = ["", "/about", "/projects", "/insights", "/labs", "/expertise", "/architectures", "/roadmap"];
 

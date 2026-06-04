@@ -8,7 +8,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { locales, type Locale } from "@/lib/i18n/config";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://denisil.dev";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dataden.digital";
 
 const localeDescriptions: Record<string, string> = {
   en: "I build AI-native analytics systems — from scalable data platforms to autonomous AI agents.",
