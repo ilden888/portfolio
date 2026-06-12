@@ -10,10 +10,16 @@ import { locales, type Locale } from "@/lib/i18n/config";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dataden.digital";
 
+const localeTitles: Record<string, string> = {
+  en: "Denis Il — AI-Native Data Platform Engineer",
+  ru: "Денис Илющихин — Data Engineer, Data Analyst и AI Automation",
+  es: "Denis Il — Ingeniero de Datos y Automatización con IA",
+};
+
 const localeDescriptions: Record<string, string> = {
-  en: "I build AI-native analytics systems — from scalable data platforms to autonomous AI agents.",
-  ru: "Строю AI-native аналитические системы — от масштабируемых data-платформ до автономных AI-агентов.",
-  es: "Construyo sistemas analíticos AI-native — desde plataformas de datos escalables hasta agentes IA autónomos.",
+  en: "Data Engineer specializing in analytics platforms, BI dashboards, ETL pipelines and AI automation solutions.",
+  ru: "Data Engineer и Data Analyst. Создаю аналитические платформы, BI-решения, ETL-процессы и AI-автоматизацию для бизнеса.",
+  es: "Ingeniero de datos especializado en plataformas analíticas, BI, ETL y automatización con inteligencia artificial.",
 };
 
 const ogLocale: Record<string, string> = {
@@ -28,14 +34,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const title = localeTitles[locale] ?? localeTitles.en;
   const description = localeDescriptions[locale] ?? localeDescriptions.en;
-  const title = "Denis IL — AI-Native Data Platform Engineer";
   const url = `${SITE_URL}/${locale}`;
 
   return {
     title: {
       default: title,
-      template: "%s | Denis IL",
+      template: `%s | ${locale === "ru" ? "Денис Илющихин" : "Denis Il"}`,
     },
     description,
     keywords: [
@@ -113,8 +119,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Denis IL",
-    jobTitle: "AI-Native Data Platform Engineer",
+    name: locale === "ru" ? "Денис Илющихин" : "Denis Il",
+    jobTitle: locale === "ru" ? "Data Engineer, Data Analyst и AI Automation" : localeTitles[locale]?.split(" — ")[1] ?? "AI-Native Data Platform Engineer",
     description: localeDescriptions[locale] ?? localeDescriptions.en,
     url: `${SITE_URL}/${locale}`,
     email: "deniks.il88@gmail.com",
